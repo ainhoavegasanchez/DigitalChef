@@ -1,0 +1,14 @@
+<div class="menu">
+        <h5 class="card-title">MENU</h5>
+        <ul class="list-group">
+                @for (product of products; track $index) {
+                <li class="list-group-item">
+                        <div>
+                                <p>{{product.nombre}}</p>
+                                <app-counter></app-counter>
+                        </div>
+                </li>
+                }
+                <div>TOTAL:</div>
+        </ul>
+</div>

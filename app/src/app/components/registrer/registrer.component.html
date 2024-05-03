@@ -1,0 +1,30 @@
+<section class="signup">
+  <div class="container">
+      <div class="signup-content">
+          <div class="signup-form">
+              <h2 class="form-title">Sign in</h2>
+              <form method="POST" class="register-form" id="register-form">
+                  <div class="form-group">
+                      <label for="email"><i class="zmdi zmdi-email"></i></label>
+                      <input type="email" name="email" id="email" [(ngModel)]="user.email" placeholder="Your Email"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="name"><i class="zmdi zmdi-email"></i></label>
+                    <input type="name" name="name" id="name" [(ngModel)]="user.name" placeholder="Your UserName"/>
+                </div>
+                  <div class="form-group">
+                      <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                      <input type="password" name="pass" id="pass" [(ngModel)]="user.pass" placeholder="Password"/>
+                  </div>
+                  <div class="form-group form-button">
+                      <input type="submit" name="signup" id="signup" class="form-submit" (click)="registrerUser()" value="Register"/>
+                  </div>
+              </form>
+          </div>
+          <div class="signup-image">
+              <figure></figure>
+              <a class="signup-image-link" [routerLink]="'/login'">You have account?</a>
+          </div>
+      </div>
+  </div>
+</section>

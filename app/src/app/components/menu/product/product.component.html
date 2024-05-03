@@ -1,0 +1,10 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Card title{{product.id}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{product.nombre}}</h6>
+      <p class="card-text">{{product.descripcion}}</p>
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+      <button type="button" class="btn btn-primary" (click)="addProduct(product.id)">Añadir</button>
+    </div>
+  </div>

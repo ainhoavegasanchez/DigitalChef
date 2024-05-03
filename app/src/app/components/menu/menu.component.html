@@ -1,0 +1,8 @@
+<div class="grid">
+  <app-list [products]="MenuList"></app-list>
+  <div class="carta">
+    @for (product of productList; track product.id) {
+    <app-product [product]="product" (addProducto)="addProductList($event)"></app-product>
+    }
+  </div>
+</div>
