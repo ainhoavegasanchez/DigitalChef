@@ -8,7 +8,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Manejar todas las rutas (cualquier ruta que no coincida con un archivo estático) para servir el archivo 'index.html' del proyecto Angular
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/app/browser/index.html'));
+  res.sendFile(path.join(__dirname, 'dist/app/index.html'));
 });
 
 app.listen(port, () => {
