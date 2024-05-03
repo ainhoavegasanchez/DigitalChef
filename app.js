@@ -4,11 +4,10 @@ const path = require('path');
 
 const port = process.env.PORT || 4000;
 
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'dist/browser')));
 
-// Manejar todas las rutas (cualquier ruta que no coincida con un archivo estático) para servir el archivo 'index.html' del proyecto Angular
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist\app\browser\index.html'));
+  res.sendFile(path.join(__dirname, 'dist/browser/index.html'));
 });
 
 
