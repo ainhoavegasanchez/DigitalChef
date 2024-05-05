@@ -10,7 +10,7 @@ export class UserService {
 
   private _user!: any;
   constructor(private http: HttpClient) { }
-  baseUrl = "/api/php/users";
+  baseUrl = "http://vps-65482c69.vps.ovh.net/php/users";
 
   get UserGet(): any {
     return this._user;

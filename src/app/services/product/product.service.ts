@@ -19,7 +19,7 @@ export class ProductService {
     this._product = product;
   }
 
-  baseUrl = "/api/php/products";
+  baseUrl = "http://vps-65482c69.vps.ovh.net/php/products";
 
   constructor(private http: HttpClient) { }
 
