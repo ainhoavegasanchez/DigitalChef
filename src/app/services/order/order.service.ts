@@ -11,7 +11,7 @@ import { UserService } from '../user/user.service';
 export class OrderService {
 
   private _order: any;
-  baseUrl = "http://vps-65482c69.vps.ovh.net/php/orders";
+  baseUrl = "/api/php/orders";
 
   constructor(
     private http: HttpClient,

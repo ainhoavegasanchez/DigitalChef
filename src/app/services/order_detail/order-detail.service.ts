@@ -14,7 +14,7 @@ export class OrderDetailService {
     private orderService: OrderService,
     private productService: ProductService
   ) { }
-  baseUrl = "http://vps-65482c69.vps.ovh.net/php/order_detail";
+  baseUrl = "/api/php/order_detail";
 
   insertOrderDetail(count: number) {
     const order = this.orderService.OrderGet;
