@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { OrderDetailService } from '../../../../services/order_detail/order-detail.service';
 
 @Component({
   selector: 'app-counter',
@@ -9,10 +10,15 @@ import { Component, Input } from '@angular/core';
 })
 export class CounterComponent {
 
+  constructor(
+    private orderDetailService: OrderDetailService
+  ){}
+
   @Input()
   counter:number=1;
   increment():void{
     this.counter++;
+    this.orderDetailService.updateDetailOrder(this.counter);
   }
 
   decrement(){

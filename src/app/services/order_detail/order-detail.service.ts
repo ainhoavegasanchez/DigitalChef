@@ -7,7 +7,16 @@ import { ProductService } from '../product/product.service';
   providedIn: 'root'
 })
 export class OrderDetailService {
+  private _orderDetail!: any;
 
+  get orderDetailGet(): any {
+    return this._orderDetail;
+  }
+
+
+  set orderDetailSet(orderDetail: any) {
+    this._orderDetail = orderDetail;
+  }
 
   constructor(
     private http: HttpClient,
@@ -16,11 +25,12 @@ export class OrderDetailService {
   ) { }
   baseUrl = "https://vps-65482c69.vps.ovh.net/php/order_detail";
 
-  insertOrderDetail(count: number) {
+  insertOrderDetail() {
     const order = this.orderService.OrderGet;
     const product = this.productService.productGet;
-    console.log(order, product, count);
-    return this.http.post(`${this.baseUrl}/insertOrderDetail.php`, { product, order, count });
+    const orderDetail = this.http.post(`${this.baseUrl}/insertOrderDetail.php`, { product, order });
+    this.orderDetailSet = orderDetail;
+    return orderDetail;
   }
 
 
@@ -32,7 +42,8 @@ export class OrderDetailService {
   };
 
 
-  updateUser(id: number, pass: string): void {
-    this.http.post(`${this.baseUrl}/updateDetailOrder.php`, [id, pass]);
+  updateDetailOrder(count: number): void {
+    const orderDetail = this.orderDetailGet;
+    this.http.post(`${this.baseUrl}/updateDetailOrder.php`, JSON.stringify(count, orderDetail));
   }
 }

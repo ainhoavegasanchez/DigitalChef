@@ -17,7 +17,7 @@ export const routes: Routes = [
     {
         path: 'inicio', component: InicioComponent, children: [
             { path: '', component: MenuComponent },
-            { path: 'ticket', component: TicketComponent },
+            { path: 'ticket', component: TicketComponent},
             { path: 'valoraciones', component: ValoracionesComponent },
             { path: 'perfil', component: PerfilComponent },
             { path: 'menu', component: MenuComponent },

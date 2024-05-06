@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   constructor(private productService: ProductService) { }
 
  ngOnInit(): void {
-   //  this.productService.insertAllProducts().subscribe();
+   //this.productService.insertAllProducts().subscribe();
   }
   title = 'DigitalChef';
 

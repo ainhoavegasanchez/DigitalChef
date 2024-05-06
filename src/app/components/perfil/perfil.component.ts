@@ -20,18 +20,21 @@ export class PerfilComponent implements OnInit {
 
   mostrarLista: boolean = false;
   user!: User;
-  listOrder!: any[];
+  listOrder: any[] = [];
   ngOnInit(): void {
+    const list: any[] = [];
     this.user = this.userService.UserGet;
+    this.orderService.getOrders().subscribe(
+      order => {
+        list.push(order)
+      }
+    );
+    this.listOrder = list[0];
   }
 
   mostrarPedidos() {
     this.mostrarLista = true;
-    this.orderService.getOrders().subscribe(
-      order => {
-        this.listOrder.push(order);
-      }
-    );
+    console.log(this.listOrder);
   }
 
 }

@@ -20,7 +20,8 @@ export class MenuComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private orderDetailService: OrderDetailService
+    private orderDetailService: OrderDetailService,
+    private orderService: OrderService
   ) { }
 
   productList: Product[] = [];
@@ -43,12 +44,15 @@ export class MenuComponent implements OnInit {
   }
 
   MenuList: Product[] = [];
-  addProductList(id: number) {
-    this.productService.getProduct(id).subscribe(
+  async addProductList(id: number) {
+    await this.productService.getProduct(id).subscribe(
       (product: Product) => {
         this.MenuList.push(product);
+        this.productService.productSet = product;
+        console.log("al añadir el producto",this.productService.productGet)
       }
     );
-    this.orderDetailService.insertOrderDetail(1).subscribe();
+    await this.orderDetailService.insertOrderDetail().subscribe();
   }
+ 
 }
