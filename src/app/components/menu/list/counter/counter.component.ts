@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { OrderDetailService } from '../../../../services/order_detail/order-detail.service';
+import { OrderService } from '../../../../services/order/order.service';
 
 @Component({
   selector: 'app-counter',
@@ -11,17 +12,29 @@ import { OrderDetailService } from '../../../../services/order_detail/order-deta
 export class CounterComponent {
 
   constructor(
-    private orderDetailService: OrderDetailService
+    private orderDetailService: OrderDetailService,
+    private orderService: OrderService
   ){}
 
+  @Output() counterUpdate = new EventEmitter<number>();
+
   @Input()
-  counter:number=1;
+  counter!:number;
+
+
   increment():void{
     this.counter++;
-    this.orderDetailService.updateDetailOrder(this.counter);
+    console.log("incremento", this.counter);
+    this.counterUpdate.emit(this.counter);
+    
   }
 
   decrement(){
     this.counter--;
+    console.log("decremento", this.counter);
+    this.counterUpdate.emit(this.counter);
+    
   }
+
+  
 }

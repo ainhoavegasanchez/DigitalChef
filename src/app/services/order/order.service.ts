@@ -22,7 +22,6 @@ export class OrderService {
     return this._order;
   }
 
-
   set orderSet(order: any) {
     this._order = order;
   }
@@ -36,13 +35,13 @@ export class OrderService {
 
   getOrders() {
     const id = this.userService.UserGet.id;
-    return this.http.get<Order>(`${this.baseUrl}/getOrder.php?id_usuario=${id}`);
+    return this.http.get<Order[]>(`${this.baseUrl}/getOrder.php?id_usuario=${id}`);
   };
 
-  insertDetailOrder(id_pedido: number, id_usuario: number, product: Product, cantidad: number): void {
-    this.http.post(`${this.baseUrl}/insertDetailOrder.php`, [id_pedido, id_usuario, product, cantidad]);
+  updateOrder(order:Order){
+    const orderReturn =  this.http.post(`${this.baseUrl}/updateOrder.php`, JSON.stringify(order));
+    return orderReturn ;
   }
-  updateDetailOrder(id: number, cantidad: number): void {
-    this.http.post(`${this.baseUrl}/updateDetailOrder.php`, [id, cantidad]);
-  }
+
+
 }

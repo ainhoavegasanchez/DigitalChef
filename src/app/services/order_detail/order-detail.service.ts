@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { OrderService } from '../order/order.service';
 import { ProductService } from '../product/product.service';
+import { OrderDetail } from '../../interfaces/OrderDetail';
 
 @Injectable({
   providedIn: 'root'
@@ -37,13 +38,21 @@ export class OrderDetailService {
   getOrdersDetails() {
     const order = this.orderService.OrderGet;
     const id_pedido = order.id;
-    const userReturn = this.http.get(`${this.baseUrl}/getOrderDetail.php?id_pedido=${id_pedido}`);
+    const userReturn = this.http.get<OrderDetail[]>(`${this.baseUrl}/getOrderDetail.php?id_pedido=${id_pedido}`);
+    return userReturn;
+  };
+
+  getOrdersDetailsId(id_pedido:number) {
+    const userReturn = this.http.get<OrderDetail[]>(`${this.baseUrl}/getOrderDetail.php?id_pedido=${id_pedido}`);
+    console.log(userReturn);
     return userReturn;
   };
 
 
-  updateDetailOrder(count: number): void {
-    const orderDetail = this.orderDetailGet;
-    this.http.post(`${this.baseUrl}/updateDetailOrder.php`, JSON.stringify(count, orderDetail));
+
+  updateDetailOrder(count: number, id: number) {
+    console.log("en el servicio", id);
+    const detail = this.http.post(`${this.baseUrl}/updateDetailOrder.php`,{count, id});
+    return detail;
   }
 }

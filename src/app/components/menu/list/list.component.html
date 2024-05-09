@@ -4,12 +4,12 @@
                 @for (product of products; track $index) {
                 <li class="list-group-item">
                         <div>
-                                <p>{{product.nombre}}</p>
-                                <app-counter></app-counter>
+                                <p>{{product.id_producto}}</p>
+                                <app-counter (counterUpdate)="updateCounter($event, product.id)" [counter]="product.cantidad"></app-counter>
                         </div>
                 </li>
                 }
-                <div>TOTAL:</div>
-                <button [routerLink]="'ticket'">FINALIZAR PEDIDO</button>
+                <app-total [total]="total"></app-total>
+                <button type="button" class="btn btn-info" [routerLink]="'ticket'">FINALIZAR PEDIDO</button>
         </ul>
 </div>

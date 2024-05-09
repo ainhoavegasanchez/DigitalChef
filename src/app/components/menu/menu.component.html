@@ -1,8 +1,16 @@
 <div class="grid">
-  <app-list [products]="MenuList"></app-list>
-  <div class="carta">
-    @for (product of productList; track product.id) {
-    <app-product [product]="product" (addProducto)="addProductList($event)"></app-product>
-    }
+  <app-list [products]="MenuList" [total]="total"></app-list>
+  <div class="menu">
+    <nav>
+      <a (click)="recuperarTodos(1)">Entrantes</a>
+      <a (click)="recuperarTodos(2)">Primeros</a>
+      <a (click)="recuperarTodos(3)">Bebidas</a>
+      <a (click)="recuperarTodos(4)">Postres</a>
+    </nav>
+    <div class="carta">
+      @for (product of productList; track product.id) {
+      <app-product [product]="product" (addProducto)="addProductList($event)"></app-product>
+      }
+    </div>
   </div>
 </div>

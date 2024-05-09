@@ -24,14 +24,18 @@ export class MenuComponent implements OnInit {
     private orderService: OrderService
   ) { }
 
+
   productList: Product[] = [];
   ngOnInit() {
     this.recuperarTodos();
+    this.load();
+    // this.updateOrder();
 
   }
+  total: number = 0;
 
-  recuperarTodos() {
-    this.productService.getProducts().subscribe((result: any[]) => {
+  recuperarTodos(value?: number) {
+    this.productService.getProducts(value).subscribe((result: any[]) => {
       this.productList = result.map(item => ({
         id: item.id,
         nombre: item.nombre,
@@ -43,16 +47,44 @@ export class MenuComponent implements OnInit {
     });
   }
 
-  MenuList: Product[] = [];
-  async addProductList(id: number) {
-    await this.productService.getProduct(id).subscribe(
-      (product: Product) => {
-        this.MenuList.push(product);
+  MenuList: any[] = [];
+  addProductList(id: number) {
+   
+    this.productService.getProduct(id).subscribe(
+      async (product: Product) => {
         this.productService.productSet = product;
-        console.log("al añadir el producto",this.productService.productGet)
+        this.orderDetailService.insertOrderDetail().subscribe(() => {
+          console.log("Producto insertado");
+          this.load();
+          console.log("Leyendo la lista");
+          
+        });
       }
     );
-    await this.orderDetailService.insertOrderDetail().subscribe();
+   this.updateOrder();
+   
   }
- 
+
+
+  load() {
+    this.orderDetailService.getOrdersDetails().subscribe(
+      details => {
+        this.MenuList = [...details];
+        console.log(this.MenuList);
+      }
+    );
+    this.updateOrder();
+   
+    
+}
+
+updateOrder() {
+  this.orderService.updateOrder(this.orderService.OrderGet).subscribe(
+    (order:any) => {
+       this.total = order.total;
+    }    
+    
+  );
+  
+}
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
+import { UserService } from '../../services/user/user.service';
 
 
 @Component({
@@ -10,4 +11,8 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   styleUrl: './header.component.sass'
 })
 export class HeaderComponent {
+  constructor(
+    private userService: UserService
+  ) { }
+  user:any = this.userService.UserGet;
 }

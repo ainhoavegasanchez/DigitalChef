@@ -3,6 +3,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ProductService } from './services/product/product.service';
 import { PortadaComponent } from './components/portada/portada.component';
+import { CategoryService } from './services/category/category.service';
 
 
 @Component({
@@ -14,10 +15,15 @@ import { PortadaComponent } from './components/portada/portada.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppComponent implements OnInit {
-  constructor(private productService: ProductService) { }
+  constructor(
+    private productService: ProductService,
+    private categoriesService: CategoryService
+
+  ) { }
 
  ngOnInit(): void {
    //this.productService.insertAllProducts().subscribe();
+   //this.categoriesService.insertAllCategory().subscribe();
   }
   title = 'DigitalChef';
 

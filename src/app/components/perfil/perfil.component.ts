@@ -3,6 +3,7 @@ import { UserService } from '../../services/user/user.service';
 import { OrderService } from '../../services/order/order.service';
 import { CommonModule } from '@angular/common';
 import { User } from '../../interfaces/User';
+import { OrderDetailService } from '../../services/order_detail/order-detail.service';
 
 @Component({
   selector: 'app-perfil',
@@ -15,26 +16,44 @@ export class PerfilComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private orderDetailService: OrderDetailService
   ) { }
 
   mostrarLista: boolean = false;
   user!: User;
   listOrder: any[] = [];
+
   ngOnInit(): void {
-    const list: any[] = [];
     this.user = this.userService.UserGet;
     this.orderService.getOrders().subscribe(
       order => {
-        list.push(order)
+        this.listOrder = order;
       }
     );
-    this.listOrder = list[0];
+    console.log(this.listOrder);
   }
 
   mostrarPedidos() {
-    this.mostrarLista = true;
-    console.log(this.listOrder);
+    if (this.mostrarLista == true) {
+      this.mostrarLista = false;
+    } else {
+      this.mostrarLista = true;
+    }
+
   }
+  listDetail: any[]=[];
+  getOrdersDetailsId(id: number) {
+    console.log("id_pedido:", id);
+    this.orderDetailService.getOrdersDetailsId(id).subscribe(
+      details => {
+        console.log(details);
+        this.listDetail = details;
+        console.log(this.listDetail);
+      }
+    );
+   
+  }
+
 
 }

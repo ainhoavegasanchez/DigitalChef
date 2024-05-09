@@ -1,11 +1,5 @@
-<div class="producto">
-    <img alt="Producto 1">
-    <div class="valoracion">
-        <span class="estrella">★</span>
-        <span class="estrella">★</span>
-        <span class="estrella">★</span>
-        <span class="estrella">★</span>
-        <span class="estrella">★</span>
-    </div>
-    <button class="guardar">Guardar</button>
+<div>
+    @for (item of list; track $index) {
+        <app-valoracion-producto [producto]="item"></app-valoracion-producto>
+    }
 </div>

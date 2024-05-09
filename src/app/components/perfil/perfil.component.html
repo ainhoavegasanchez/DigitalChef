@@ -3,10 +3,18 @@
     <li class="list-group-item"><button (click)="mostrarPedidos()">Pedidos</button></li>
 </ul>
 
+
 <div *ngIf="mostrarLista">
-    <ol>
-        @for (order of listOrder; track order.id) {
-        <p>{{order.id}}</p>
-        }
-    </ol>
+    @for (order of listOrder; track order.id) {
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" (click)="getOrdersDetailsId(order.id)">
+            Id:{{order.id}}, fecha: {{order.fecha}}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+            <a *ngFor="let orderDetail of listDetail" class="dropdown-item" href="#">{{orderDetail.id}}</a>
+        </div>
+
+    </div>
+    }
 </div>

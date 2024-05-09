@@ -1,17 +1,40 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { Product } from '../../../interfaces/Product';
 import { CounterComponent } from './counter/counter.component';
+import { OrderDetailService } from '../../../services/order_detail/order-detail.service';
+import { TotalComponent } from './total/total.component';
+import { OrderService } from '../../../services/order/order.service';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [RouterModule, RouterOutlet, CounterComponent],
+  imports: [RouterModule, RouterOutlet, CounterComponent, TotalComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })
 export class ListComponent {
 
+  constructor(
+    private orderDetailService: OrderDetailService,
+    private orderService: OrderService
+  ) { }
   @Input()
-  products:Product[]=[];
+  total!: number;
+  @Output() updateTotal = new EventEmitter<number>();
+  @Input()
+  products: any[] = [];
+
+  async updateCounter(counter: number, id: number) {
+    console.log("actualizar", counter);
+     this.orderDetailService.updateDetailOrder(counter, id).subscribe();
+     this.updateOrder();
+  }
+  updateOrder() {
+    this.orderService.updateOrder(this.orderService.OrderGet).subscribe(
+      (order:any) =>{
+        this.total= order.total;
+      }
+    );
+
+  }
 }
