@@ -3,7 +3,7 @@
     <div class="card-body">
       <h5 class="card-title">{{ producto.nombre }}</h5>
       <div class="rating">
-        <input type="radio" name="rating" id="rating-1" value="1" [(ngModel)]="valor" (change)="updateRating()">
+        <input type="radio" name="rating" id="rating-1" value="1" [(ngModel)]="valor" >
         <label for="rating-1"></label>
         <input type="radio" name="rating" id="rating-2" value="2" [(ngModel)]="valor" (change)="updateRating()">
         <label for="rating-2"></label>
@@ -16,6 +16,7 @@
       </div>
       <div id="rating-value">Valor del rating: {{ valor }}</div>
     </div>
+   
 </div>
 
-<nz-rate [ngModel]="2.5" nzAllowHalf></nz-rate>
+

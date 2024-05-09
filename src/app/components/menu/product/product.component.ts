@@ -1,12 +1,14 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from '../../../interfaces/Product';
 import { ValorationService } from '../../../services/valoration/valoration.service';
-
+import { NzRateModule } from 'ng-zorro-antd/rate';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [],
+  imports: [NzRateModule, CommonModule, FormsModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss'
 })

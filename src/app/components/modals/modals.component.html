@@ -1,0 +1,6 @@
+<nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <ng-container *nzModalContent>
+      <app-ticket ></app-ticket>
+    </ng-container>
+  </nz-modal>
+  <app-confirm-order [isVisible]="visible"></app-confirm-order>

@@ -10,6 +10,7 @@
                 </li>
                 }
                 <app-total [total]="total"></app-total>
-                <button type="button" class="btn btn-info" [routerLink]="'ticket'">FINALIZAR PEDIDO</button>
+                <button type="button" class="btn btn-info" (click)="showModal()">FINALIZAR PEDIDO</button>
+                <app-modals [isVisible]="isVisible"></app-modals>
         </ul>
 </div>

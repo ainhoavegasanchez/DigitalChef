@@ -1,14 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, input } from '@angular/core';
-import { Product } from '../../../interfaces/Product';
 import { FormsModule } from '@angular/forms';
 import { ValorationService } from '../../../services/valoration/valoration.service';
-import { NzRateModule } from 'ng-zorro-antd/rate';
+
 
 @Component({
   selector: 'app-valoracion-producto',
   standalone: true,
-  imports: [CommonModule, FormsModule, NzRateModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './valoracion-producto.component.html',
   styleUrl: './valoracion-producto.component.scss'
 })

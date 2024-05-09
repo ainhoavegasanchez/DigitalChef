@@ -4,11 +4,12 @@ import { CounterComponent } from './counter/counter.component';
 import { OrderDetailService } from '../../../services/order_detail/order-detail.service';
 import { TotalComponent } from './total/total.component';
 import { OrderService } from '../../../services/order/order.service';
+import { ModalsComponent } from '../../modals/modals.component';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [RouterModule, RouterOutlet, CounterComponent, TotalComponent],
+  imports: [RouterModule, RouterOutlet, CounterComponent, TotalComponent, ModalsComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })
@@ -36,5 +37,17 @@ export class ListComponent {
       }
     );
 
+  }
+
+  isVisible = false;
+
+
+  showModal(): void {
+    if(this.isVisible==true){
+      this.isVisible = false;
+    }else{
+      this.isVisible = true;
+    }
+    
   }
 }

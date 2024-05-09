@@ -1,19 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user/user.service';
 import { OrderService } from '../../services/order/order.service';
 import { CommonModule } from '@angular/common';
 import { User } from '../../interfaces/User';
 import { OrderDetailService } from '../../services/order_detail/order-detail.service';
 
+
 @Component({
   selector: 'app-perfil',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './perfil.component.html',
-  styleUrl: './perfil.component.scss'
+  styleUrl: './perfil.component.scss',
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PerfilComponent implements OnInit {
-
+  expandSet = new Set<number>();
+  onExpandChange(id: number, checked: boolean): void {
+    if (checked) {
+      this.expandSet.add(id);
+    } else {
+      this.expandSet.delete(id);
+    }
+  }
   constructor(
     private userService: UserService,
     private orderService: OrderService,

@@ -8,7 +8,7 @@
             <h4>{{product.nombre}}<span>Precio: {{product.precio}}</span></h4>
             <p>{{product.descripcion}}</p>
             <p>{{product.id_catego}}</p>
-            <p>{{valor}}</p>
+            <nz-rate [ngModel]="valor" nzAllowHalf nzDisabled></nz-rate>
          </div>
          <button type="button" class="btn btn-primary" (click)="addProduct(product.id)">Añadir</button>
       </div>

@@ -8,6 +8,8 @@ import { RegistrerComponent } from './components/registrer/registrer.component';
 import { PortadaComponent } from './components/portada/portada.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { ModalsComponent } from './components/modals/modals.component';
+import { ConfirmOrderComponent } from './components/confirm-order/confirm-order.component';
 
 export const routes: Routes = [
 
@@ -17,9 +19,10 @@ export const routes: Routes = [
     {
         path: 'inicio', component: InicioComponent, children: [
             { path: '', component: MenuComponent },
-            { path: 'ticket', component: TicketComponent},
+            { path: 'modals', component: ModalsComponent},
             { path: 'valoraciones', component: ValoracionesComponent },
             { path: 'perfil', component: PerfilComponent },
+           
         ]
     },
     

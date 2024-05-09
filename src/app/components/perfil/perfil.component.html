@@ -5,16 +5,18 @@
 
 
 <div *ngIf="mostrarLista">
-    @for (order of listOrder; track order.id) {
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false" (click)="getOrdersDetailsId(order.id)">
-            Id:{{order.id}}, fecha: {{order.fecha}}
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
-            <a *ngFor="let orderDetail of listDetail" class="dropdown-item" href="#">{{orderDetail.id}}</a>
-        </div>
+    <div *ngFor="let order of listOrder">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target=`#${order.id}`
+            aria-expanded="false" aria-controls=`#${order.id}` (click)="getOrdersDetailsId(order.id)">
+            Id:{{order.id}}, fecha: {{order.fecha}}</button>
 
+        <div class="collapse multi-collapse" id="order.id">
+            <p>hola</p>
+            <div *ngFor="let orderDetail of listDetail">
+                <div class="card card-body">
+                    {{ orderDetail.id }}
+                </div>
+            </div>
+        </div>
     </div>
-    }
 </div>
