@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { UserService } from '../../services/user/user.service';
 import { FormsModule } from '@angular/forms';
 
@@ -19,11 +19,16 @@ export class RegistrerComponent {
     pass: ""
   }
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, 
+    private router:Router) { }
 
   registrerUser() {
     this.userService.insertUser(this.user).subscribe((datos) => {
-      console.log(datos);
+      (dato: any) => {
+        if (dato) {
+          this.router.navigate(['/login']);
+        }
+      }
     });
   }
 

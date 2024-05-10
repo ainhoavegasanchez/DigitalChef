@@ -22,7 +22,7 @@ export class UserService {
   }
 
   insertUser(user: any) {
-    return this.http.post(`${this.baseUrl}/insertUser.php`, user);;
+    return this.http.post(`${this.baseUrl}/insertUser.php`, user);
   }
 
   getUser(user: any) {
@@ -31,7 +31,14 @@ export class UserService {
   };
 
 
-  updateUser(id: number, pass: string): void {
-    this.http.post(`${this.baseUrl}/updateUser.php`, [id, pass]);
+  updateUser(user:any) {
+    console.log(user);
+    const update = this.http.post(`${this.baseUrl}/updateUser.php`, JSON.stringify(user));
+    return update;
+  }
+
+  sendNewPass(){
+    const update = this.http.get(`${this.baseUrl}/sendMail.php`);
+    return update;
   }
 }

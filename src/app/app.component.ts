@@ -10,7 +10,7 @@ import { CategoryService } from './services/category/category.service';
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
-  styleUrl: './app.component.sass',
+  styleUrl: './app.component.scss',
   imports: [RouterOutlet, PortadaComponent, RouterModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

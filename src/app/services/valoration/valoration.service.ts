@@ -33,4 +33,11 @@ export class ValorationService {
       const detail = this.http.post(`${this.baseUrl}/insertValoration.php`, { valor: valor, id_producto: id_producto, user: user });
       return detail;
     }
+
+    getValorations() {
+      const id_usuario= this.userService.UserGet.id;
+      console.log(id_usuario);
+      const valoration = this.http.get(`${this.baseUrl}/getAllValoration.php?id_usuario=${id_usuario}`);
+      return valoration;
+    };
 }
