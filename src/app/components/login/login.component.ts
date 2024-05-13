@@ -3,12 +3,13 @@ import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { UserService } from '../../services/user/user.service';
 import { FormsModule } from '@angular/forms';
 import { OrderService } from '../../services/order/order.service';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterOutlet, RouterModule, FormsModule],
+  imports: [RouterOutlet, RouterModule, FormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -17,7 +18,7 @@ export class LoginComponent {
     email: "",
     pass: "",
   }
-
+  sendPass: boolean = false;
   constructor(
     private userService: UserService,
     private router: Router,
@@ -44,8 +45,15 @@ export class LoginComponent {
   }
 
   sendNew() {
-    this.userService.sendNewPass().subscribe();
+    this.sendPass = true;
   }
 
+  emailPass: string = "";
+   recuperar() {
+    const data={email :this.emailPass}
+     this.userService.sendNewPass(data).subscribe();
+
+    this.sendPass = false;
+  }
 }
 

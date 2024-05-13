@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { mergeMap } from 'rxjs';
 
 
 
@@ -26,19 +27,20 @@ export class UserService {
   }
 
   getUser(user: any) {
-     const userReturn = this.http.post(`${this.baseUrl}/getUser.php`, JSON.stringify(user));
-      return userReturn;
+    const userReturn = this.http.post(`${this.baseUrl}/getUser.php`, JSON.stringify(user));
+    return userReturn;
   };
 
 
-  updateUser(user:any) {
+  updateUser(user: any) {
     console.log(user);
     const update = this.http.post(`${this.baseUrl}/updateUser.php`, JSON.stringify(user));
     return update;
   }
 
-  sendNewPass(){
-    const update = this.http.get(`${this.baseUrl}/sendMail.php`);
+
+  sendNewPass(email: any) {
+    const update = this.http.post(`${this.baseUrl}/sendMail.php`, email);
     return update;
   }
 }
