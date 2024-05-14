@@ -24,4 +24,4 @@ jobs:
 
     - name: Run PHPUnit tests
       run: |
-         phpunit --testdox --directory back/php/phpunit
+         phpunit back/php/phpunit
