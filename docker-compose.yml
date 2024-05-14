@@ -1,0 +1,62 @@
+version: '3'
+
+services:
+
+    angular:
+        build:
+            context: ./api
+        container_name: angular
+        ports:
+            - 4200:4200
+        volumes:
+            - ./api:/project
+            - /project/node_modules
+        networks:
+            - app-network
+
+    php:
+        build:
+            context: ./back/php
+        container_name: php
+        ports:
+            - "9000:9000"
+        volumes:
+            - ./back/php:/var/www/php
+        depends_on:
+            - mysql
+        networks:
+            - app-network
+
+    mysql:
+        container_name: database
+        image: mysql:5.7
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+            MYSQL_DATABASE: 'MENU'
+            MYSQL_ROOT_PASSWORD: '651500170A.v.s'
+        ports:
+            - '3306:3306'
+        volumes:
+            - ./back/mysql:/var/lib/mysql
+        networks:
+            - app-network
+
+    apache:
+        image: httpd:latest
+        container_name: apache
+        ports:
+            - "8101:80"
+        volumes:
+            - ./back/:/var/www/php
+        depends_on:
+            - php
+            - mysql
+        networks:
+            - app-network
+
+volumes:
+    db-volume:
+
+networks:
+    app-network:
+        driver: bridge

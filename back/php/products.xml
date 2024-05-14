@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<productos>
+    <producto>
+        <nombre>Producto 1</nombre>
+        <descripcion>Descripción del Producto 1</descripcion>
+        <foto>url_de_la_foto_del_producto_1</foto>
+        <id_catego>1</id_catego>
+        <precio>10.99</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 2</nombre>
+        <descripcion>Descripción del Producto 2</descripcion>
+        <foto>url_de_la_foto_del_producto_2</foto>
+        <id_catego>1</id_catego>
+        <precio>20.49</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 3</nombre>
+        <descripcion>Descripción del Producto 3</descripcion>
+        <foto>url_de_la_foto_del_producto_3</foto>
+        <id_catego>1</id_catego>
+        <precio>15.79</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 4</nombre>
+        <descripcion>Descripción del Producto 4</descripcion>
+        <foto>url_de_la_foto_del_producto_4</foto>
+        <id_catego>1</id_catego>
+        <precio>13.49</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 5</nombre>
+        <descripcion>Descripción del Producto 5</descripcion>
+        <foto>url_de_la_foto_del_producto_5</foto>
+        <id_catego>1</id_catego>
+        <precio>24.99</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 6</nombre>
+        <descripcion>Descripción del Producto 6</descripcion>
+        <foto>url_de_la_foto_del_producto_6</foto>
+        <id_catego>2</id_catego>
+        <precio>25.49</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 7</nombre>
+        <descripcion>Descripción del Producto 7</descripcion>
+        <foto>url_de_la_foto_del_producto_7</foto>
+        <id_catego>2</id_catego>
+        <precio>18.99</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 8</nombre>
+        <descripcion>Descripción del Producto 8</descripcion>
+        <foto>url_de_la_foto_del_producto_8</foto>
+        <id_catego>2</id_catego>
+        <precio>14.49</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 9</nombre>
+        <descripcion>Descripción del Producto 9</descripcion>
+        <foto>url_de_la_foto_del_producto_9</foto>
+        <id_catego>2</id_catego>
+        <precio>21.99</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 10</nombre>
+        <descripcion>Descripción del Producto 10</descripcion>
+        <foto>url_de_la_foto_del_producto_10</foto>
+        <id_catego>2</id_catego>
+        <precio>18.99</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 11</nombre>
+        <descripcion>Descripción del Producto 11</descripcion>
+        <foto>url_de_la_foto_del_producto_11</foto>
+        <id_catego>3</id_catego>
+        <precio>17.49</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 12</nombre>
+        <descripcion>Descripción del Producto 12</descripcion>
+        <foto>url_de_la_foto_del_producto_12</foto>
+        <id_catego>3</id_catego>
+        <precio>11.99</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 13</nombre>
+        <descripcion>Descripción del Producto 13</descripcion>
+        <foto>url_de_la_foto_del_producto_13</foto>
+        <id_catego>3</id_catego>
+        <precio>19.99</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 14</nombre>
+        <descripcion>Descripción del Producto 14</descripcion>
+        <foto>url_de_la_foto_del_producto_14</foto>
+        <id_catego>3</id_catego>
+        <precio>13.49</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 15</nombre>
+        <descripcion>Descripción del Producto 15</descripcion>
+        <foto>url_de_la_foto_del_producto_15</foto>
+        <id_catego>3</id_catego>
+        <precio>22.99</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 16</nombre>
+        <descripcion>Descripción del Producto 16</descripcion>
+        <foto>url_de_la_foto_del_producto_16</foto>
+        <id_catego>4</id_catego>
+        <precio>16.49</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 17</nombre>
+        <descripcion>Descripción del Producto 17</descripcion>
+        <foto>url_de_la_foto_del_producto_17</foto>
+        <id_catego>4</id_catego>
+        <precio>10.99</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 18</nombre>
+        <descripcion>Descripción del Producto 18</descripcion>
+        <foto>url_de_la_foto_del_producto_18</foto>
+        <id_catego>4</id_catego>
+        <precio>14.49</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 19</nombre>
+        <descripcion>Descripción del Producto 19</descripcion>
+        <foto>url_de_la_foto_del_producto_19</foto>
+        <id_catego>4</id_catego>
+        <precio>8.99</precio>
+    </producto>
+    <producto>
+        <nombre>Producto 20</nombre>
+        <descripcion>Descripción del Producto 20</descripcion>
+        <foto>url_de_la_foto_del_producto_20</foto>
+        <id_catego>4</id_catego>
+        <precio>14.49</precio>
+    </producto>
+</productos>
