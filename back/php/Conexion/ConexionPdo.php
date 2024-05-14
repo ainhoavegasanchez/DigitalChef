@@ -1,5 +1,8 @@
 <?php
 
+namespace Conexion;
+
+use PDO;
 class ConexionPdo
 {
     public static function conectar()

@@ -1,7 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace bd;
-
+require_once 'vendor/autoload.php';
 use PHPUnit\Framework\TestCase;
 use category\Categoria;
 
