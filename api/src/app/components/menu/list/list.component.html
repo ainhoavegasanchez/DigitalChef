@@ -1,16 +1,23 @@
 <div class="menu">
-        <h5 class="card-title">MENU</h5>
+        <h5 class="card-title">PEDIDO</h5>
         <ul class="list-group">
-                @for (product of products; track $index) {
-                <li class="list-group-item">
+                <li class="list-group-item" *ngFor="let product of products">
+                        <h3>{{product.product.nombre}}</h3>
                         <div>
-                                <p>{{product.id_producto}}</p>
-                                <app-counter (counterUpdate)="updateCounter($event, product.id)" [counter]="product.cantidad"></app-counter>
+                                <app-counter (counterUpdate)="updateCounter($event, product.detail.id)"
+                                        [counter]="product.detail.cantidad"></app-counter>
+                                <button type="button">
+                                        <i class="bi bi-trash" (click)="delete(product.detail.id)"></i>
+                                </button>
                         </div>
                 </li>
-                }
+                @if (total!=0) {
                 <app-total [total]="total"></app-total>
                 <button type="button" class="btn btn-info" (click)="showModal()">FINALIZAR PEDIDO</button>
+                }@else {
+                <h4>Tu pedido esta vacío, comienza a llenarlo de platos deliciosos</h4>
+                }
+
                 <app-modals [isVisible]="isVisible"></app-modals>
         </ul>
 </div>

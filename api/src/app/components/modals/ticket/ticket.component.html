@@ -1,0 +1,27 @@
+<table class="table table-striped">
+
+  <thead>
+    <tr>
+      <th scope="col">Producto</th>
+      <th scope="col">Cantidad</th>
+      <th scope="col">Precio/ud</th>
+      <th scope="col">Precio Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(order of orders; track order.id){
+      <tr>
+      <td>{{order.product.nombre}}</td>
+      <td>{{order.cantidad}}</td>
+      <td>{{order.product.precio}}</td>
+      <td>{{order.total}}</td>
+    </tr>
+    } 
+    <tr>
+      <th>Total</th>
+      <td></td>
+      <td></td>
+      <td>{{total}}</td>
+    </tr>
+  </tbody>
+</table>

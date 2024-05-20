@@ -1,10 +1,9 @@
 .rating {
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: space-between;
     overflow: hidden;
     flex-direction: row-reverse;
-    height: 150px;
     position: relative;
   }
   
@@ -40,5 +39,10 @@
   }
   
   
-  
-  
+  .card img{
+    height: 34vh;
+  }
+
+  .card-body{
+    text-align: center;
+  }

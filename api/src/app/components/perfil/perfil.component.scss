@@ -1,19 +1,25 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
+
+  .container{
+    background-image: url("../../../assets/imgs/gallary-1.jpg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+    width: 100vw;
+    min-width: 97vw;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+    justify-content: space-around;
   }
-  
   .card {
-    width: 300px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin: 20px;
   }
   
   .card-header {
@@ -30,8 +36,12 @@ body {
   }
   
   .card-body {
+    width: 100%;
     padding: 20px;
     padding-bottom: 0;
+    & input {
+      width: 100%;
+    }
   }
   
   form {
@@ -53,6 +63,12 @@ body {
   .card-footer {
     text-align: left;
     padding: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    & input {
+      width: 70%;
+    }
   }
   
   button {
@@ -69,9 +85,51 @@ body {
     background-color: #45a049;
   }
   
-  @media (max-width: 600px) {
-    .card {
-      width: 90%;
-    }
+
+  #body{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
-  
+
+
+.product{
+  border: 1px solid #cbbaba;
+  border-radius: 10px;
+  padding: 14px;
+  & img{
+    border-style: none;
+    width: 23vh;
+    height: 21vh;
+    border-radius: 50%;
+  }
+  &:hover {
+    transform: scale(1.05);
+}
+}
+
+#pedidos{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 27px;
+}
+
+.productos{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+
+
+#actualizacion{
+  width: 30%;
+}
+.form-group{
+  display: flex;
+    flex-direction: column;
+}
+h2{
+  text-align: center;
+}

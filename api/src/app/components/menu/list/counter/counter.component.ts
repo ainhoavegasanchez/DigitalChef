@@ -33,7 +33,6 @@ export class CounterComponent {
     this.counter--;
     console.log("decremento", this.counter);
     this.counterUpdate.emit(this.counter);
-    
   }
 
   

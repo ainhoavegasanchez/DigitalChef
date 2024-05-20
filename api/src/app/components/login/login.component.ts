@@ -37,8 +37,9 @@ export class LoginComponent {
             order => {
               this.orderService.orderSet = order;
               console.log("esto es qal insertarlo", this.orderService.OrderGet);
+              this.router.navigate(['/inicio']);
             });
-          this.router.navigate(['/inicio']);
+         
         }
       }
     );

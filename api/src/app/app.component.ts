@@ -22,8 +22,8 @@ export class AppComponent implements OnInit {
   ) { }
 
  ngOnInit(): void {
-   //this.productService.insertAllProducts().subscribe();
-   //this.categoriesService.insertAllCategory().subscribe();
+  //this.productService.insertAllProducts().subscribe();
+  //this.categoriesService.insertAllCategory().subscribe();
   }
   title = 'DigitalChef';
 

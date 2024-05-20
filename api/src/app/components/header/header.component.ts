@@ -8,7 +8,7 @@ import { UserService } from '../../services/user/user.service';
   standalone: true,
   imports: [RouterModule, RouterOutlet],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.sass'
+  styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
   constructor(

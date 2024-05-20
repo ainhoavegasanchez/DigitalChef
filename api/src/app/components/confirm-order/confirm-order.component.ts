@@ -32,7 +32,7 @@ constructor(private router:Router){}
 
  handleOk(): void {
   console.log('Button ok clicked!');
-this.router.navigate(["../valoraciones"]);
+  this.router.navigate(['/valoraciones']);
   this.isVisible = false;
 }
 

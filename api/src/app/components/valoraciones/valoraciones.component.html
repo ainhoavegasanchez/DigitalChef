@@ -1,5 +1,14 @@
-<div>
-    @for (item of list; track $index) {
+<div class="valoraciones">
+    <div class="button">
+
+        <button type="button" class="email-pass form-submit btn" [routerLink]="'../portada'">Finalizar
+            Valoracion</button>
+    </div>
+    <h1>VALORACIONES</h1>
+    <div class="grupo">
+
+        @for (item of list; track item.id) {
         <app-valoracion-producto [producto]="item"></app-valoracion-producto>
-    }
+        }
+    </div>
 </div>

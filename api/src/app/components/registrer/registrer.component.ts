@@ -24,8 +24,8 @@ export class RegistrerComponent {
 
   registrerUser() {
     this.userService.insertUser(this.user).subscribe((datos) => {
-      (dato: any) => {
-        if (dato) {
+      (data: any) => {
+        if (data) {
           this.router.navigate(['/login']);
         }
       }

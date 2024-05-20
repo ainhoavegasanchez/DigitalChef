@@ -1,0 +1,21 @@
+.valoraciones{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-evenly;
+}
+
+button{
+    float: right;
+    width: 20vw;
+    background-color: aliceblue;
+}
+h1{
+    text-align: center;
+    border-bottom: 1px solid;
+}
+
+.grupo{
+    display: flex;
+    justify-content: space-around;
+}

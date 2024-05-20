@@ -16,7 +16,7 @@
                         <input type="submit" name="signup" id="signup" class="form-submit" (click)="selectUser()"
                             value="Register" />
                     </div>
-                    <a class="signup-image-link" (click)="sendNew()">No recuerdas tu contraseña??</a>
+                    <a id="pass" class="signup-image-link" (click)="sendNew()">No recuerdas tu contraseña??</a>
                 </form>
                 <div class="signup-image">
                     <figure></figure>
@@ -32,13 +32,13 @@
     <div class="container">
         <div class="signup-form">
             <h2 class="form-title">Recuperar contraseña</h2>
-            <form class="register-form" id="register-form">
-                <div class="form-group">
+            <form class="register-form" id="email-pass">
+                <div  class="form-group">
                     <label for="email"><i class="zmdi zmdi-email"></i></label>
                     <input type="email" name="emailPass" id="emailPass" [(ngModel)]="emailPass" placeholder="Your Email" required/>
                 </div>
                 <div class="form-group form-button">
-                    <button type="button" class="form-submit" (click)="recuperar()">Recuperar</button>
+                    <button type="button" class="email-pass form-submit" (click)="recuperar()">Recuperar</button>
                 </div>
             </form>
         </div>

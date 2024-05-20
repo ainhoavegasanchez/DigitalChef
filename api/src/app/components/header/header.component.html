@@ -1,19 +1,16 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<div id="navbar">
+  <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" >Bienvenido {{user.nombre}}
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class="nombre">
+        <h2  class="navbar-brand">Bienvenido {{user.nombre}}
+        </h2>
+      </div>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link"  [routerLink]="'/inicio'">Menu</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  [routerLink]="'perfil'">Perfil</a>
-          </li>
-        </ul>
+        <button type="button" class="btn"> <a class="nav-link"  [routerLink]="'/inicio'">Menu</a></button>
+
+        <button type="button" class="btn" ><a class="nav-link"  [routerLink]="'perfil'">Perfil</a></button>
       </div>
     </div>
   </nav>
+       
+</div>

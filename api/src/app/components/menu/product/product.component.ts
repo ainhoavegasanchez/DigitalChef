@@ -16,18 +16,20 @@ export class ProductComponent implements OnInit{
 constructor(
   private valorationService:ValorationService
 ){}
-  ngOnInit(): void {
-    this.valorationService.getValorationProduct(this.product.id).subscribe(
-      (valor:any)=>{
-        this.valor=valor.media;
-      }
-    );
-  }
   @Input()
   product!:Product;
   @Output() 
   addProducto = new EventEmitter<number>();
-  valor:number=0;
+  valor:number=5;
+
+  ngOnInit(): void {
+    this.valorationService.getValorationProduct(this.product.id).subscribe(
+      (valor:any)=>{
+        this.valor = valor ? valor.media : 5;
+      }
+    );
+  }
+
   
   addProduct(id:number):void{
     this.addProducto.emit(id);

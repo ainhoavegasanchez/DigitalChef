@@ -1,8 +1,10 @@
-<nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+<nz-modal [(nzVisible)]="isVisible" nzTitle="¿Dónde servimos su pedido?" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
     <ng-container *nzModalContent>
-        <label nz-radio [(ngModel)]="domicilioChecked" (click)="changeValor('domicilio')">A domicilio</label>
-        <label nz-radio [(ngModel)]="restauranteChecked" (click)="changeValor('restaurante')">Restaurante</label>
-        <p *ngIf="selectedOption === 'domicilio'">Se come en el domicilio</p>
-        <p *ngIf="selectedOption === 'restaurante'">Se come en el restaurante</p>
+        <div id="opciones">
+            <label nz-radio [(ngModel)]="domicilioChecked" (click)="changeValor('domicilio')">A domicilio</label>
+            <label nz-radio [(ngModel)]="restauranteChecked" (click)="changeValor('restaurante')">Restaurante</label>
+        </div>
+        <h4 *ngIf="selectedOption === 'domicilio'">Estupendo, su pedido está siendo procesado y se enviará a su domicilio</h4>
+        <h4 *ngIf="selectedOption === 'restaurante'">Estupendo, un camarero pasará por su mesa para dejarle la cuenta</h4>
     </ng-container>
 </nz-modal>

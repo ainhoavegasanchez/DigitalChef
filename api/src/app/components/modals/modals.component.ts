@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NzmoduleModule } from '../../nzmodule.module';
 import { CommonModule } from '@angular/common';
-import { TicketComponent } from '../ticket/ticket.component';
+import { TicketComponent } from './ticket/ticket.component';
 import { Router } from '@angular/router';
 import { ConfirmOrderComponent } from '../confirm-order/confirm-order.component';
 

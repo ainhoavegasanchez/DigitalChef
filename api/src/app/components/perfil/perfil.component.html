@@ -1,34 +1,40 @@
-<div class="card">
-    <div class="card-header">
-        <h2>Input User</h2>
-    </div>
-    <div class="card-body">
-        <form>
-            <div class="form-group">
-                <label for="email"><i class="zmdi zmdi-email"></i></label>
-                <input type="email" name="email" id="email" [(ngModel)]="update.email" placeholder="Your Email" />
+<div class="container">
+    <div id="actualizacion">
+        <h2>Actualización de datos</h2>
+        <div class="card">
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <label for="email"><i class="zmdi zmdi-email"></i>Email:</label>
+                        <input type="email" name="email" id="email" [(ngModel)]="update.email"
+                            placeholder="Your Email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="name"><i class="zmdi zmdi-email"></i>Nombre:</label>
+                        <input type="name" name="name" id="name" [(ngModel)]="update.name"
+                            placeholder="Your UserName" />
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="name"><i class="zmdi zmdi-email"></i></label>
-                <input type="name" name="name" id="name" [(ngModel)]="update.name" placeholder="Your UserName" />
+            <div class="card-footer">
+                <input type="submit" name="signup" id="signup" class="form-submit" (click)="updateUser()"
+                    value="Actualizar" />
             </div>
-        </form>
+            @if(userUpdate==true){
+            <p>El usuario se ha actualizado</p>
+            }
+        </div>
     </div>
-    <div class="card-footer">
-        <input type="submit" name="signup" id="signup" class="form-submit" (click)="updateUser()" value="Register" />
-    </div>
-    @if(userUpdate==true){
-        <p>El usuario se ha actualizado</p>
-    }
-</div>
 
-
-<ul class="list-group list-group-flush">
-    <li class="list-group-item"><button (click)="mostrarPedidos()">Platos ya probados</button></li>
-</ul>
-<div *ngIf="mostrarLista">
-    <div *ngFor="let order of listOrder">
-        <p>{{order.product.nombre}}</p>
-        <nz-rate [ngModel]="order.valor" nzAllowHalf nzDisabled></nz-rate>
+    <div id="pedidos">
+        <h2>Platos ya probados</h2>
+        <div class="productos">
+            <div class="product" *ngFor="let order of listOrder">
+                <img [src]="'../../../assets/imgs/' + order.product.foto" alt="">
+                <p>{{order.product.nombre}}</p>
+                <nz-rate [ngModel]="order.valor" nzAllowHalf nzDisabled></nz-rate>
+            </div>
+        </div>
     </div>
+
 </div>

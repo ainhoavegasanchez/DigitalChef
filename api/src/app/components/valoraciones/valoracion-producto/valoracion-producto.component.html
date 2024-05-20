@@ -1,22 +1,20 @@
 <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{ producto.nombre }}</h5>
-      <div class="rating">
-        <input type="radio" name="rating" id="rating-1" value="1" [(ngModel)]="valor" >
-        <label for="rating-1"></label>
-        <input type="radio" name="rating" id="rating-2" value="2" [(ngModel)]="valor" (change)="updateRating()">
-        <label for="rating-2"></label>
-        <input type="radio" name="rating" id="rating-3" value="3" [(ngModel)]="valor" (change)="updateRating()">
-        <label for="rating-3"></label>
-        <input type="radio" name="rating" id="rating-4" value="4" [(ngModel)]="valor" (change)="updateRating()">
-        <label for="rating-4"></label>
-        <input type="radio" name="rating" id="rating-5" value="5" [(ngModel)]="valor" (change)="updateRating()">
-        <label for="rating-5"></label>
-      </div>
-      <div id="rating-value">Valor del rating: {{ valor }}</div>
+  <img [src]="'../../../assets/imgs/' + producto.foto" alt="imagen">
+  <div class="card-body">
+    <h5 class="card-title">{{ producto.nombre }}</h5>
+    <div class="rating">
+      <input type="radio" name="rating-{{ producto.id }}" id="rating-5-{{ producto.id }}" value="5" [(ngModel)]="valor" (change)="updateRating()">
+      <label for="rating-5-{{ producto.id }}"></label>
+      <input type="radio" name="rating-{{ producto.id }}" id="rating-4-{{ producto.id }}" value="4" [(ngModel)]="valor" (change)="updateRating()">
+      <label for="rating-4-{{ producto.id }}"></label>
+      <input type="radio" name="rating-{{ producto.id }}" id="rating-3-{{ producto.id }}" value="3" [(ngModel)]="valor" (change)="updateRating()">
+      <label for="rating-3-{{ producto.id }}"></label>
+      <input type="radio" name="rating-{{ producto.id }}" id="rating-2-{{ producto.id }}" value="2" [(ngModel)]="valor" (change)="updateRating()">
+      <label for="rating-2-{{ producto.id }}"></label>
+      <input type="radio" name="rating-{{ producto.id }}" id="rating-1-{{ producto.id }}" value="1" [(ngModel)]="valor" (change)="updateRating()">
+      <label for="rating-1-{{ producto.id }}"></label>
     </div>
-   
+  </div>
 </div>
 
 

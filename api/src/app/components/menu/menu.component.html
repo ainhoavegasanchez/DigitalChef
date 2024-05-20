@@ -1,10 +1,10 @@
 <div class="grid">
-  <app-list [products]="MenuList" [total]="total"></app-list>
+  <app-list [products]="MenuList" [total]="total" (deleteDetail)="delete($event)"></app-list>
   <div class="menu">
     <nav>
+      <a (click)="recuperarTodos(3)">Bebidas</a>
       <a (click)="recuperarTodos(1)">Entrantes</a>
       <a (click)="recuperarTodos(2)">Primeros</a>
-      <a (click)="recuperarTodos(3)">Bebidas</a>
       <a (click)="recuperarTodos(4)">Postres</a>
     </nav>
     <div class="carta">

@@ -5,6 +5,7 @@ import { InicioModule } from './components/inicio/inicio.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { NzmoduleModule } from './nzmodule.module';
+import { provideClientHydration } from '@angular/platform-browser';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { NzmoduleModule } from './nzmodule.module';
   imports: [
     CommonModule, InicioModule, HttpClientModule, NzmoduleModule
   ],
-   exports:[InicioModule, AppRoutingModule, FormsModule, HttpClientModule, NzmoduleModule]
+   exports:[InicioModule, AppRoutingModule, FormsModule, HttpClientModule, NzmoduleModule],
+   providers:[provideClientHydration()]
 })
 export class AppModule { }

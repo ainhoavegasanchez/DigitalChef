@@ -1,66 +1,44 @@
-.grid{
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-}
-.menu{
-    display: grid;
-    grid-template-columns: 1fr;
-}
-.carta{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 0 10px;
+  padding: 20px;
+  background-image: url("../../../assets/imgs/fondo1.jpg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
+.menu {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.carta {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: rgba(51, 81, 78, 0.7);
+  gap: 20px 10px;
+  padding: 10px;
+  justify-items: center;
+  border-radius: 0 0 10px 10px;
+}
 
-  
-  nav {
-    display: flex;
-    text-transform: uppercase;
-    font: bold 1.5rem sans-serif;
-    justify-content: space-around;
-  
-    & a {
-      color: var(--text-color);
-      cursor: pointer;
-      overflow: hidden;
-      transition: 0.3s;
-      position: relative;
-      text-decoration: none;
-      padding: 0 0.5em 0.25em;
-  
-      &::before {
-        content: "";
-        scale: 0 1;
-        position: absolute;
-        background: var(--accent-color);
-        transition: 0.3s, translate 0s 0.3s;
-        inset: calc(100% - var(--underline-thickness)) 0 0 0;
-      }
-  
-      &:hover {
-        color: var(--hover-color);
-  
-        &::before {
-          translate: 0;
-          transition: 0.3s;
-        }
-      }
-    }
-  
+nav {
+  display: flex;
+  text-transform: uppercase;
+  font: bold 1.5rem sans-serif;
+  justify-content: space-around;
+  border-radius: 10px 10px 0 0;
+  background-color: rgb(51, 81, 78);
+  padding: 21px;
+  border-bottom: 1px solid white;
+  color: white;
+  & a {
+    padding: 10px;
     &:hover {
-      & a::before {
-        scale: 1;
-      }
-  
-      & a:has(~ a:hover)::before {
-        translate: 100% 0;
-        transition: 0.2s 0.2s, scale 0s 0.4s;
-      }
-  
-      & a:hover ~ a::before {
-        translate: -100% 0;
-        transition: 0.2s 0.2s, scale 0s 0.4s;
-      }
+      border-radius: 10px 0 10px 0;
+      background-color: white;
+      color: rgb(51, 81, 78);
     }
   }
-  
+}

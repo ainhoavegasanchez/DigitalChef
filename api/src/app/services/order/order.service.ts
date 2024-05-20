@@ -30,6 +30,7 @@ export class OrderService {
     const user = this.userService.UserGet;
     const order = this.http.post(`${this.baseUrl}/insertOrder.php`, JSON.stringify(user));
     this.orderSet = order;
+    console.log("insertando en el servicio", this.orderSet )
     return order;
   };
 

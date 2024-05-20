@@ -50,14 +50,7 @@ export class PerfilComponent implements OnInit {
     console.log(this.listOrder);
   }
 
-  mostrarPedidos() {
-    if (this.mostrarLista == true) {
-      this.mostrarLista = false;
-    } else {
-      this.mostrarLista = true;
-    }
 
-  }
   listDetail: any[] = [];
   getOrdersDetailsId(id: number) {
     console.log("id_pedido:", id);
@@ -70,19 +63,23 @@ export class PerfilComponent implements OnInit {
     );
 
   }
+
+
   update = {
     id: 0,
     email: this.userService.UserGet.email,
     name: this.userService.UserGet.nombre,
   }
-  userUpdate:boolean = false;
+
+
+  userUpdate: boolean = false;
   updateUser() {
     this.update.id = this.userService.UserGet.id;
     this.userService.updateUser(this.update).subscribe(
-      (result:any)=>{
-       if(result){
-        this.userUpdate=true;
-       }
+      (result: any) => {
+        if (result) {
+          this.userUpdate = true;
+        }
       }
     );
   }

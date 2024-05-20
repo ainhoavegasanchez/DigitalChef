@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, input } from '@angular/core';
+import { Component, Input, OnInit, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ValorationService } from '../../../services/valoration/valoration.service';
 
@@ -11,13 +11,16 @@ import { ValorationService } from '../../../services/valoration/valoration.servi
   templateUrl: './valoracion-producto.component.html',
   styleUrl: './valoracion-producto.component.scss'
 })
-export class ValoracionProductoComponent {
+export class ValoracionProductoComponent implements OnInit {
   constructor(
     private valorationService:ValorationService
   ){}
+  ngOnInit(): void {
+   this.valor= 5;
+  }
 @Input() producto!:any;
 
-valor: number = 5;
+valor: number = 0;
 
 updateRating() {
   console.log('Nuevo valor del rating:', this.valor);

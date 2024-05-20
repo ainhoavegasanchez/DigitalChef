@@ -3,12 +3,16 @@
   <section>
     <div class="col-md-4 product">
       <div class="single_menu_list">
-         <div class="img"></div>
+         <div class="img">
+            <img [src]="'../../../assets/imgs/' + product.foto"  alt="">
+         </div>
          <div class="menu_content">
-            <h4>{{product.nombre}}<span>Precio: {{product.precio}}</span></h4>
+            <div class="title">
+                <h4>{{product.nombre}}</h4>
+            <p>{{product.precio}} €</p>
+            </div>
             <p>{{product.descripcion}}</p>
-            <p>{{product.id_catego}}</p>
-            <nz-rate [ngModel]="valor" nzAllowHalf nzDisabled></nz-rate>
+            <nz-rate [(ngModel)]="valor" nzDisabled ></nz-rate>
          </div>
          <button type="button" class="btn btn-primary" (click)="addProduct(product.id)">Añadir</button>
       </div>

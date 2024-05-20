@@ -13,7 +13,7 @@
 
 .form-group {
   position: relative;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   overflow: hidden;
 }
 .form-group:last-child {
@@ -25,6 +25,9 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  & h2 {
+    color: white;
+  }
 }
 .signup-content {
   display: flex;
@@ -34,31 +37,62 @@
   align-items: center;
 }
 input {
-    width: 100%;
-    display: block;
-    border: none;
-    border-bottom: 1px solid #999;
-    padding: 6px 30px;
-    font-family: Poppins;
-    box-sizing: border-box;
+  width: 100%;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #999;
+  padding: 6px 30px;
+  font-family: Poppins;
+  box-sizing: border-box;
 }
 
-.form-button:last-child{
-    display: flex;
-    justify-content: center;
+.form-button:last-child {
+  display: flex;
+  justify-content: center;
 }
-.form-submit{
-    display: inline-block;
-    background: #6dabe4;
-    color: #fff;
-    border-bottom: none;
-    width: auto;
-    padding: 15px 39px;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -o-border-radius: 5px;
-    -ms-border-radius: 5px;
-    margin-top: 25px;
-    cursor: pointer;
+.form-submit {
+  display: inline-block;
+  background: #6dabe4;
+  color: #fff;
+  border-bottom: none;
+  width: auto;
+  padding: 15px 39px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  margin-top: 25px;
+  cursor: pointer;
+}
+
+.form-group {
+  & input {
+    background-color: rgba(105, 105, 105, 0.829);
+    color: white;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+  }
+  & ::placeholder {
+    color: white;
+  }
+}
+
+form {
+  width: 50%;
+}
+
+.form-button {
+  display: flex;
+  & input {
+    width: 100%;
+    background-color: rgba(245, 222, 179, 0.815);
+    color: black;
+  }
+  padding: 10px;
+}
+
+a {
+  color: white;
 }

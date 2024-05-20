@@ -29,7 +29,6 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.recuperarTodos();
     this.load();
-    // this.updateOrder();
 
   }
   total: number = 0;
@@ -49,42 +48,53 @@ export class MenuComponent implements OnInit {
 
   MenuList: any[] = [];
   addProductList(id: number) {
-   
     this.productService.getProduct(id).subscribe(
       async (product: Product) => {
         this.productService.productSet = product;
-        this.orderDetailService.insertOrderDetail().subscribe(() => {
-          console.log("Producto insertado");
-          this.load();
-          console.log("Leyendo la lista");
-          
-        });
-      }
+        if (!this.MenuList.some(item => item.product.id === product.id)) {
+          this.orderDetailService.insertOrderDetail().subscribe(() => {
+            this.load();
+            this.updateOrder();
+          });
+        }
+      } 
     );
-   this.updateOrder();
    
   }
 
 
   load() {
+    this.MenuList = [];
     this.orderDetailService.getOrdersDetails().subscribe(
       details => {
-        this.MenuList = [...details];
-        console.log(this.MenuList);
-      }
-    );
-    this.updateOrder();
-   
-    
-}
+        this.updateOrder();
+        details.forEach(detail => {
+          const product = this.productService.getProduct(detail.id_producto).subscribe(
+            (product: Product) => {
+              if (!this.MenuList.some(item => item.product.id === product.id)) {
+                this.MenuList.push({ detail: detail, product: product })
+              }
+            }
+          );
 
-updateOrder() {
-  this.orderService.updateOrder(this.orderService.OrderGet).subscribe(
-    (order:any) => {
-       this.total = order.total;
-    }    
-    
-  );
-  
-}
+          console.log(this.MenuList);
+        });
+      });
+
+
+  }
+
+  updateOrder() {
+    this.orderService.updateOrder(this.orderService.OrderGet).subscribe(
+      (order: any) => {
+        this.total = order.total;
+      });
+  }
+
+  delete(id: number): void {
+    this.orderDetailService.deleteDetailOrder(id).subscribe(() => {
+      this.load();
+    })
+
+  }
 }

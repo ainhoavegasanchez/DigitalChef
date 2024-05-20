@@ -4,11 +4,12 @@ import { OrderDetailService } from '../../services/order_detail/order-detail.ser
 import { ValoracionProductoComponent } from './valoracion-producto/valoracion-producto.component';
 import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../interfaces/Product';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-valoraciones',
   standalone: true,
-  imports: [CommonModule, ValoracionProductoComponent],
+  imports: [CommonModule, ValoracionProductoComponent, RouterModule],
   templateUrl: './valoraciones.component.html',
   styleUrl: './valoraciones.component.scss'
 })
@@ -18,6 +19,8 @@ export class ValoracionesComponent implements OnInit{
     private orderDetailService:OrderDetailService,
     private productService:ProductService
   ){}
+
+  
   ngOnInit(): void {
     this.orderDetailService.getOrdersDetails().subscribe(
       details => {
