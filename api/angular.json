@@ -10,24 +10,24 @@
           "style": "scss"
         }
       },
-      "root": "api",
-      "sourceRoot": "api/src",
+      "root": "",
+      "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/app",
-            "index": "api/src/index.html",
-            "main": "api/src/main.ts",
+            "outputPath": "../dist/app",
+            "index": "src/index.html",
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "api/src/favicon.ico",
-              "api/src/assets",
+              "src/favicon.ico",
+              "src/assets",
               {
                 "glob": "**/*",
                 "input": "../back",
@@ -36,7 +36,7 @@
             ],
             "styles": [
               "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
-              "api/src/styles.sass"
+              "src/styles.sass"
             ],
             "scripts": []
           },
@@ -90,14 +90,14 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "api/src/tsconfig.spec.json",
+            "tsConfig": "src/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "api/src/favicon.ico",
-              "api/src/assets"
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
-              "api/src/styles.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           }

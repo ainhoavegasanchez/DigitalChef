@@ -23,4 +23,4 @@ jobs:
          composer global require phpunit/phpunit
 
     - name: Run PHPUnit tests
-      run: phpunit back/php/phpunit
+      run: phpunit back/prueba-test/Recursos

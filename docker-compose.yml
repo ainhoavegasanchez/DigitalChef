@@ -7,10 +7,11 @@ services:
             context: ./api
         container_name: angular
         ports:
-            - 4200:4200
+            - 4202:4200
         volumes:
             - ./api:/project
             - /project/node_modules
+        working_dir: /project
         networks:
             - app-network
 
@@ -19,7 +20,7 @@ services:
             context: ./back/php
         container_name: php
         ports:
-            - "9000:9000"
+            - "9003:9000"
         volumes:
             - ./back/php:/var/www/php
         depends_on:
@@ -35,9 +36,9 @@ services:
             MYSQL_DATABASE: 'MENU'
             MYSQL_ROOT_PASSWORD: '651500170A.v.s'
         ports:
-            - '3306:3306'
+            - '3304:3306'
         volumes:
-            - ./back/mysql:/var/lib/mysql
+            - db-volume:/var/lib/mysql
         networks:
             - app-network
 
