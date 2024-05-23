@@ -19,12 +19,12 @@ jobs:
         php-version: '8.3'
 
     - name: Cambiar al directorio del proyecto
-      run: cd subdir
+      run: cd back/prueba-test
   
     - name: Instalar dependencias
       run: composer install
-      working-directory: subdir
+      working-directory:  back/prueba-test
   
     - name: Ejecutar pruebas de PHPUnit
       run: ./vendor/bin/phpunit back/prueba-test/Recursos
-      working-directory: subdir
+      working-directory:  back/prueba-test
