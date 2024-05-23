@@ -26,5 +26,5 @@ jobs:
       working-directory:  back/prueba-test
   
     - name: Ejecutar pruebas de PHPUnit
-      run: ./vendor/bin/phpunit back/prueba-test/Recursos
+      run: phpunit back/prueba-test/Recursos
       working-directory:  back/prueba-test
