@@ -18,9 +18,13 @@ jobs:
       with:
         php-version: '8.3'
 
-    - name: Install dependencies
-      run: |
-         composer global require phpunit/phpunit
-
-    - name: Run PHPUnit tests
-      run: phpunit back/prueba-test/Recursos
+    - name: Cambiar al directorio del proyecto
+      run: cd subdir
+  
+    - name: Instalar dependencias
+      run: composer install
+      working-directory: subdir
+  
+    - name: Ejecutar pruebas de PHPUnit
+      run: ./vendor/bin/phpunit back/prueba-test/Recursos
+      working-directory: subdir
