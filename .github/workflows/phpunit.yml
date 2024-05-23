@@ -1,15 +1,28 @@
-name: CI
+name: Pruebas Unitarias de PHP
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  build-test:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - run: echo "The ${{ github.repository }} repository has been cloned to the runner."
-      - run: cd php/prueba-test
-      - uses: php-actions/composer@v6
-      - run: echo "Composer dependencies have been installed"
-      - run: vendor/bin/phpunit Recursos
+    - name: Checkout del código
+      uses: actions/checkout@v3
+
+    - name: Configurar PHP
+      uses: shivammathur/setup-php@v3
+      with:
+        php-version: '8.3'
+        extensions: cli, json, mbstring, xml, pcov, xdebug
+
+    - name: Instalar dependencias de Composer
+      run: composer install
+      working-directory: back/prueba-test
+
+    - name: Ejecutar pruebas de PHPUnit
+      run: phpunit
+      working-directory: back/prueba-test/
