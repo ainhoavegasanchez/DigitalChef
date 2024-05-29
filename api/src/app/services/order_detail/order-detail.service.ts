@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { OrderService } from '../order/order.service';
 import { ProductService } from '../product/product.service';
 import { OrderDetail } from '../../interfaces/OrderDetail';
+import { environment } from '../../../../enviroment';
 
 @Injectable({
   providedIn: 'root'
@@ -24,8 +25,9 @@ export class OrderDetailService {
     private orderService: OrderService,
     private productService: ProductService
   ) { }
-  baseUrl = "https://vps-65482c69.vps.ovh.net/app/dist/php/order_detail";
 
+  baseUrl = environment.API_URL;
+  
   insertOrderDetail() {
     const order = this.orderService.OrderGet;
     const product = this.productService.productGet;
@@ -38,7 +40,7 @@ export class OrderDetailService {
 
   getOrdersDetails() {
     const order = this.orderService.OrderGet;
-    const id_pedido = order.id;
+    const id_pedido =parseInt(order.id);
     console.log("id del pedido", order);
     const userReturn = this.http.get<OrderDetail[]>(`${this.baseUrl}/getOrderDetail.php?id_pedido=${id_pedido}`);
     return userReturn;

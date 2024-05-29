@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { mergeMap } from 'rxjs';
+import { environment } from '../../../../enviroment';
 
 
 
@@ -11,7 +12,8 @@ export class UserService {
 
   private _user!: any;
   constructor(private http: HttpClient) { }
-  baseUrl = "https://vps-65482c69.vps.ovh.net/app/dist/php/users";
+
+  baseUrl = environment.API_URL;
 
   get UserGet(): any {
     return this._user;

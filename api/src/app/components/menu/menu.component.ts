@@ -53,8 +53,8 @@ export class MenuComponent implements OnInit {
         this.productService.productSet = product;
         if (!this.MenuList.some(item => item.product.id === product.id)) {
           this.orderDetailService.insertOrderDetail().subscribe(() => {
-            this.load();
             this.updateOrder();
+            this.load();
           });
         }
       } 

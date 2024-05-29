@@ -1,6 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { InicioComponent } from './components/inicio/inicio.component';
 import { ProductService } from './services/product/product.service';
 import { PortadaComponent } from './components/portada/portada.component';
 import { CategoryService } from './services/category/category.service';
@@ -21,9 +20,16 @@ export class AppComponent implements OnInit {
 
   ) { }
 
- ngOnInit(): void {
-  //this.productService.insertAllProducts().subscribe();
-  //this.categoriesService.insertAllCategory().subscribe();
+  ngOnInit(): void {
+    this.productService.getProducts(1).subscribe(
+      (products: any) => {
+        if (products==false) {
+          this.productService.insertAllProducts().subscribe();
+          this.categoriesService.insertAllCategory().subscribe();
+        }
+      }
+    );
+
   }
   title = 'DigitalChef';
 

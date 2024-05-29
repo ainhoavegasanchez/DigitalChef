@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../../interfaces/Product';
 import { Observable } from 'rxjs/internal/Observable';
+import { environment } from '../../../../enviroment';
 
 
 @Injectable({
@@ -19,7 +20,8 @@ export class ProductService {
     this._product = product;
   }
 
-  baseUrl = "https://vps-65482c69.vps.ovh.net/app/dist/php/products";
+
+ baseUrl = environment.API_URL;
 
   constructor(private http: HttpClient) { }
 

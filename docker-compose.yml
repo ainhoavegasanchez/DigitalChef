@@ -3,61 +3,42 @@ version: '3'
 services:
 
     angular:
-        build:
-            context: ./api
-        container_name: angular
+        build: ./api
         ports:
-            - 4202:4200
-        volumes:
-            - ./api:/project
-            - /project/node_modules
-        working_dir: /project
+            - 4200:4200
+        command: >
+            bash -c "npm install && ng serve --host 0.0.0.0 --port 4200"
         networks:
-            - app-network
+            - red
 
     php:
-        build:
-            context: ./back/php
-        container_name: php
+        build: ./back/php
         ports:
-            - "9003:9000"
+        - 80:80
         volumes:
-            - ./back/php:/var/www/php
+        - ./back/php/.htaccess:/var/www/html/.htaccess
         depends_on:
-            - mysql
+        - mysql
         networks:
-            - app-network
+            - red
+
 
     mysql:
-        container_name: database
-        image: mysql:5.7
-        command: --default-authentication-plugin=mysql_native_password
-        environment:
-            MYSQL_DATABASE: 'MENU'
-            MYSQL_ROOT_PASSWORD: '651500170A.v.s'
+        build: ./back/mysql
         ports:
-            - '3304:3306'
+            - 3306:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: 'root'
+            MYSQL_DATABASE: 'MENU'
+            MYSQL_USER: 'usuario'
+            MYSQL_PASSWORD: 'usuario'
         volumes:
             - db-volume:/var/lib/mysql
         networks:
-            - app-network
-
-    apache:
-        image: httpd:latest
-        container_name: apache
-        ports:
-            - "8101:80"
-        volumes:
-            - ./back/:/var/www/php
-        depends_on:
-            - php
-            - mysql
-        networks:
-            - app-network
+            - red
 
 volumes:
     db-volume:
 
 networks:
-    app-network:
-        driver: bridge
+    red:
