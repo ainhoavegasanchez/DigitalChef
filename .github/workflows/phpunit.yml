@@ -12,6 +12,7 @@ permissions:
 jobs:
   php-tests:
     runs-on: ubuntu-latest
+
     services:
       mysql:
         image: mysql:8.0
@@ -20,35 +21,45 @@ jobs:
           MYSQL_DATABASE: MENU
         ports:
           - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+        options: > 
+          --health-cmd="mysqladmin ping --silent" 
+          --health-interval=10s 
+          --health-timeout=5s 
+          --health-retries=3
+
     steps:
-      - uses: shivammathur/setup-php@2cb9b829437ee246e9b3cac53555a39208ca6d28
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
-      - uses: actions/checkout@v4
-      - name: Change directory to app
-        run: cd back/php/
-      - name: Copy .envLocal to .env
-        run: cp back/php/Conexion/.envLocal back/php/Conexion/.env
+
       - name: Cache Composer packages
-        id: composer-cache
         uses: actions/cache@v3
         with:
           path: vendor
           key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-php-
+
       - name: Install Dependencies
         run: |
           cd back/php/
           composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+      - name: Copy .envLocal to .env
+        run: cp back/php/Conexion/.envLocal back/php/Conexion/.env
+
+      - name: Check MySQL connection
+        run: |
+          mysqladmin ping -h 127.0.0.1 -P 3306 -u root --password=root
+
       - name: Load database dump
         run: |
-          mysql -h 127.0.0.1 -P 3306 -u root -p root --binary-mode=1 MENU < back/mysql/dump.sql
-      - name: Check MySQL connection
-        run: mysqladmin -h 127.0.0.1 -P 3306 -u root -p root status
+          mysql -h 127.0.0.1 -P 3306 -u root --password=root MENU < back/mysql/dump.sql
+
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         run: |
           cd back/php
-          vendor/bin/phpunit 
-      
+          vendor/bin/phpunit

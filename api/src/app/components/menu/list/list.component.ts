@@ -35,10 +35,14 @@ export class ListComponent {
       this.delete(id);
       console.log("se ha borrado");
     } else {
-      this.orderDetailService.updateDetailOrder(counter, id).subscribe();
+      this.orderDetailService.updateDetailOrder(counter, id).subscribe(
+        () => {
+          this.updateOrder();
+        }
+      );
       console.log("actualizar", counter);
     }
-    this.updateOrder();
+
   }
 
   updateOrder() {
