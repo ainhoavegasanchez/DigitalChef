@@ -51,7 +51,7 @@ CREATE TABLE VALORACION(
     FOREIGN KEY  (id_producto) REFERENCES PRODUCTO(id)
 );
 
-
+INSERT INTO CATEGORIA(nombre)VALUES("categoria");
 
 INSERT INTO PRODUCTO(nombre, foto, descripcion, precio, id_catego)VALUES("prueba", "prueba.jpg", "descripcion producto prueba", 12.4, 1);
 INSERT INTO PRODUCTO(nombre, foto, descripcion, precio, id_catego)VALUES("Yakitori", "foto.jpg", "descripcion del Producto 2", 20.49, 1);
