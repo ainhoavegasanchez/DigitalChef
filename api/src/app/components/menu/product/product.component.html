@@ -1,20 +1,21 @@
+<section>
+   <div class="product">
 
-
-  <section>
-    <div class="col-md-4 product">
-      <div class="single_menu_list">
-         <div class="img">
-            <img [src]="'../../../assets/imgs/' + product.foto"  alt="">
-         </div>
-         <div class="menu_content">
-            <div class="title">
-                <h4>{{product.nombre}}</h4>
-            <p>{{product.precio}} €</p>
-            </div>
-            <p>{{product.descripcion}}</p>
-            <nz-rate [(ngModel)]="valor" nzDisabled ></nz-rate>
-         </div>
-         <button type="button" class="btn btn-primary" (click)="addProduct(product.id)">Añadir</button>
+      <div class="img">
+         <img [src]="'../../../assets/imgs/' + product.foto" alt="">
       </div>
+      <div class="menu_content">
+         <div class="title">
+            <h4>{{product.nombre}}</h4>
+         </div>
+         <p>{{product.descripcion}}</p>
+         <nz-rate id="start" [(ngModel)]="valor" nzDisabled></nz-rate>
+      </div>
+      <div id="footer">
+         <p>{{product.precio}} €</p>
+         <div class="btn" (click)="addProduct(product.id)"><i class="bi bi-plus-circle"></i></div>
+      </div>
+
    </div>
-  </section>
+
+</section>

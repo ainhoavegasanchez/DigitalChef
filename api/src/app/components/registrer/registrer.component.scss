@@ -3,6 +3,10 @@
   height: 100vh;
   align-items: center;
   background-image: url("../../../assets/imgs/book-table-img.jpg");
+ 
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
 }
 .container {
   max-width: 1140px;
@@ -27,11 +31,13 @@
   flex-direction: column;
   & h2 {
     color: white;
+    font-size: 3rem;
+    font-weight: bold;
   }
 }
 .signup-content {
   display: flex;
-  width: 50vw;
+  width: 100vw;
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
@@ -68,7 +74,7 @@ input {
 
 .form-group {
   & input {
-    background-color: rgba(105, 105, 105, 0.829);
+    background-color: rgba(130, 118, 107, 0.8);
     color: white;
     border-radius: 10px;
     border: none;
@@ -80,19 +86,66 @@ input {
 }
 
 form {
-  width: 50%;
+  width: 70%;
 }
 
 .form-button {
   display: flex;
   & input {
-    width: 100%;
-    background-color: rgba(245, 222, 179, 0.815);
-    color: black;
+    width: 70%;
+    background-color: rgba(13, 11, 9, 0.82);
+    color: white;
   }
   padding: 10px;
 }
 
 a {
   color: white;
+}
+#signup {
+  color: white;
+}
+
+@media (min-width: 800px) {
+  .signup-form {
+    width: 70%;
+    & .form-button {
+      width: 70%;
+    }
+  }
+
+  .register-form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group {
+    width: 90%;
+  }
+
+  .signup-button {
+    width: 80%;
+    text-align: right;
+  }
+
+  .signup-button{
+    width: 40%;
+    text-align: right;
+    margin: 10px;
+    & a{
+      color: black;
+      font-weight: bold;
+    }
+  }
+
+  .signup{
+    height:auto;
+  }
+}
+
+@media (min-width:1024px) {
+  .signup{
+    height:100vh;
+  }
 }

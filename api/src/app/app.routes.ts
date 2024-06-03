@@ -8,6 +8,7 @@ import { PortadaComponent } from './components/portada/portada.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ModalsComponent } from './components/modals/modals.component';
+import { ListComponent } from './components/menu/list/list.component';
 
 export const routes: Routes = [ 
     { path: 'portada', component: PortadaComponent },
@@ -20,6 +21,7 @@ export const routes: Routes = [
             { path: '', component: MenuComponent },
             { path: 'modals', component: ModalsComponent},
             { path: 'perfil', component: PerfilComponent },
+            { path: 'list', component: ListComponent },
         ]
     },
     { path: 'valoraciones', component: ValoracionesComponent },

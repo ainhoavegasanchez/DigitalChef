@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NzmoduleModule } from '../../nzmodule.module';
+import { NzmoduleModule } from '../../../nzmodule.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';

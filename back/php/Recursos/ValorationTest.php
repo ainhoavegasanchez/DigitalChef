@@ -26,7 +26,7 @@ class ValorationTest extends ModelTestCase
         $datosValoracion = $this->resource->obtenerPorId($this->idValoracion);
         $this->assertEquals($datosValoracion['valor'],4);
         $this->assertEquals($datosValoracion['id_usuario'],2);
-        $this->assertEquals($datosValoracion['id_producto'],3);
+        $this->assertEquals($datosValoracion['id_producto'],1);
         $this->assertGreaterThan(0, $this->idValoracion);
     }
 
@@ -37,7 +37,7 @@ class ValorationTest extends ModelTestCase
         }
         $datosValoracion = $this->resource->obtenerPorId($this->idValoracion);
         $this->assertEquals($datosValoracion['id'], $this->idValoracion);
-        $this->assertEquals($datosValoracion['id_producto'], 3);
+        $this->assertEquals($datosValoracion['id_producto'], 1);
         $this->assertEquals($datosValoracion['id_usuario'], 2);
         $this->assertEquals($datosValoracion['valor'], 4);
     }
@@ -49,7 +49,7 @@ class ValorationTest extends ModelTestCase
         }
         $nuevosDatos = (object)[
             'valor' => 1,
-            'id_producto'=>3,
+            'id_producto'=>1,
             "user"=>(object)["id"=>2]
         ];
         $this->resource->actualizar($nuevosDatos);
@@ -58,7 +58,7 @@ class ValorationTest extends ModelTestCase
     }
 
     public function testObtenerMedia(){
-        $datosValoracion = $this->media->obtenerMedia(4);
+        $datosValoracion = $this->media->obtenerMedia(3);
         $this->assertEquals($datosValoracion, 5);
     }
 

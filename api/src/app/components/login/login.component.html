@@ -3,7 +3,7 @@
         <div class="signup-content">
             <div class="signup-form">
                 <h2 class="form-title">Sign up</h2>
-                <form method="POST" class="register-form" id="register-form">
+                <form method="POST" class="register-form" id="registrer-form">
                     <div class="form-group">
                         <label for="email"><i class="zmdi zmdi-email"></i></label>
                         <input type="email" name="email" id="email" [(ngModel)]="user.email" placeholder="Your Email" required />
@@ -16,10 +16,9 @@
                         <input type="submit" name="signup" id="signup" class="form-submit" (click)="selectUser()"
                             value="Register" />
                     </div>
-                    <a id="pass" class="signup-image-link" (click)="sendNew()">No recuerdas tu contraseña??</a>
+                    <a id="no-pass" class="signup-image-link" (click)="sendNew()">No recuerdas tu contraseña??</a>
                 </form>
-                <div class="signup-image">
-                    <figure></figure>
+                <div id="no-cuenta">
                     <a class="signup-image-link" [routerLink]="'/registrer'">You no have account?</a>
                 </div>
             </div>
@@ -28,11 +27,11 @@
 
 </section>
 
-<section class="signup" *ngIf="sendPass">
+<section class="recuperar" *ngIf="sendPass">
     <div class="container">
         <div class="signup-form">
-            <h2 class="form-title">Recuperar contraseña</h2>
-            <form class="register-form" id="email-pass">
+            <h2 id="recuper-title">Recuperar contraseña</h2>
+            <form class="recuper-form" id="email-pass">
                 <div  class="form-group">
                     <label for="email"><i class="zmdi zmdi-email"></i></label>
                     <input type="email" name="emailPass" id="emailPass" [(ngModel)]="emailPass" placeholder="Your Email" required/>

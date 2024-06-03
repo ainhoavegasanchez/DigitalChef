@@ -7,11 +7,12 @@ import { ProductComponent } from './product/product.component';
 import { ListComponent } from './list/list.component';
 import { OrderService } from '../../services/order/order.service';
 import { OrderDetailService } from '../../services/order_detail/order-detail.service';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [RouterOutlet, RouterModule, HttpClientModule, ProductComponent, ListComponent],
+  imports: [RouterOutlet, RouterModule, HttpClientModule, ProductComponent, ListComponent, NzIconModule],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

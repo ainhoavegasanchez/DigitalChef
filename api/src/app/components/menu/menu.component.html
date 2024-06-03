@@ -1,5 +1,9 @@
 <div class="grid">
-  <app-list [products]="MenuList" [total]="total" (deleteDetail)="delete($event)"></app-list>
+  <input class="list-btn" type="checkbox" id="list-btn"/>
+  <label id="btn-list" for="list-btn">Pedido</label>
+  <div class="list">
+    <app-list [products]="MenuList" [total]="total" (deleteDetail)="delete($event)"></app-list>
+  </div>
   <div class="menu">
     <nav>
       <a (click)="recuperarTodos(3)">Bebidas</a>

@@ -1,16 +1,14 @@
-<div id="navbar">
-  <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <div class="nombre">
-        <h2  class="navbar-brand">Bienvenido {{user.nombre}}
-        </h2>
-      </div>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <button type="button" class="btn"> <a class="nav-link"  [routerLink]="'/inicio'">Menu</a></button>
 
-        <button type="button" class="btn" ><a class="nav-link"  [routerLink]="'perfil'">Perfil</a></button>
-      </div>
+
+  <header class="header">
+    <div class="nombre">
+      <h1 class="navbar-brand">Bienvenido {{user.nombre}}
+      </h1>
     </div>
-  </nav>
-       
-</div>
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+    <ul class="menu" id="navbarNav">
+      <li><button type="button" class="btn"> <a class="nav-link" [routerLink]="'/inicio'">Menu</a></button></li>
+      <li><button type="button" class="btn"><a class="nav-link" [routerLink]="'perfil'">Perfil</a></button></li>
+    </ul>
+  </header>

@@ -22,10 +22,10 @@ class PedidoDetalleTest extends ModelTestCase
     public function testInsertarDetalle()
     {
 
-        $pedido = (object)[
+        $pedidoUser = (object)[
             "id" => 2
         ];
-        $this->idPedido = $this->resourcePedido->insertar($pedido);
+        $this->idPedido = $this->resourcePedido->insertar($pedidoUser);
         $this->resource->insertar(
             (object)[
                 'order' => (object)[
@@ -38,7 +38,7 @@ class PedidoDetalleTest extends ModelTestCase
         );
         $detalles = $this->resource->obtener($this->idPedido);
         $this->assertEquals(3, $detalles[sizeof($detalles) - 1]['id_producto']);
-        $this->assertEquals(1, $detalles[sizeof($detalles) - 1]['cantidad']);
+        $this->assertEquals(4, $detalles[sizeof($detalles) - 1]['cantidad']);
 
     }
 
@@ -86,7 +86,7 @@ class PedidoDetalleTest extends ModelTestCase
         );
 
         $detalle = $this->resource->obtener($this->idPedido);
-        $this->assertEquals(1, $detalle[sizeof($detalle) - 1]['cantidad']);
+        $this->assertEquals(4, $detalle[sizeof($detalle) - 1]['cantidad']);
 
         $this->actualizar->update(
             (object)[

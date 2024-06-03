@@ -1,19 +1,23 @@
 <div class="menu">
-        <h5 class="card-title">PEDIDO</h5>
+        <div class="header">
+                <h5 class="card-title">PEDIDO</h5>
+                <label class="flecha" for="list-btn"><i class="bi bi-chevron-down"></i></label>
+        </div>
         <ul class="list-group">
                 <li class="list-group-item" *ngFor="let product of products">
+                        <app-counter (counterUpdate)="updateCounter($event, product.detail.id)"
+                                [counter]="product.detail.cantidad"></app-counter>
                         <h3>{{product.product.nombre}}</h3>
-                        <div>
-                                <app-counter (counterUpdate)="updateCounter($event, product.detail.id)"
-                                        [counter]="product.detail.cantidad"></app-counter>
-                                <button type="button">
-                                        <i class="bi bi-trash" (click)="delete(product.detail.id)"></i>
-                                </button>
+                        <div id="borrar">
+                                <i class="bi bi-trash" (click)="delete(product.detail.id)"></i>
                         </div>
                 </li>
                 @if (total!=0) {
-                <app-total [total]="total"></app-total>
-                <button type="button" class="btn btn-info" (click)="showModal()">FINALIZAR PEDIDO</button>
+                <div class="footer">
+                        <app-total [total]="total"></app-total>
+                        <button type="button" class="btn btn-info" (click)="showModal()">FINALIZAR PEDIDO</button>
+                </div>
+
                 }@else {
                 <h4>Tu pedido esta vacío, comienza a llenarlo de platos deliciosos</h4>
                 }

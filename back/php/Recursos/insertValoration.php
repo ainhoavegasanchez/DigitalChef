@@ -61,7 +61,9 @@ class insertValoration
     }
 
 }
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 $json = file_get_contents('php://input');
 $params = json_decode($json);

@@ -5,7 +5,7 @@
 >
     <testsuites>
         <testsuite
-                name="manduca"
+                name="digitalchef"
         >
             <directory phpVersion="8.3"></directory>
         </testsuite>
