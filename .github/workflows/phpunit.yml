@@ -40,7 +40,6 @@ jobs:
             ${{ runner.os }}-php-
       - name: Install Dependencies
         run: |
-          cd back/manduca/
           composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
       - name: Check MySQL connection
         run: mysqladmin -h 127.0.0.1 -P 3306 -u root -proot status
@@ -48,6 +47,5 @@ jobs:
         run: mysql -h 127.0.0.1 -P 3306 -u root -proot --binary-mode=1 MENU < back/mysql/dump.sql
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         run: |
-          cd back/manduca
-          ./vendor/bin/phpunit Recursos/
+          ./back/manduca/vendor/bin/phpunit Recursos/
       
