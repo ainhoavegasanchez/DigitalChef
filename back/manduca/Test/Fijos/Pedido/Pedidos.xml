@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Pedidos>
+    <Pedido>
+        <Nick>rbonilla</Nick>
+        <Fecha_Hora>2023-08-02 03:12:00</Fecha_Hora>
+        <PedidosDetalle>
+            <PedidoDetalle>
+                <Producto id="178">
+                    <Nombre>Cabramelizada</Nombre>
+                    <Cantidad>1</Cantidad>
+                    <Precio>10,6704</Precio>
+                </Producto>
+                <Importe>10,6704</Importe>
+            </PedidoDetalle>
+            <PedidoDetalle>
+                <Producto id="211">
+                    <Nombre>Pan de ajo con queso</Nombre>
+                    <Cantidad>2</Cantidad>
+                    <Precio>7,6200</Precio>
+                </Producto>
+                <Importe>15,2400</Importe>
+            </PedidoDetalle>
+        </PedidosDetalle>
+    </Pedido>
+    <Pedido>
+        <Nick>jlopez</Nick>
+        <Fecha_Hora>2024-02-01 20:17:34</Fecha_Hora>
+        <PedidosDetalle>
+            <PedidoDetalle>
+                <Producto id="175">
+                    <Nombre>Buffalo Chicken</Nombre>
+                    <Cantidad>2</Cantidad>
+                    <Precio>10,8972</Precio>
+                </Producto>
+                <Importe>21,3408</Importe>
+            </PedidoDetalle>
+            <PedidoDetalle>
+                <Producto id="201">
+                    <Nombre>Agua</Nombre>
+                    <Cantidad>2</Cantidad>
+                    <Precio>2,1600</Precio>
+                </Producto>
+                <Importe>4,3200</Importe>
+            </PedidoDetalle>
+        </PedidosDetalle>
+    </Pedido>
+    <Pedido>
+        <Nick>lestevez</Nick>
+        <Fecha_Hora>2023-03-12 10:16:40</Fecha_Hora>
+        <PedidosDetalle>
+            <PedidoDetalle>
+                <Producto id="182">
+                    <Nombre>Extravaganzza</Nombre>
+                    <Cantidad>3</Cantidad>
+                    <Precio>10,0224</Precio>
+                </Producto>
+                <Importe>30,0672</Importe>
+            </PedidoDetalle>
+            <PedidoDetalle>
+                <Producto id="195">
+                    <Nombre>Pepsi</Nombre>
+                    <Cantidad>3</Cantidad>
+                    <Precio>2,0400</Precio>
+                </Producto>
+                <Importe>6,1200</Importe>
+            </PedidoDetalle>
+            <PedidoDetalle>
+                <Producto id="212">
+                    <Nombre>Pan de ajo</Nombre>
+                    <Cantidad>1</Cantidad>
+                    <Precio>7,7900</Precio>
+                </Producto>
+                <Importe>7,7900</Importe>
+            </PedidoDetalle>
+        </PedidosDetalle>
+    </Pedido>
+</Pedidos>

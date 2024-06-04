@@ -27,9 +27,9 @@ jobs:
           php-version: '8.3'
       - uses: actions/checkout@v4
       - name: Change directory to app
-        run: cd back/php/
+        run: cd back/manduca/
       - name: Copy .envLocal to .env
-        run: cp back/php/Conexion/.envLocal back/php/Conexion/.env
+        run: cp back/manduca/Conexion/.envLocal back/manduca/Conexion/.env
       - name: Cache Composer packages
         id: composer-cache
         uses: actions/cache@v3
@@ -40,7 +40,7 @@ jobs:
             ${{ runner.os }}-php-
       - name: Install Dependencies
         run: |
-          cd back/php/
+          cd back/manduca/
           composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
       - name: Check MySQL connection
         run: mysqladmin -h 127.0.0.1 -P 3306 -u root -proot status
@@ -48,6 +48,6 @@ jobs:
         run: mysql -h 127.0.0.1 -P 3306 -u root -proot --binary-mode=1 MENU < back/mysql/dump.sql
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         run: |
-          cd back/php
-          vendor/bin/phpunit 
+          cd back/manduca
+          phpunit Recursos/
       

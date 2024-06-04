@@ -6,8 +6,5 @@
   },
   "require": {
     "ext-simplexml": "*"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^9"
   }
 }
