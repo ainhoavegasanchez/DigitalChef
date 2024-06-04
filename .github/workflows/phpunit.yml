@@ -26,7 +26,7 @@ jobs:
         with:
           php-version: '8.3'
       - uses: actions/checkout@v4
-      - name: Change directory to app
+      - name: Change directory to php
         run: cd back/manduca/
       - name: Copy .envLocal to .env
         run: cp back/manduca/Conexion/.envLocal back/manduca/Conexion/.env
@@ -49,5 +49,5 @@ jobs:
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         run: |
           cd back/manduca
-          back/manduca/vendor/bin/phpunit Recursos/
+          vendor/bin/phpunit Recursos/
       
