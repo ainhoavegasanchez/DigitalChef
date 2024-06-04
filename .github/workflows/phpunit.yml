@@ -41,7 +41,9 @@ jobs:
       - name: Install Dependencies
         run: |
           cd back/manduca/
-          composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      - uses: php-actions/composer@v6
+      - run: echo "Composer dependencies have been installed"
+          # composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
       - name: Check MySQL connection
         run: mysqladmin -h 127.0.0.1 -P 3306 -u root -proot status
       - name: Load database dump
