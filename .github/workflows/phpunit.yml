@@ -48,6 +48,6 @@ jobs:
         run: mysql -h 127.0.0.1 -P 3306 -u root -proot --binary-mode=1 MENU < back/mysql/dump.sql
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         run: |
-          cd back/manduca
+          cd back/manduca/
           vendor/bin/phpunit Recursos/
       
