@@ -41,9 +41,7 @@ jobs:
       - name: Install Dependencies
         run: |
           cd back/manduca/
-      - uses: php-actions/composer@v6
-      - run: echo "Composer dependencies have been installed"
-          # composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+          composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
       - name: Check MySQL connection
         run: mysqladmin -h 127.0.0.1 -P 3306 -u root -proot status
       - name: Load database dump
@@ -51,5 +49,5 @@ jobs:
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         run: |
           cd back/manduca
-          vendor/bin/phpunit Recursos/
+          ./vendor/bin/phpunit Recursos/
       
