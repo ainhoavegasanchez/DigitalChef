@@ -24,12 +24,15 @@ jobs:
     steps:
       - name: Checkout del repositorio
         uses: actions/checkout@v4
+        
       - name: Configurar PHP
-        uses: shivammathur/setup-php@2cb9b829437ee246e9b3cac53555a39208ca6d28
+        uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
+          
       - name: Copiar .envLocal a .env
         run: cp back/manduca/Conexion/.envLocal back/manduca/Conexion/.env
+        
       - name: Cache de paquetes de Composer
         id: composer-cache
         uses: actions/cache@v3
@@ -38,15 +41,19 @@ jobs:
           key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-php-
+            
       - name: Instalar dependencias
         run: |
           cd back/manduca/
           composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+          
       - name: Cargar volcado de la base de datos
         run: mysql -h 127.0.0.1 -P 3306 -u root -proot --binary-mode=1 MENU < back/mysql/dump.sql
+        
       - name: Comprobar conexión MySQL
         run: mysqladmin -h 127.0.0.1 -P 3306 -u root -proot status
+        
       - name: Ejecutar pruebas (Unitarias y de Función) con PHPUnit
         run: |
           cd back/manduca/
-          vendor/bin/phpunit Recursos/
+          ./vendor/bin/phpunit Recursos/
