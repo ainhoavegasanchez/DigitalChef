@@ -20,36 +20,33 @@ jobs:
           MYSQL_DATABASE: MENU
         ports:
           - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+        options: --health-cmd="mysqladmin ping --silent" --health-interval=10s --health-timeout=5s --health-retries=3
     steps:
-      - uses: shivammathur/setup-php@2cb9b829437ee246e9b3cac53555a39208ca6d28
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+      - name: Configurar PHP
+        uses: shivammathur/setup-php@2cb9b829437ee246e9b3cac53555a39208ca6d28
         with:
           php-version: '8.3'
-      - uses: actions/checkout@v4
-      - name: Change directory to php
-        run: cd back/manduca/
-      - name: Copy .envLocal to .env
+      - name: Copiar .envLocal a .env
         run: cp back/manduca/Conexion/.envLocal back/manduca/Conexion/.env
-      - name: Cache Composer packages
+      - name: Cache de paquetes de Composer
         id: composer-cache
         uses: actions/cache@v3
         with:
-          path: vendor
+          path: back/manduca/vendor
           key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-php-
-      - name: Install Dependencies
+      - name: Instalar dependencias
         run: |
           cd back/manduca/
           composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
-      - name: Load database dump
+      - name: Cargar volcado de la base de datos
         run: mysql -h 127.0.0.1 -P 3306 -u root -proot --binary-mode=1 MENU < back/mysql/dump.sql
-      - name: Check MySQL connection
-        run: |
-            mysqladmin -h 127.0.0.1 -P 3306 -u root -proot status
-            pwd
-      - name: Execute tests (Unit and Feature tests) via PHPUnit
+      - name: Comprobar conexión MySQL
+        run: mysqladmin -h 127.0.0.1 -P 3306 -u root -proot status
+      - name: Ejecutar pruebas (Unitarias y de Función) con PHPUnit
         run: |
           cd back/manduca/
           vendor/bin/phpunit Recursos/
-      
