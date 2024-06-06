@@ -18,6 +18,7 @@ create table PEDIDO(
     fecha TIMESTAMP,
     id_usuario INTEGER,
     total FLOAT,
+    terminado BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (id_usuario) REFERENCES USUARIO(id)
 );
 
@@ -51,7 +52,7 @@ CREATE TABLE VALORACION(
     FOREIGN KEY  (id_producto) REFERENCES PRODUCTO(id)
 );
 
-INSERT INTO USUARIO(nombre, email, pass)VALUES("pepe", "pepe@gmail.com", "123");
+INSERT INTO USUARIO(id,nombre, email, pass)VALUES(1,"pepe", "pepe@gmail.com", "123");
 
 INSERT INTO CATEGORIA(nombre)VALUES("categoria");
 
