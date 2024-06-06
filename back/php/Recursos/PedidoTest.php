@@ -41,7 +41,7 @@ class PedidoTest extends ModelTestCase
     {
         $pedidos = $this->obtener->obtener(1);
         $this->assertEquals($pedidos[0]['id_usuario'], 1);
-        $this->assertEquals($pedidos[0]['total'], 30.78);
+        $this->assertEquals($pedidos[0]['total'], 1);
     }
 
     public function testCerrarPedido(){

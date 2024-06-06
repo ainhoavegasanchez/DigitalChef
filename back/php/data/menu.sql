@@ -3,21 +3,21 @@ USE MENU;
 
 CREATE TABLE  USUARIO(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50),
-    pass VARCHAR(10),
-    email VARCHAR(30)
+    nombre VARCHAR(50) NOT NULL,
+    pass VARCHAR(10) NOT NULL,
+    email VARCHAR(30) NOT NULL UNIQUE
 );
 
 CREATE TABLE CATEGORIA(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(50)
+    nombre VARCHAR(50) NOT NULL
 );
 
 create table PEDIDO(
     id INTEGER AUTO_INCREMENT PRIMARY KEY, 
     fecha TIMESTAMP,
-    id_usuario INTEGER,
-    total FLOAT,
+    id_usuario INTEGER NOT NULL,
+    total FLOAT NOT NULL,
     terminado boolean DEFAULT FALSE,
     FOREIGN KEY (id_usuario) REFERENCES USUARIO(id)
 );
@@ -25,11 +25,11 @@ create table PEDIDO(
 
 CREATE TABLE PRODUCTO (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(30),
-    descripcion VARCHAR(100),
+    nombre VARCHAR(30) NOT NULL,
+    descripcion VARCHAR(100) NOT NULL,
     foto VARCHAR(300),
-    id_catego INTEGER,
-    precio FLOAT,
+    id_catego INTEGER NOT NULL,
+    precio FLOAT NOT NULL,
     FOREIGN KEY (id_catego) REFERENCES CATEGORIA(id)
 );
 
@@ -49,8 +49,8 @@ CREATE TABLE DETALLE_PEDIDO (
 CREATE TABLE VALORACION(
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     valor ENUM ('1','2','3','4','5') NOT NULL DEFAULT '5' ,
-    id_producto INTEGER,
-    id_usuario INTEGER,
+    id_producto INTEGER NOT NULL,
+    id_usuario INTEGER NOT NULL,
     FOREIGN KEY (id_usuario) REFERENCES USUARIO(id),
     FOREIGN KEY  (id_producto) REFERENCES PRODUCTO(id)
 );

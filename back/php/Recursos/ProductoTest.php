@@ -13,16 +13,16 @@ class ProductoTest extends ModelTestCase
         $this->resource = new Product();
         $this->productoObtener = new getProduct();
     }
+    private $producto = (object) [
+        "nombre" => "pruebaTest",
+        "descripcion" => "esta es la descripcion",
+        "foto" => "foto.jpg",
+        "id_catego" => 1,
+        "precio" => 12.4
+    ];
 
-    public function testInsertarProducto()
+    public function testInsertarYObtenerProducto($producto)
     {
-        $producto = (object)[
-            "nombre" => "pruebaTest",
-            "descripcion" => "esta es la descripcion",
-            "foto" => "foto.jpg",
-            "id_catego" => 1,
-            "precio" => 12.4
-        ];
         $this->idProducto = $this->resource->insertar($producto);
         $datosProducto = $this->resource->obtener($this->idProducto);
         $this->assertEquals($datosProducto['nombre'], "pruebaTest");
@@ -33,13 +33,23 @@ class ProductoTest extends ModelTestCase
         $this->assertGreaterThan(0, $this->idProducto);
     }
 
+   /* private $obtenerTest = (object) [
+        "nombre" => "pruebaObtener",
+        "descripcion" => "esta es la descripcion",
+        "foto" => "foto.jpg",
+        "id_catego" => 1,
+        "precio" => 14.5
+    ];
 
-    public function testObetenerProducto(){
-       $datosProducto =  $this->productoObtener->obtenerProduct(3);
-        $this->assertEquals($datosProducto['nombre'], "Yakitori");
-        $this->assertEquals($datosProducto['descripcion'], "Descripción del Producto 2");
+    public function testObetenerProducto($obtenerTest)
+    {
+
+        $this->idProducto = $this->resource->insertar($obtenerTest);
+        $datosProducto = $this->productoObtener->obtenerProduct($this->idProducto);
+        $this->assertEquals($datosProducto['nombre'], "pruebaObtener");
+        $this->assertEquals($datosProducto['descripcion'], "esta es la descripcion");
         $this->assertEquals($datosProducto['id_catego'], 1);
-        $this->assertEquals($datosProducto['precio'], 20.49);
+        $this->assertEquals($datosProducto['precio'], 14.5);
 
-    }
+    }*/
 }

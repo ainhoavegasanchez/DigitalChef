@@ -52,7 +52,7 @@ class UsuarioTest extends ModelTestCase
             'id'=>$this->idUsuario
         ];
         $this->actualizarUsuario->actualizar($nuevosDatos);
-        $datosUsuario = $this->resource->obtener("prueba@gmail.com");
+        $datosUsuario = $this->obtenerUsuario->obtener("prueba@gmail.com");
         $this->assertEquals($nuevosDatos->name, $datosUsuario['nombre']);
     }
 

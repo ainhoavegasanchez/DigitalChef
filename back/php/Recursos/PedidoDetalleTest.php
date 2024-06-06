@@ -13,7 +13,6 @@ class PedidoDetalleTest extends ModelTestCase
 
     public function setUp(): void
     {
-        parent::setUp(); // Aseg�rate de llamar al setUp del padre si es necesario
         $this->resource = new insertOrderDetail();
         $this->resourcePedido = new Pedido();
         $this->borrar = new deleteDetailOrder();
@@ -34,7 +33,7 @@ class PedidoDetalleTest extends ModelTestCase
                 'product' => (object)[
                     'id' => 3
                 ],
-                'cantidad' => 4
+                'cantidad' => 1
             ]
         );
         $detalles = $this->resource->obtener($this->idPedido);
