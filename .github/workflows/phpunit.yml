@@ -32,6 +32,9 @@ jobs:
           
       - name: Copiar .envLocal a .env
         run: cp back/manduca/Conexion/.envLocal back/manduca/Conexion/.env
+
+      - name: Ver contenido del archivo .env
+        run: cat back/manduca/Conexion/.env
         
       - name: Cache de paquetes de Composer
         id: composer-cache
