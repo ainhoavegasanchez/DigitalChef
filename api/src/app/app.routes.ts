@@ -25,6 +25,7 @@ export const routes: Routes = [
         ]
     },
     { path: 'valoraciones', component: ValoracionesComponent },
+  
     
 ];
 
