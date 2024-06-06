@@ -47,6 +47,9 @@ jobs:
           cd back/manduca/
           composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
           
+      - name: Establecer permisos para PHPUnit
+        run: chmod +x back/manduca/vendor/bin/phpunit
+        
       - name: Cargar volcado de la base de datos
         run: mysql -h 127.0.0.1 -P 3306 -u root -proot --binary-mode=1 MENU < back/mysql/dump.sql
         
