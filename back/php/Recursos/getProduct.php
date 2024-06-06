@@ -1,7 +1,7 @@
 <?php
 
 namespace Recursos;
-require '../vendor/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
 use Conexion\ConexionPdo;
 
 class getProduct
@@ -23,7 +23,6 @@ class getProduct
         return $producto;
     }
 }
-
 
 
 if (isset($_GET['id'])) {

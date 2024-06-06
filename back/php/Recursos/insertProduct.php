@@ -1,7 +1,7 @@
-<?php declare(strict_types=1);
+<?php 
 namespace Recursos;
-require '../vendor/autoload.php';
 
+require __DIR__.'/../vendor/autoload.php';
 use Conexion\ConexionPdo;
 
 
@@ -42,6 +42,7 @@ class  InsertProduct{
     }
 
 }
+
 const XML= __DIR__."/../Mocks/products.xml";
 $producto= new InsertProduct();
 $producto->cargarXml(XML);

@@ -1,7 +1,6 @@
 <?php declare(strict_types=1);
 
 namespace Recursos;
-require '../vendor/autoload.php';
 use Comun\TestCase as ModelTestCase;
 use Comun\Cifrado;
 use Constantes\Usuario as ConstanteUsuario;

@@ -5,6 +5,10 @@
     ]
   },
   "require": {
-    "ext-simplexml": "*"
+    "ext-simplexml": "*",
+    "firebase/php-jwt": "^6.10"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9"
   }
 }

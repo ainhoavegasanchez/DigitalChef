@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 namespace Recursos;
-require '../vendor/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
 use Conexion\ConexionPdo;
 
 class getOrder{
@@ -25,6 +25,8 @@ class getOrder{
        return $result;
     }
 }
+
+
 
 if(isset($_GET["id_usuario"])) {
     $pedido = new getOrder();

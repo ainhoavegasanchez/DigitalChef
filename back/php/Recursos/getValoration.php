@@ -1,8 +1,7 @@
 <?php
 
 namespace Recursos;
-
-require '../vendor/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
 use Conexion\ConexionPdo;
 
 class getValoration
@@ -22,9 +21,10 @@ class getValoration
             ":id_producto" => $param
         ]);
         $result = $stmt->fetchColumn();
-        return $result;
+        return (float)$result;
     }
 }
+
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -32,8 +32,9 @@ error_reporting(E_ALL);
 
 if (isset($_GET['id_producto'])) {
     $valoration = new getValoration();
-
     $result = $valoration->obtenerMedia($_GET['id_producto']);
-    header('Content-Type: application/json');
-    echo json_encode(['media' => $result]);
-}
+    if($result==0.0){
+        $result=5.0;
+    }
+    echo json_encode(['media' => (float)$result]);
+} 

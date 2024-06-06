@@ -1,11 +1,10 @@
 <phpunit
         bootstrap="./bootstrap.php"
         colors="true"
-        displayDetailsOnTestsThatTriggerWarnings="true"
 >
     <testsuites>
         <testsuite
-                name="digitalchef"
+                name="manduca"
         >
             <directory phpVersion="8.3"></directory>
         </testsuite>

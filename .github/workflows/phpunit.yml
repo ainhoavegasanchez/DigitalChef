@@ -31,27 +31,27 @@ jobs:
           php-version: '8.3'
           
       - name: Copiar .envLocal a .env
-        run: cp back/manduca/Conexion/.envLocal back/manduca/Conexion/.env
+        run: cp back/php/Conexion/.envLocal back/php/Conexion/.env
 
       - name: Ver contenido del archivo .env
-        run: cat back/manduca/Conexion/.env
+        run: cat back/php/Conexion/.env
         
       - name: Cache de paquetes de Composer
         id: composer-cache
         uses: actions/cache@v3
         with:
-          path: back/manduca/vendor
+          path: back/php/vendor
           key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-php-
             
       - name: Instalar dependencias
         run: |
-          cd back/manduca/
+          cd back/php/
           composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
           
       - name: Establecer permisos para PHPUnit
-        run: chmod +x back/manduca/vendor/bin/phpunit
+        run: chmod +x back/php/vendor/bin/phpunit
         
       - name: Cargar volcado de la base de datos
         run: mysql -h 127.0.0.1 -P 3306 -u root -proot --binary-mode=1 MENU < back/mysql/dump.sql
@@ -61,4 +61,4 @@ jobs:
         
       - name: Ejecutar pruebas (Unitarias y de Función) con PHPUnit
         run: |
-          ./back/manduca/vendor/bin/phpunit back/manduca/Recursos/
+          ./back/php/vendor/bin/phpunit back/php/Recursos/

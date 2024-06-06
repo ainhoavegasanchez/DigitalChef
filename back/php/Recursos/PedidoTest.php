@@ -3,18 +3,19 @@
 declare(strict_types=1);
 
 namespace Recursos;
-require '../vendor/autoload.php';
+
 use Comun\TestCase as ModelTestCase;
 use DateTime;
 
 class PedidoTest extends ModelTestCase
 {
-    protected $resource, $idPedido, $obtener;
+    protected $resource, $idPedido, $obtener, $cerrar;
 
     public function setUp(): void
     {
         $this->resource = new Pedido();
         $this->obtener = new getOrder();
+        $this->cerrar = new TerrminatedOrder();
 
     }
 
@@ -29,7 +30,7 @@ class PedidoTest extends ModelTestCase
         $datosPedido = $this->resource->obtener($this->idPedido);
         $this->assertEquals($datosPedido['id_usuario'], 1);
         $this->assertEquals($datosPedido['fecha'], $fechaFormateada);
-        $this->assertEquals($datosPedido['total'], 0);
+        $this->assertEquals($datosPedido['total'], 0.0);
         $this->assertGreaterThan(0, $this->idPedido);
 
         return $this->idPedido;
@@ -40,7 +41,14 @@ class PedidoTest extends ModelTestCase
     {
         $pedidos = $this->obtener->obtener(1);
         $this->assertEquals($pedidos[0]['id_usuario'], 1);
-        $this->assertEquals($pedidos[0]['total'], 0);
+        $this->assertEquals($pedidos[0]['total'], 30.78);
+    }
+
+    public function testCerrarPedido(){
+        $pedidos = $this->obtener->obtener(1);
+        $this->assertEquals($pedidos[0]['terminado'], false);
+        $this->cerrar->closedOrder(1);
+        $this->assertEquals($pedidos[0]['terminado'], true);
     }
 
 

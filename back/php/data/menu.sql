@@ -18,7 +18,7 @@ create table PEDIDO(
     fecha TIMESTAMP,
     id_usuario INTEGER,
     total FLOAT,
-    terminado boolean DEFAULT false,
+    terminado boolean DEFAULT FALSE,
     FOREIGN KEY (id_usuario) REFERENCES USUARIO(id)
 );
 

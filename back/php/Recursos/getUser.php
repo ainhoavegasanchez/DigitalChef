@@ -1,8 +1,8 @@
 <?php
 namespace Recursos;
-require '../vendor/autoload.php';
-
+require __DIR__.'/../vendor/autoload.php';
 use Conexion\ConexionPdo;
+use Constantes\Constantes;
 
 class getUser
 {
@@ -28,16 +28,16 @@ class getUser
     {
         return openssl_decrypt(
             $cadena,
-            ALGORITMO,
-            CLAVE,
+            Constantes::get('ALGORITMO'),
+            Constantes::get('CLAVE'),
             0,
-            IV
+            Constantes::get('IV')
         );
     }
 }
-define('CLAVE', "PasswordUsuario");
-define('ALGORITMO', "aes-128-ctr");
-define('IV', 'zzzzzzzzzzzzzzzz');
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
 
 $json = file_get_contents('php://input');

@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
 namespace Recursos;
+require __DIR__.'/../vendor/autoload.php';
 
-require '../vendor/autoload.php';
 use Conexion\ConexionPdo;
 
 class getOrderDetail
@@ -15,7 +15,7 @@ class getOrderDetail
         $this->pdo = $this->conexion::conectar(".env");
     }
 
-    public function obtener(int $id): array
+    public function obtener(string $id): array
     {
         $stmt = $this->pdo->prepare("SELECT id, id_producto , cantidad FROM DETALLE_PEDIDO where id_pedido=:id");
         $stmt->execute([":id"=>$id]);
@@ -29,7 +29,7 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 'on');
 date_default_timezone_set('Europe/Madrid');
 
-$id= (int)$_GET["id_pedido"];
+$id= $_GET["id_pedido"];
 if(isset($id)){
 
     $detail = new getOrderDetail();

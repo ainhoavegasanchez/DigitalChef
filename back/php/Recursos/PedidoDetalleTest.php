@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 namespace Recursos;
-require '../vendor/autoload.php';
+
 use Comun\TestCase as ModelTestCase;
 use Constantes\Usuario as ConstanteUsuario;
 use Constantes\Pedido as ConstantePedido;
@@ -13,6 +13,7 @@ class PedidoDetalleTest extends ModelTestCase
 
     public function setUp(): void
     {
+        parent::setUp(); // Aseg�rate de llamar al setUp del padre si es necesario
         $this->resource = new insertOrderDetail();
         $this->resourcePedido = new Pedido();
         $this->borrar = new deleteDetailOrder();
@@ -20,30 +21,6 @@ class PedidoDetalleTest extends ModelTestCase
     }
 
     public function testInsertarDetalle()
-    {
-
-        $pedidoUser = (object)[
-            "id" => 2
-        ];
-        $this->idPedido = $this->resourcePedido->insertar($pedidoUser);
-        $this->resource->insertar(
-            (object)[
-                'order' => (object)[
-                    'id' => $this->idPedido
-                ],
-                'product' => (object)[
-                    'id' => 3
-                ],
-                'cantidad' => 4]
-        );
-        $detalles = $this->resource->obtener($this->idPedido);
-        $this->assertEquals(3, $detalles[sizeof($detalles) - 1]['id_producto']);
-        $this->assertEquals(4, $detalles[sizeof($detalles) - 1]['cantidad']);
-
-    }
-
-    public
-    function testBorrarDetalle()
     {
         $pedido = (object)[
             "id" => 2
@@ -57,18 +34,42 @@ class PedidoDetalleTest extends ModelTestCase
                 'product' => (object)[
                     'id' => 3
                 ],
-                'cantidad' => 4]
+                'cantidad' => 4
+            ]
         );
-        $borrado = $this->borrar->delete(
+        $detalles = $this->resource->obtener($this->idPedido);
+        $this->assertEquals(3, $detalles[sizeof($detalles) - 1]['id_producto']);
+        $this->assertEquals(1, $detalles[sizeof($detalles) - 1]['cantidad']);
+    }
+
+    public function testBorrarDetalle()
+    {
+        $pedido = (object)[
+            "id" => 2
+        ];
+        $this->idPedido = $this->resourcePedido->insertar($pedido);
+        $this->idDetalle = $this->resource->insertar(
+            (object)[
+                'order' => (object)[
+                    'id' => $this->idPedido
+                ],
+                'product' => (object)[
+                    'id' => 3
+                ],
+                'cantidad' => 4
+            ]
+        );
+        $this->borrar->delete(
             (object)[
                 'id' => $this->idDetalle
-            ]);
-        $this->assertNull($borrado);
+            ]
+        );
+        $detalleEliminado = $this->resource->obtener($this->idPedido);
+        $this->assertNull($detalleEliminado);
     }
 
     public function testActualizarDetalle()
     {
-
         $pedido = (object)[
             "id" => 2
         ];
@@ -86,7 +87,7 @@ class PedidoDetalleTest extends ModelTestCase
         );
 
         $detalle = $this->resource->obtener($this->idPedido);
-        $this->assertEquals(4, $detalle[sizeof($detalle) - 1]['cantidad']);
+        $this->assertEquals(1, $detalle[sizeof($detalle)-1]['cantidad']);
 
         $this->actualizar->update(
             (object)[
@@ -95,8 +96,6 @@ class PedidoDetalleTest extends ModelTestCase
             ]
         );
         $detalleActualizado = $this->resource->obtener($this->idPedido);
-        $this->assertEquals(5, $detalleActualizado[sizeof($detalleActualizado) - 1]['cantidad']);
+        $this->assertEquals(5, $detalleActualizado[sizeof($detalleActualizado)-1]['cantidad']);
     }
 }
-
-

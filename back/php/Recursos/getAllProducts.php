@@ -1,7 +1,7 @@
 <?php
 
 namespace Recursos;
-require '../vendor/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
 use Conexion\ConexionPdo;
 
 class getAllProducts{
@@ -14,7 +14,7 @@ class getAllProducts{
     }
 
 
-    public function obtenerTodos(int $idCategoria):array | false{
+    public function obtenerTodos(int $idCategoria):array{
         $stmt = $this->pdo->prepare("select id,nombre, descripcion, foto,id_catego, precio from PRODUCTO WHERE id_catego=:id_catego");
         $stmt->execute([":id_catego"=>$idCategoria]);
         $registros = $stmt->fetchAll();

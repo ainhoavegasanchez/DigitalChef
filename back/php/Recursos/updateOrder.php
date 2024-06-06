@@ -1,7 +1,7 @@
 <?php
 
 namespace Recursos;
-require '../vendor/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
 use Conexion\ConexionPdo;
 
 class updateOrder
@@ -53,7 +53,6 @@ class updateOrder
     }
 
 }
-
 
 
 $json = file_get_contents('php://input');

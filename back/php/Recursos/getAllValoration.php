@@ -1,10 +1,8 @@
 <?php
-
-
 namespace Recursos;
-require '../vendor/autoload.php';
-use Conexion\ConexionPdo;
 
+use Conexion\ConexionPdo;
+require __DIR__.'/../vendor/autoload.php';
 class getAllValoration
 {
     public $conexion, $pdo;
@@ -25,7 +23,6 @@ class getAllValoration
         return $result;
     }
 }
-
 
 
 $valoration = new getAllValoration();

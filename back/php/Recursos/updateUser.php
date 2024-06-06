@@ -1,7 +1,7 @@
 <?php
 
 namespace Recursos;
-require '../vendor/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
 use Conexion\ConexionPdo;
 
 class updateUser
@@ -35,7 +35,6 @@ class updateUser
         return $usuario;
     }
 }
-
 
 
 $json = file_get_contents('php://input');

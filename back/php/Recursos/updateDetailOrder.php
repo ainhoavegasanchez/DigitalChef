@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 namespace Recursos;
-require '../vendor/autoload.php';
+require __DIR__.'/../vendor/autoload.php';
 use Conexion\ConexionPdo;
 
 class updateDetailOrder
@@ -26,8 +26,6 @@ class updateDetailOrder
         ]);
     }
 }
-
-
 
 $json = file_get_contents('php://input');
 

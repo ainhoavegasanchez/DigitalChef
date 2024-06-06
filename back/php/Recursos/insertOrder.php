@@ -1,9 +1,8 @@
-<?php declare(strict_types=1);
+<?php 
 
 namespace Recursos;
 
-require '../vendor/autoload.php';
-
+require __DIR__.'/../vendor/autoload.php';
 use Conexion\ConexionPdo;
 use DateTime;
 class Pedido
@@ -40,6 +39,10 @@ class Pedido
     }
 
 }
+
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 
 $json = file_get_contents('php://input');
 $params = json_decode($json);
