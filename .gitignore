@@ -5,9 +5,12 @@
 /tmp
 /out-tsc
 /bazel-out
-back/prueba-test/Conexion/.env
+back/php/Conexion/.env
+
 # Node
 api/node_modules
+api/enviroment.ts
+api/environmentLocal.ts
 npm-debug.log
 yarn-error.log
 
