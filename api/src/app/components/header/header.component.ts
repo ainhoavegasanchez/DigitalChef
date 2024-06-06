@@ -14,5 +14,7 @@ export class HeaderComponent {
   constructor(
     private userService: UserService
   ) { }
-  user:any = this.userService.UserGet;
+  user: any = this.userService.UserGet;
+
+  
 }

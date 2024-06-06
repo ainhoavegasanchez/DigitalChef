@@ -21,11 +21,13 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.productService.getProducts(1).subscribe(
+    this.productService.getProducts().subscribe(
       (products: any) => {
         if (products==false) {
           this.productService.insertAllProducts().subscribe();
           this.categoriesService.insertAllCategory().subscribe();
+        }else{
+          console.log("los productos ya han sido insertados");
         }
       }
     );

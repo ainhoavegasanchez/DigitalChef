@@ -9,8 +9,9 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ModalsComponent } from './components/modals/modals.component';
 import { ListComponent } from './components/menu/list/list.component';
+import { NoFound404Component } from './components/404/404.component';
 
-export const routes: Routes = [ 
+export const routes: Routes = [
     { path: 'portada', component: PortadaComponent },
 
     { path: 'registrer', component: RegistrerComponent },
@@ -19,13 +20,13 @@ export const routes: Routes = [
     {
         path: 'inicio', component: InicioComponent, children: [
             { path: '', component: MenuComponent },
-            { path: 'modals', component: ModalsComponent},
+            { path: 'modals', component: ModalsComponent },
             { path: 'perfil', component: PerfilComponent },
             { path: 'list', component: ListComponent },
         ]
     },
     { path: 'valoraciones', component: ValoracionesComponent },
-    
+    { path: '**', component: NoFound404Component }
 ];
 
 @NgModule({

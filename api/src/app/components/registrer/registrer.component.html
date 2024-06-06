@@ -2,27 +2,27 @@
   <div class="container">
       <div class="signup-content">
           <div class="signup-form">
-              <h2 class="form-title">Sign in</h2>
+              <h2 class="form-title">Registrarse</h2>
               <form method="POST" class="register-form" id="register-form">
                   <div class="form-group">
                       <label for="email"><i class="zmdi zmdi-email"></i></label>
-                      <input type="email" name="email" id="email" [(ngModel)]="user.email" placeholder="Your Email" required/>
+                      <input type="email" name="email" id="email" [(ngModel)]="user.email" placeholder="Email" required/>
                   </div>
                   <div class="form-group">
                     <label for="name"><i class="zmdi zmdi-email"></i></label>
-                    <input type="name" name="name" id="name" [(ngModel)]="user.name" placeholder="Your UserName" required/>
+                    <input type="name" name="name" id="name" [(ngModel)]="user.name" placeholder="UserName" required/>
                 </div>
                   <div class="form-group">
                       <label for="pass"><i class="zmdi zmdi-lock"></i></label>
                       <input type="password" name="pass" id="pass" [(ngModel)]="user.pass" placeholder="Password" required/>
                   </div>
                   <div class="form-group form-button">
-                      <input type="submit" name="signup" id="signup" class="form-submit" (click)="registrerUser()" value="Register"/>
+                      <input type="submit" name="signup" id="signup" class="form-submit" (click)="registrerUser()" value="Registrarse"/>
                   </div>
               </form>
           </div>
           <div class="signup-button">
-              <a class="signup-image-link" [routerLink]="'/login'">You have account?</a>
+              <a class="signup-image-link" [routerLink]="'/login'">¿Tienes cuenta?</a>
           </div>
       </div>
   </div>

@@ -2,13 +2,14 @@
 
   <header class="header">
     <div class="nombre">
+      <img src="../../../assets/imgs/Digitalchef.png" alt="logo">
       <h1 class="navbar-brand">Bienvenido {{user.nombre}}
       </h1>
     </div>
     <input class="menu-btn" type="checkbox" id="menu-btn" />
     <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
     <ul class="menu" id="navbarNav">
-      <li><button type="button" class="btn"> <a class="nav-link" [routerLink]="'/inicio'">Menu</a></button></li>
-      <li><button type="button" class="btn"><a class="nav-link" [routerLink]="'perfil'">Perfil</a></button></li>
+      <li><button type="button" class="btn" > <a class="nav-link" [routerLink]="'/inicio'">Menu</a></button></li>
+      <li><button type="button" class="btn" ><a class="nav-link" [routerLink]="'perfil'">Perfil</a></button></li>
     </ul>
   </header>

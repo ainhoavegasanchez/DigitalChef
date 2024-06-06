@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Courgette&family=Damion&family" + "=LXGW+WenKai+TC&family=Mada:wght@200..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400" + "..900&family=Poetsen+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -23,10 +26,21 @@ a {
   align-items: center;
   padding: 20px;
 }
-.nombre{
-  width: 45vw;
+.nombre {
   font-size: 24px;
   margin: 0 20px;
+  display: flex;
+  align-items: center;
+  & img {
+    width: 80px;
+    height: 80px;
+    border-radius: 30%;
+  }
+  & h1 {
+    font-family: "Dancing Script", cursive;
+    margin-left: 20px;
+    font-size: 1.5rem;
+  }
 }
 .header ul {
   margin: 0;
@@ -34,12 +48,12 @@ a {
   list-style: none;
   overflow: hidden;
   background-color: #fff;
+  grid-column: span 2;
 }
 
 .header li a {
-  display: block;
+  //display: block;
   padding: 20px 20px;
-  border-right: 1px solid #f4f4f4;
   text-decoration: none;
 }
 
@@ -69,12 +83,10 @@ a {
 
 .header .menu-icon {
   cursor: pointer;
-  display: inline-block;
   float: right;
   padding: 28px 20px;
   position: relative;
   user-select: none;
-  width: 40vw;
   display: flex;
   justify-content: flex-end;
 }
@@ -110,8 +122,12 @@ a {
 .header .menu-btn {
   display: none;
 }
-
-.header .menu-btn:checked ~ .menu {
+.navbarNav{
+  display: none;
+}
+.header .menu-btn:checked ~ #navbarNav {
+  display: flex;
+  flex-direction: column;
   max-height: 240px;
 }
 
@@ -155,6 +171,9 @@ a {
       display: flex;
       align-items: center;
       padding: 20px;
+      & h1 {
+        font-size: 2rem;
+      }
     }
 
     & #navbarNav {

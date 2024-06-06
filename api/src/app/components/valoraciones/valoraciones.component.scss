@@ -1,20 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+
 .valoraciones{
     display: flex;
     flex-direction: column;
     gap: 10px;
     justify-content: space-evenly;
+   
 }
 
-button{
-    right: 15px;
-    background-color: blue;
-    position: fixed;
-    top: 8px;
+.button{
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+  &  button{
+        right: 15px;
+        background-color: rgba(67, 113, 100, 0.824);
+        color: white;
+        top: 8px;
+        font-family: "LXGW WenKai TC", cursive;
+        padding: 10px;
+    }
 }
 h1{
     text-align: center;
     border-bottom: 1px solid;
     padding: 10px;
+    font-family: "Dancing Script", cursive;
+    font-size: 3rem;
 }
 
 .grupo{

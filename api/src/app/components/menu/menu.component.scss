@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Courgette&family='+
+'LXGW+WenKai+TC&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -16,12 +19,13 @@
   padding: 10px;
   border-radius: 10px;
   position: fixed;
-  top: 500px;
+  bottom: 100px;
   z-index: 100;
   right: 25vw;
   width: 50%;
   color: white;
   text-align: center;
+  font-family: "LXGW WenKai TC", cursive;
 }
 .menu {
   display: grid;
@@ -43,16 +47,17 @@
 nav {
   display: flex;
   text-transform: uppercase;
-  font: bold 0.8rem sans-serif;
   justify-content: space-around;
   border-radius: 10px 10px 0 0;
   background-color: rgb(51, 81, 78);
   padding: 21px 0px;
   border-bottom: 1px solid white;
-  color: white;
-  
+  color: white;  
   & a {
     padding: 10px;
+    font-family: "LXGW WenKai TC", cursive;
+    font-weight: bold;
+    font-size: 1rem;
     &:hover {
       border-radius: 10px 0 10px 0;
       background-color: white;
