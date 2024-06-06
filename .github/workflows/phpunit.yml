@@ -55,5 +55,4 @@ jobs:
         
       - name: Ejecutar pruebas (Unitarias y de Función) con PHPUnit
         run: |
-          cd back/manduca/
-          ./vendor/bin/phpunit Recursos/
+          ./back/manduca/vendor/bin/phpunit back/manduca/Recursos/
