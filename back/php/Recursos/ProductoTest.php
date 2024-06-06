@@ -13,16 +13,16 @@ class ProductoTest extends ModelTestCase
         $this->resource = new Product();
         $this->productoObtener = new getProduct();
     }
-    private $producto = (object) [
+
+    public function testInsertarYObtenerProducto()
+    {
+        $producto = (object) [
         "nombre" => "pruebaTest",
         "descripcion" => "esta es la descripcion",
         "foto" => "foto.jpg",
         "id_catego" => 1,
         "precio" => 12.4
     ];
-
-    public function testInsertarYObtenerProducto($producto)
-    {
         $this->idProducto = $this->resource->insertar($producto);
         $datosProducto = $this->resource->obtener($this->idProducto);
         $this->assertEquals($datosProducto['nombre'], "pruebaTest");
