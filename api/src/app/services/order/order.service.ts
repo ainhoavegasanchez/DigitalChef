@@ -43,5 +43,8 @@ export class OrderService {
     return orderReturn ;
   }
 
+  closedOrder(id:number){
+  this.http.post(`${this.baseUrl}/terminatedOrder.php`, JSON.stringify(id));
+  }
 
 }

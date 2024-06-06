@@ -37,5 +37,10 @@ export class ValoracionesComponent implements OnInit{
     );
   }
 
+  //TODO:
+closeOrder():void{
+  const id= this.orderService.orderGet.id;
+  this.orderService.closedOrder(id).suscribe();
+}
 
 }

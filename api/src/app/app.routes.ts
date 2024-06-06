@@ -26,7 +26,12 @@ export const routes: Routes = [
         ]
     },
     { path: 'valoraciones', component: ValoracionesComponent },
+<<<<<<< HEAD
     { path: '**', component: NoFound404Component }
+=======
+  
+    
+>>>>>>> 3515a8b60b27591f9347832a4895c39b7cf7c8dc
 ];
 
 @NgModule({
