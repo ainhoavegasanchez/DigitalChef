@@ -25,8 +25,9 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts(id_catego:number=1){
-    return this.http.get(`${this.baseUrl}/getAllProducts.php?id_catego=${id_catego}`);
+  getProducts(id_catego:number=1):Observable<any>{
+    const products=  this.http.get(`${this.baseUrl}/getAllProducts.php?id_catego=${id_catego}`);
+    return products;
   }
 
   insertAllProducts(){

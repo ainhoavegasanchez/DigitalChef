@@ -35,7 +35,7 @@ export class MenuComponent implements OnInit {
   total: number = 0;
 
   recuperarTodos(value?: number) {
-    this.productService.getProducts(value).subscribe((result: any[]) => {
+    this.productService.getProducts(value).subscribe((result: Product[]) => {
       this.productList = result.map(item => ({
         id: item.id,
         nombre: item.nombre,

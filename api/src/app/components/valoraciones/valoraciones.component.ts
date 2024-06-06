@@ -5,6 +5,7 @@ import { ValoracionProductoComponent } from './valoracion-producto/valoracion-pr
 import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../interfaces/Product';
 import { RouterModule } from '@angular/router';
+import { OrderService } from '../../services/order/order.service';
 
 @Component({
   selector: 'app-valoraciones',
@@ -17,7 +18,8 @@ export class ValoracionesComponent implements OnInit{
   list:any[]=[]
   constructor(
     private orderDetailService:OrderDetailService,
-    private productService:ProductService
+    private productService:ProductService,
+    private orderService:OrderService
   ){}
 
   
@@ -39,8 +41,8 @@ export class ValoracionesComponent implements OnInit{
 
   //TODO:
 closeOrder():void{
-  const id= this.orderService.orderGet.id;
-  this.orderService.closedOrder(id).suscribe();
+  const id= this.orderService.OrderGet.id;
+  this.orderService.closedOrder(id);
 }
 
 }

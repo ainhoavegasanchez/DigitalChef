@@ -13,7 +13,7 @@ import { provideClientHydration } from '@angular/platform-browser';
   imports: [
     CommonModule, HttpClientModule, NzmoduleModule
   ],
-   exports:[ AppRoutingModule, FormsModule, HttpClientModule, NzmoduleModule],
+  exports:[AppRoutingModule, FormsModule, HttpClientModule, NzmoduleModule],
    providers:[provideClientHydration()]
 })
 export class AppModule { }
