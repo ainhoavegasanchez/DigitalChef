@@ -167,12 +167,12 @@ a {
   .header {
     display: flex;
     & .nombre {
-      width: 40%;
+      width: 60%;
       display: flex;
       align-items: center;
       padding: 20px;
       & h1 {
-        font-size: 2rem;
+        font-size: 5vw;
       }
     }
 

@@ -30,7 +30,7 @@ h1{
     border-bottom: 1px solid;
     padding: 10px;
     font-family: "Dancing Script", cursive;
-    font-size: 3rem;
+    font-size: 6vw;
 }
 
 .grupo{
@@ -38,17 +38,20 @@ h1{
     justify-content: center;
     gap: 21px;
     padding: 20px;
+    justify-items: center
   
 }
 
 @media (min-width:800px) {
     .grupo{
         grid-template-columns: 1fr 1fr;
+        justify-items: center
     }
 }
 
 @media (min-width:1024px) {
     .grupo{
         grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center
     }
 }

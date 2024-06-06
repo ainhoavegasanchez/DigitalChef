@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "css"
         }
       },
       "root": "",
@@ -24,6 +24,9 @@
             "polyfills": [
               "zone.js"
             ],
+            "allowedCommonJsDependencies": [
+              "mapbox-gl"
+            ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -32,12 +35,12 @@
               {
                 "glob": "**/*",
                 "input": "../back",
-                "output": "/php"
+                "output": "/back"
               }
             ],
             "styles": [
               "./node_modules/ng-zorro-antd/ng-zorro-antd.min.css",
-              "src/styles.sass"
+              "src/styles.css"
             ],
             "scripts": []
           },

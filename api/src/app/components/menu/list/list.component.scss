@@ -15,14 +15,14 @@ h5 {
   display: flex;
   justify-content: space-around;
 }
-.list-group-item{
+.list-group-item {
   border-top-width: 1px;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   justify-items: center;
   width: 90%;
   align-items: center;
-  & h3{
+  & h3 {
     text-align: center;
   }
 }
@@ -33,7 +33,6 @@ ul {
 }
 
 li {
- 
   border: 1px solid rgb(156, 153, 153);
   border-radius: 10px;
   display: flex;
@@ -65,14 +64,14 @@ li {
   align-items: center;
   grid-template-columns: 1fr 1fr;
   justify-content: space-evenly;
-
 }
 
-.btn{
-    width: 90vw;
-    padding: 10px;
-background-color: rgb(103, 60, 159);
-color: white;
+.btn {
+  width: 90vw;
+  padding: 10px;
+  background-color: rgb(51 81 78);
+  box-shadow: 10px 4px 16px 1px rgb(29, 41, 40);
+  color: white;
 }
 
 h4 {
@@ -83,9 +82,8 @@ h4 {
   font-family: "Courgette", cursive;
 }
 
-
-.footer{
-    display: flex;
+.footer {
+  display: flex;
   flex-direction: column;
   margin-top: 30px;
 }
@@ -99,7 +97,6 @@ h4 {
     display: none;
   }
 
-
   .header {
     width: 35vw;
     & h5 {
@@ -112,16 +109,16 @@ h4 {
     align-items: center;
   }
 
-  .btn{
+  .btn {
     width: 30vw;
   }
-.list-group-item h3{
-  font-size: 21px;
-}
+  .list-group-item h3 {
+    font-size: 21px;
+  }
 }
 
-@media (min-width:1024px) {
-  .list-group-item h3{
+@media (min-width: 1024px) {
+  .list-group-item h3 {
     font-size: 1.5rem;
   }
 }

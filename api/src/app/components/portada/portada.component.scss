@@ -25,7 +25,7 @@
 
 #title {
   color: white;
-  font-size: 5rem;
+  font-size: 11vw;
   font-family: "Dancing Script", cursive;
   margin-bottom: 20px;
   & span{
@@ -166,10 +166,6 @@ h3 {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-
-  #title{
-    font-size: 6rem;
-  }
   .row {
     gap: 20px;
   }
@@ -217,6 +213,10 @@ h3 {
   #btn-menu{
     width: 30vw;
 
+  }
+
+  #info-mapa{
+    padding-left: 50px;
   }
 
 }

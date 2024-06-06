@@ -36,7 +36,7 @@ export class LoginComponent {
           this.orderService.insertOrder().subscribe(
             order => {
               this.orderService.orderSet = order;
-              console.log("esto es qal insertarlo", this.orderService.OrderGet);
+              console.log("esto es al insertarlo", this.orderService.OrderGet);
               this.router.navigate(['/inicio']);
             });
          
