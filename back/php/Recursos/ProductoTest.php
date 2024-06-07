@@ -10,7 +10,7 @@ class ProductoTest extends ModelTestCase
 
     public function setUp(): void
     {
-        $this->resource = new Product();
+        $this->resource = new InsertProduct();
         $this->productoObtener = new getProduct();
     }
 
@@ -24,7 +24,7 @@ class ProductoTest extends ModelTestCase
             "precio" => 12.4
         ];
         $this->idProducto = $this->resource->insertar($producto);
-        $datosProducto = $this->resource->obtener($this->idProducto);
+        $datosProducto = $this->productoObtener->obtenerProduct($this->idProducto);
         $this->assertEquals($datosProducto['nombre'], "pruebaTest");
         $this->assertEquals($datosProducto['descripcion'], "esta es la descripcion");
         $this->assertEquals($datosProducto['foto'], "foto.jpg");
