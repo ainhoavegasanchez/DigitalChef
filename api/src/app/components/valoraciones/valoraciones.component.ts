@@ -4,7 +4,7 @@ import { OrderDetailService } from '../../services/order_detail/order-detail.ser
 import { ValoracionProductoComponent } from './valoracion-producto/valoracion-producto.component';
 import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../interfaces/Product';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { OrderService } from '../../services/order/order.service';
 
 @Component({
@@ -19,7 +19,8 @@ export class ValoracionesComponent implements OnInit{
   constructor(
     private orderDetailService:OrderDetailService,
     private productService:ProductService,
-    private orderService:OrderService
+    private orderService:OrderService,
+    private router: Router,
   ){}
 
   
@@ -41,8 +42,11 @@ export class ValoracionesComponent implements OnInit{
 
   //TODO:
 closeOrder():void{
-  const id= this.orderService.OrderGet.id;
-  this.orderService.closedOrder(id);
+  const order= this.orderService.OrderGet
+  console.log(order);
+  localStorage.removeItem('email');
+  this.orderService.closedOrder(order).subscribe();
+  this.router.navigate(['/portada']);
 }
 
 }

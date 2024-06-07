@@ -33,7 +33,7 @@
             <div class="product" *ngFor="let order of listOrder">
                 <img [src]="'../../../assets/imgs/' + order.product.foto" alt="">
                 <p>{{order.product.nombre}}</p>
-                <nz-rate [ngModel]="order.valor" nzAllowHalf nzDisabled></nz-rate>
+                <nz-rate [ngModel]="order.valor" nzDisabled></nz-rate>
             </div>
         </div>
     </div>

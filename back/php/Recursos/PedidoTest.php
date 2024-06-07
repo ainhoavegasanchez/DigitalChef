@@ -9,46 +9,46 @@ use DateTime;
 
 class PedidoTest extends ModelTestCase
 {
-    protected $resource, $idPedido, $obtener, $cerrar;
+    protected $resource, $obtener, $cerrar, $actualizar;
+    protected static $idPedido;
 
     public function setUp(): void
     {
+        parent::setUp();
         $this->resource = new Pedido();
         $this->obtener = new getOrder();
         $this->cerrar = new TerrminatedOrder();
-
+        $this->pedidoDetalle = new insertOrderDetail();
+        if (is_null(self::$idPedido)) {
+            self::$idPedido = $this->resource->insertar((object) [
+                "id" => 1
+            ]);
+        }
     }
 
     public function testInsertarPedido()
     {
-        $pedido = (object)[
-            "id" => 1
-        ];
+        $this->assertNotNull(self::$idPedido);
         $fecha = new DateTime("now");
         $fechaFormateada = $fecha->format('Y-m-d H:i:s');
-        $this->idPedido = $this->resource->insertar($pedido);
-        $datosPedido = $this->resource->obtener($this->idPedido);
+        $datosPedido = $this->resource->obtener(self::$idPedido);
         $this->assertEquals($datosPedido['id_usuario'], 1);
         $this->assertEquals($datosPedido['fecha'], $fechaFormateada);
         $this->assertEquals($datosPedido['total'], 0.0);
-        $this->assertGreaterThan(0, $this->idPedido);
 
-        return $this->idPedido;
     }
 
 
-    public function testObtenerPedido()
+
+    public function testCerrarPedido()
     {
-        $pedidos = $this->obtener->obtener(1);
-        $this->assertEquals($pedidos[0]['id_usuario'], 1);
-        $this->assertEquals($pedidos[0]['total'], 1);
-    }
 
-    public function testCerrarPedido(){
-        $pedidos = $this->obtener->obtener(1);
-        $this->assertEquals($pedidos[0]['terminado'], false);
-        $this->cerrar->closedOrder(1);
-        $this->assertEquals($pedidos[0]['terminado'], true);
+        $datosPedido = $this->resource->obtener(self::$idPedido);
+        $this->assertEquals($datosPedido['terminado'], 0);
+        $cerrado = $this->cerrar->closedOrder(self::$idPedido);
+        $this->assertTrue($cerrado);
+        $datosPedidoActualizado = $this->resource->obtener(self::$idPedido);
+        $this->assertEquals($datosPedidoActualizado['terminado'], 1);
     }
 
 

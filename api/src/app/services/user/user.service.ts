@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { mergeMap } from 'rxjs';
+import { mergeMap, tap } from 'rxjs';
 import { environment } from '../../../../enviroment';
 
 
@@ -29,8 +29,13 @@ export class UserService {
   }
 
   getUser(user: any) {
-    const userReturn = this.http.post(`${this.baseUrl}/getUser.php`, JSON.stringify(user));
-    return userReturn;
+    const userEmail = user.email; 
+    return this.http.post<any>(`${this.baseUrl}/getUser.php`, JSON.stringify(user))
+      // .pipe(
+      //   tap(response => {
+      //     localStorage.setItem('email', response.email); 
+      //   })
+      // );
   };
 
 

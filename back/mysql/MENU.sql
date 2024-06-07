@@ -18,6 +18,7 @@ create table PEDIDO(
     fecha TIMESTAMP,
     id_usuario INTEGER,
     total FLOAT,
+    terminado BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (id_usuario) REFERENCES USUARIO(id)
 );
 

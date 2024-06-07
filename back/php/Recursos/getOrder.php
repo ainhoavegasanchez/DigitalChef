@@ -16,7 +16,7 @@ class getOrder{
 
     public function obtener(int $id):array{
         $stmt = $this->pdo->prepare(
-            "SELECT id, fecha, id_usuario, total FROM PEDIDO 
+            "SELECT id, fecha, id_usuario, total, terminado FROM PEDIDO 
                              where id_usuario=:idUsuario");
         $stmt->execute([
             "idUsuario"=>$id

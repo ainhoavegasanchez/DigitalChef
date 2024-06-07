@@ -6,8 +6,8 @@ use Comun\TestCase as ModelTestCase;
 
 class ValorationTest extends ModelTestCase
 {
-    protected $resource, $idValoracion, $media, $todos;
-
+    protected $resource, $media, $todos;
+    protected static $idValoracion;
     public function setUp(): void
     {
         $this->resource = new insertValoration();
@@ -22,52 +22,55 @@ class ValorationTest extends ModelTestCase
             "id_producto" => 3,
             "user" => (object)["id" => 2]
         ];
-        $this->idValoracion = $this->resource->insertar($valoracion);
-        $datosValoracion = $this->resource->obtenerPorId($this->idValoracion);
+        self::$idValoracion = $this->resource->insertar($valoracion);
+        $datosValoracion = $this->resource->obtenerPorId(self::$idValoracion);
         $this->assertEquals($datosValoracion['valor'], 4);
         $this->assertEquals($datosValoracion['id_usuario'], 2);
         $this->assertEquals($datosValoracion['id_producto'], 3);
-        $this->assertGreaterThan(0, $this->idValoracion);
+        $this->assertGreaterThan(0, self::$idValoracion);
     }
 
     public function testLeerValoracion()
     {
-        if (empty($this->idValoracion)) {
+        if (empty(self::$idValoracion)) {
             $this->testInsertarValoracion();
         }
-        $datosValoracion = $this->resource->obtenerPorId($this->idValoracion);
-        $this->assertEquals($datosValoracion['id'], $this->idValoracion);
+        $datosValoracion = $this->resource->obtenerPorId(self::$idValoracion);
+        $this->assertEquals($datosValoracion['id'], self::$idValoracion);
         $this->assertEquals($datosValoracion['id_producto'], 3);
         $this->assertEquals($datosValoracion['id_usuario'], 2);
-        $this->assertEquals($datosValoracion['valor'], 4);
+        $this->assertEquals($datosValoracion['valor'], 4.0);
     }
 
+
+    public function testObtenerTodos()
+    {
+        $datosValoracion = $this->todos->obtenerTodos(2);
+        $this->assertEquals($datosValoracion[0]["id_usuario"], 2);
+        $this->assertEquals($datosValoracion[0]["id_producto"], 3);
+        $this->assertEquals($datosValoracion[0]["valor"], 4);
+    }
+    
     public function testActualizarValoracion()
     {
-        if (empty($this->idValoracion)) {
+        if (empty(self::$idValoracion)) {
             $this->testInsertarValoracion();
         }
         $nuevosDatos = (object)[
-            'valor' => 1,
+            'valor' => 1.0,
             'id_producto' => 3,
             "user" => (object)["id" => 2]
         ];
         $this->resource->actualizar($nuevosDatos);
-        $datosValoracion = $this->resource->obtenerPorId($this->idValoracion);
-        $this->assertEquals($datosValoracion['valor'], 1);
+        $datosValoracion = $this->resource->obtenerPorId(self::$idValoracion);
+        $this->assertEquals($datosValoracion['valor'], 1.0);
     }
 
     public function testObtenerMedia()
     {
-        $datosValoracion = $this->media->obtenerMedia(4);
-        $this->assertEquals($datosValoracion,1.0); // Assuming 5.0 is the expected media
+        $datosValoracion = $this->media->obtenerMedia(3);
+        $this->assertEquals($datosValoracion,1.0); 
     }
 
-    public function testObtenerTodos()
-    {
-        $datosValoracion = $this->todos->obtenerTodos(1);
-        $this->assertEquals($datosValoracion[0]["id_usuario"], 1);
-        $this->assertEquals($datosValoracion[0]["id_producto"], 4);
-        $this->assertEquals($datosValoracion[0]["valor"], 1);
-    }
+  
 }

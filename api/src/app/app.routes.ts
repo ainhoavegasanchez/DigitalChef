@@ -23,6 +23,7 @@ export const routes: Routes = [
             { path: 'modals', component: ModalsComponent },
             { path: 'perfil', component: PerfilComponent },
             { path: 'list', component: ListComponent },
+            { path: '**', component: NoFound404Component },
         ]
     },
     { path: 'valoraciones', component: ValoracionesComponent },

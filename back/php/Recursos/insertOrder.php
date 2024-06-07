@@ -30,7 +30,7 @@ class Pedido
 
     public function obtener(int $idPedido): array
     {
-        $stmt = $this->pdo->prepare("SELECT id, id_usuario, fecha, total FROM PEDIDO WHERE id=:id");
+        $stmt = $this->pdo->prepare("SELECT id, id_usuario, fecha, total, terminado FROM PEDIDO WHERE id=:id");
         $stmt->execute([
             ":id" => $idPedido
         ]);

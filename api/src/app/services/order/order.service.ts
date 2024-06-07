@@ -44,7 +44,8 @@ export class OrderService {
   }
 
   closedOrder(id:number){
-  this.http.post(`${this.baseUrl}/terminatedOrder.php`, JSON.stringify(id));
+  const close = this.http.post(`${this.baseUrl}/terminatedOrder.php`, JSON.stringify(id));
+  return close;
   }
 
 }
