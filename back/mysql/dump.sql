@@ -56,6 +56,7 @@ INSERT INTO USUARIO(nombre, email, pass)VALUES("pepe", "pepe@gmail.com", "123");
 INSERT INTO USUARIO(nombre, email, pass)VALUES("maria", "maria@gmail.com", "456");
 
 INSERT INTO CATEGORIA(nombre)VALUES("categoria");
+INSERT INTO CATEGORIA(nombre)VALUES("categoria2");
 
 INSERT INTO PRODUCTO(nombre, foto, descripcion, precio, id_catego)VALUES("prueba", "prueba.jpg", "descripcion producto prueba", 12.4, 1);
 INSERT INTO PRODUCTO(nombre, foto, descripcion, precio, id_catego)VALUES("Yakitori", "foto.jpg", "descripcion del Producto 2", 20.49, 1);
