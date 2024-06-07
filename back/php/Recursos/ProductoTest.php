@@ -36,10 +36,10 @@ class ProductoTest extends ModelTestCase
 
     public function testObetenerProducto(){
        $datosProducto =  $this->productoObtener->obtenerProduct(3);
-        $this->assertEquals($datosProducto['nombre'], "Yakitori");
-        $this->assertEquals($datosProducto['descripcion'], "Descripción del Producto 2");
+        $this->assertEquals($datosProducto['nombre'], "producto 3");
+        $this->assertEquals($datosProducto['descripcion'], "descripcion del producto 3");
         $this->assertEquals($datosProducto['id_catego'], 1);
-        $this->assertEquals($datosProducto['precio'], 20.49);
+        $this->assertEquals($datosProducto['precio'], 3.33);
 
     }
 }

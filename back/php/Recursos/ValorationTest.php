@@ -68,8 +68,8 @@ class ValorationTest extends ModelTestCase
 
     public function testObtenerMedia()
     {
-        $datosValoracion = $this->media->obtenerMedia(3);
-        $this->assertEquals($datosValoracion,1.0); 
+        $datosValoracion = $this->media->obtenerMedia(2);
+        $this->assertEquals($datosValoracion,3.0); 
     }
 
   
