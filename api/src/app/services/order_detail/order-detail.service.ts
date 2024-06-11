@@ -4,19 +4,18 @@ import { OrderService } from '../order/order.service';
 import { ProductService } from '../product/product.service';
 import { OrderDetail } from '../../interfaces/OrderDetail';
 import { environment } from '../../../../enviroment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderDetailService {
-  private _orderDetail!: any;
+  private _orderDetail!: OrderDetail;
 
-  get orderDetailGet(): any {
+  public get(): OrderDetail {
     return this._orderDetail;
   }
-
-
-  set orderDetailSet(orderDetail: any) {
+  public set(orderDetail: OrderDetail) {
     this._orderDetail = orderDetail;
   }
 
@@ -27,39 +26,31 @@ export class OrderDetailService {
   ) { }
 
   baseUrl = environment.API_URL;
-  
-  insertOrderDetail() {
-    const order = this.orderService.OrderGet;
-    const product = this.productService.productGet;
-    const orderDetail = this.http.post(`${this.baseUrl}/insertOrderDetail.php`, { product, order });
-    this.orderDetailSet = orderDetail;
-   
+
+  public insertOrderDetail() :Observable<OrderDetail>{
+    const order = this.orderService.get();
+    const product = this.productService.get();
+    
+    const orderDetail = this.http.post<OrderDetail>(`${this.baseUrl}/insertOrderDetail.php`, { product, order })
+
     return orderDetail;
   }
 
 
-  getOrdersDetails() {
-    const order = this.orderService.OrderGet;
-    const id_pedido =parseInt(order.id);
-    console.log("id del pedido", order);
+  public getOrdersDetails():Observable<OrderDetail[]> {
+    const order = this.orderService.get();
+    const id_pedido = order.id;
     const userReturn = this.http.get<OrderDetail[]>(`${this.baseUrl}/getOrderDetail.php?id_pedido=${id_pedido}`);
+
     return userReturn;
   };
 
-  getOrdersDetailsId(id_pedido:number) {
-    const userReturn = this.http.get<OrderDetail[]>(`${this.baseUrl}/getOrderDetail.php?id_pedido=${id_pedido}`);
-    console.log(userReturn);
-    return userReturn;
-  };
-
-
-
-  updateDetailOrder(count: number, id: number) {
-    const detail = this.http.post(`${this.baseUrl}/updateDetailOrder.php`,{count, id});
+  public updateDetailOrder(count: number, id: number) :Observable<OrderDetail>{
+    const detail = this.http.post<OrderDetail>(`${this.baseUrl}/updateDetailOrder.php`, { count, id });
     return detail;
   }
 
-  deleteDetailOrder(id: number) {
-  return  this.http.post(`${this.baseUrl}/deleteDetailOrder.php`,{id});
+  public deleteDetailOrder(id: number):Observable<OrderDetail> {
+    return this.http.post<OrderDetail>(`${this.baseUrl}/deleteDetailOrder.php`, { id });
   };
 }

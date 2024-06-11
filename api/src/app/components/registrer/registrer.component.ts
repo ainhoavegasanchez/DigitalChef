@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { UserService } from '../../services/user/user.service';
 import { FormsModule } from '@angular/forms';
+import { User } from '../../interfaces/User';
 
 
 @Component({
@@ -22,9 +23,9 @@ export class RegistrerComponent {
   constructor(private userService: UserService, 
     private router:Router) { }
 
-  registrerUser() {
+  registrerUser() :void{
     this.userService.insertUser(this.user).subscribe((datos) => {
-      (data: any) => {
+      (data: User) => {
         if (data) {
           this.router.navigate(['/login']);
         }

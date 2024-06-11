@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { UserService } from '../../services/user/user.service';
+import { User } from '../../interfaces/User';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class HeaderComponent {
   constructor(
     private userService: UserService
   ) { }
-  user: any = this.userService.UserGet;
+  user: User = this.userService.get();
 
   
 }

@@ -6,6 +6,7 @@ import { OrderDetailService } from '../../../services/order_detail/order-detail.
 import { ProductService } from '../../../services/product/product.service';
 import { OrderDetail } from '../../../interfaces/OrderDetail';
 import { OrderService } from '../../../services/order/order.service';
+import { Order } from '../../../interfaces/Order';
 
 @Component({
   selector: 'app-ticket',
@@ -28,7 +29,7 @@ export class TicketComponent implements OnInit {
   ngOnInit(): void {
     this.getTotal();
     this.orderDetailService.getOrdersDetails().subscribe(
-      (details: any[]) => {
+      (details: OrderDetail[]) => {
         this.details = details;
         this.details.forEach(
           detail => {
@@ -46,9 +47,9 @@ export class TicketComponent implements OnInit {
   }
 
 total: number = 0;
-getTotal(){
-  this.orderService.updateOrder(this.orderService.OrderGet).subscribe(
-    (order: any) => {
+getTotal():void{
+  this.orderService.updateOrder(this.orderService.get()).subscribe(
+    (order: Order) => {
       this.total = order.total;
     });
 }

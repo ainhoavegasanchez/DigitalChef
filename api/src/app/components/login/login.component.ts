@@ -4,6 +4,7 @@ import { UserService } from '../../services/user/user.service';
 import { FormsModule } from '@angular/forms';
 import { OrderService } from '../../services/order/order.service';
 import { CommonModule } from '@angular/common';
+import { User } from '../../interfaces/User';
 
 
 @Component({
@@ -29,17 +30,22 @@ export class LoginComponent {
   selectUser(): void {
 
     this.userService.getUser(this.user).subscribe(
-      (usuarioExiste) => {
-        this.userService.userSet = usuarioExiste;
-        console.log(this.userService.UserGet);
+
+      usuarioExiste => {
+
+        this.userService.set(usuarioExiste);
+        
         if (usuarioExiste) {
+          
+         if(usuarioExiste.email == "cocina@digitalchef.com"){
+          this.router.navigate(['/cocina']);
+         }
           this.orderService.insertOrder().subscribe(
             order => {
-              this.orderService.orderSet = order;
-              console.log("esto es al insertarlo", this.orderService.OrderGet);
+              this.orderService.set(order);
+              
               this.router.navigate(['/inicio']);
             });
-         
         }
       }
     );
@@ -51,9 +57,7 @@ export class LoginComponent {
 
   emailPass: string = "";
    recuperar() {
-    const data={email :this.emailPass}
-     this.userService.sendNewPass(data).subscribe();
-
+     this.userService.sendNewPass(this.emailPass).subscribe();
     this.sendPass = false;
   }
 }

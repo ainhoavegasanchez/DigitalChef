@@ -49,7 +49,7 @@
   flex-direction: column;
   align-items: center;
   & #registrer-form {
-    width: 70%;
+    width: 50%;
   }
 }
 input {
@@ -86,7 +86,7 @@ input {
   position: relative;
   margin-bottom: 25px;
   overflow: hidden;
-  width: 100%;
+  width: 70%;
   & input {
     background-color: rgba(105, 105, 105, 0.829);
     color: white;
@@ -119,6 +119,7 @@ form {
 a {
   color: white;
   font-family: "Cactus Classical Serif", serif;
+  font-size: 1.2rem;
 }
 
 #no-pass {
@@ -129,6 +130,10 @@ a {
 
 #email-pass {
   width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 button.email-pass {
@@ -143,6 +148,7 @@ button.email-pass {
   text-align: right;
   & a {
     color: #2e1130;
+    font-size: 1.2rem;
   }
 }
 .recuperar {
@@ -193,7 +199,7 @@ button.email-pass{
   }
 
   #no-cuenta {
-    width: 50%;
+    width: 36%;
   }
 
   #email-pass{

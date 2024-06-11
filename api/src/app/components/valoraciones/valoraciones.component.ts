@@ -6,6 +6,7 @@ import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../interfaces/Product';
 import { Router, RouterModule } from '@angular/router';
 import { OrderService } from '../../services/order/order.service';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-valoraciones',
@@ -21,6 +22,7 @@ export class ValoracionesComponent implements OnInit{
     private productService:ProductService,
     private orderService:OrderService,
     private router: Router,
+    private userService: UserService
   ){}
 
   
@@ -40,12 +42,11 @@ export class ValoracionesComponent implements OnInit{
     );
   }
 
-  //TODO:
 closeOrder():void{
-  const order= this.orderService.OrderGet
-  console.log(order);
-  localStorage.removeItem('email');
-  this.orderService.closedOrder(order).subscribe();
+  const order= this.orderService.get()
+  this.orderService.closedOrder(order.id).subscribe();
+  this.userService.logout();
+  this.orderService.clearOrder();
   this.router.navigate(['/portada']);
 }
 

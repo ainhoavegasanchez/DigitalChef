@@ -3,49 +3,66 @@ import { Injectable } from '@angular/core';
 import { Order } from '../../interfaces/Order';
 import { environment } from '../../../../enviroment';
 import { UserService } from '../user/user.service';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
 
-  private _order: any;
- baseUrl = environment.API_URL;
+  private _order!: Order;
+  baseUrl = environment.API_URL;
 
   constructor(
     private http: HttpClient,
     private userService: UserService
-  ) { }
+  ) {
+    const storedOrder = localStorage.getItem('currentOrder');
+    if (storedOrder) {
+      this._order = JSON.parse(storedOrder);
+    }
+  }
 
-  get OrderGet(): any {
+  public get(): Order {
     return this._order;
   }
 
-  set orderSet(order: any) {
+  public set(order: Order):void {
     this._order = order;
+    localStorage.setItem('currentOrder', JSON.stringify(order));
   }
 
-  insertOrder() {
-    const user = this.userService.UserGet;
-    const order = this.http.post(`${this.baseUrl}/insertOrder.php`, JSON.stringify(user));
-    this.orderSet = order;
-    console.log("insertando en el servicio", this.orderSet )
-    return order;
-  };
+  public insertOrder(): Observable<Order> {
+    const user = this.userService.get();
+    return this.http.post<Order>(`${this.baseUrl}/insertOrder.php`, JSON.stringify(user))
+      .pipe(
+        tap(order => {
+          this.set(order);
+        })
+      );
+  }
 
-  getOrders() {
-    const id = this.userService.UserGet.id;
+  public getOrders(): Observable<Order[]> {
+    const id = this.userService.get()?.id;
     return this.http.get<Order[]>(`${this.baseUrl}/getOrder.php?id_usuario=${id}`);
-  };
-
-  updateOrder(order:Order){
-    const orderReturn =  this.http.post(`${this.baseUrl}/updateOrder.php`, JSON.stringify(order));
-    return orderReturn ;
   }
 
-  closedOrder(id:number){
-  const close = this.http.post(`${this.baseUrl}/terminatedOrder.php`, JSON.stringify(id));
-  return close;
+  public updateOrder(order: Order): Observable<Order> {
+    const orderUpdate =  this.http.post<Order>(`${this.baseUrl}/updateOrder.php`, JSON.stringify(order));
+    return orderUpdate;
   }
 
+  public closedOrder(id: number): Observable<Order> {
+    const orderUpdated =  this.http.post<Order>(`${this.baseUrl}/terminatedOrder.php`, JSON.stringify(id));
+    return orderUpdated;
+  }
+
+  public clearOrder(): void {
+    localStorage.removeItem('currentOrder');
+  }
+
+  public getAllOrders():Observable<Order[]>{
+    return this.http.get<Order[]>(`${this.baseUrl}/getAllOrders.php`);
+  }
 }

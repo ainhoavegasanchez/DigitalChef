@@ -8,6 +8,8 @@ import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../interfaces/Product';
 import { NzRateModule } from 'ng-zorro-antd/rate';
 import { FormsModule } from '@angular/forms';
+import { Order } from '../../interfaces/Order';
+import { Valoration } from '../../interfaces/Valoration';
 
 
 @Component({
@@ -32,11 +34,11 @@ export class PerfilComponent implements OnInit {
   listOrder: any[] = [];
 
   ngOnInit(): void {
-    this.user = this.userService.UserGet;
+    this.user = this.userService.get();
     this.valorationService.getValorations().subscribe(
-      (valorations: any) => {
+      (valorations: Valoration[]) => {
         valorations.forEach(
-          (valoration: any) => {
+          (valoration: Valoration) => {
             this.productService.getProduct(valoration.id_producto).subscribe(
               (product: Product) => {
                 this.listOrder.push({ valor: valoration.valor, product: product })
@@ -47,36 +49,31 @@ export class PerfilComponent implements OnInit {
 
       }
     )
-    console.log(this.listOrder);
   }
 
 
-  listDetail: any[] = [];
-  getOrdersDetailsId(id: number) {
-    console.log("id_pedido:", id);
-    this.orderDetailService.getOrdersDetailsId(id).subscribe(
-      details => {
-        console.log(details);
-        this.listDetail = details;
-        console.log(this.listDetail);
-      }
-    );
+  // listDetail: any[] = [];
+  // getOrdersDetailsId() {
+  //   this.orderDetailService.getOrdersDetails().subscribe(
+  //     details => {
+  //       this.listDetail = details;
+  //     }
+  //   );
 
-  }
+  // }
 
 
   update = {
     id: 0,
-    email: this.userService.UserGet.email,
-    name: this.userService.UserGet.nombre,
+    email: this.userService.get().email,
+    name: this.userService.get().nombre,
   }
 
-
   userUpdate: boolean = false;
-  updateUser() {
-    this.update.id = this.userService.UserGet.id;
+  updateUser():void {
+    this.update.id = this.userService.get().id;
     this.userService.updateUser(this.update).subscribe(
-      (result: any) => {
+      (result: User) => {
         if (result) {
           this.userUpdate = true;
         }

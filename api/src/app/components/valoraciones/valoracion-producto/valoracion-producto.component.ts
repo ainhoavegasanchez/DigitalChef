@@ -22,8 +22,7 @@ export class ValoracionProductoComponent implements OnInit {
 
 valor: number = 0;
 
-updateRating() {
-  console.log('Nuevo valor del rating:', this.valor);
+updateRating():void {
   this.valorationService.insertValoration(this.valor, this.producto.id).subscribe();
 }
 }

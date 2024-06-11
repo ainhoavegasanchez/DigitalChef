@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../../enviroment';
+import { Category } from '../../interfaces/Category';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -8,7 +10,7 @@ export class CategoryService {
 
   constructor(private http: HttpClient) { }
 
-  insertAllCategory(){
-    return this.http.get(`${environment.API_URL}/insertCategory.php`);
+  public insertAllCategory(): Observable<Category>{
+    return this.http.get<Category>(`${environment.API_URL}/insertCategory.php`);
   }
 }

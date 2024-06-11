@@ -3,6 +3,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { ProductService } from './services/product/product.service';
 import { PortadaComponent } from './components/portada/portada.component';
 import { CategoryService } from './services/category/category.service';
+import { Product } from './interfaces/Product';
 
 
 @Component({
@@ -22,10 +23,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService.getProducts().subscribe(
-      (products: any) => {
-        if (products==false) {
+      (products: Product[]) => {
+        
+        if (products.length<=0) {
           this.productService.insertAllProducts().subscribe();
           this.categoriesService.insertAllCategory().subscribe();
+
         }else{
           console.log("los productos ya han sido insertados");
         }

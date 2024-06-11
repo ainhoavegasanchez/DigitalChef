@@ -4,8 +4,7 @@ namespace Recursos;
 use Constantes\Constantes;
 require __DIR__.'/../vendor/autoload.php';
 use Conexion\ConexionPdo;
-use Firebase\JWT\JWT;
-use Firebase\JWT\Key;
+
 
 class insertUser
 {
@@ -49,31 +48,7 @@ class insertUser
         );
     }
 
-    public function createJWT($email)
-    {
-        $payload = [
-            'iss' => "digitalchef.online", // Emisor del token
-            'aud' => "digitalchef.online", // P�blico del token
-            'iat' => time(), // Hora en que fue emitido el token
-            'nbf' => time(), // Hora en la que puede ser usado el token
-            'exp' => time() + 3600, // Expiraci�n del token (1 hora)
-            'data' => [
-                'email' => $email
-            ]
-        ];
-
-        return JWT::encode($payload, Constantes::get('JWT_SECRET'), 'HS256');
-    }
-
-    public function validateJWT($jwt)
-    {
-        try {
-            $decoded = JWT::decode($jwt, new Key(Constantes::get('JWT_SECRET'), 'HS256'));
-            return (array) $decoded;
-        } catch (\Exception $e) {
-            return null;
-        }
-    }
+  
 }
 
 ini_set('display_errors', 1);
@@ -94,10 +69,7 @@ if (!is_null($params)) {
     $usuario = $user->obtener($email);
     if (!$usuario) {
         $user->insertar($nombre, $pass, $email);
-    } /*else {
-        $token = $user->createJWT($email);
-        $usuario['token'] = $token;
-    }*/
+    } 
 
     header('Content-Type: application/json');
     echo json_encode($usuario);

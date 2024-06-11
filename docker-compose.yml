@@ -5,16 +5,16 @@ services:
     angular:
         build: ./api
         ports:
-            - 4200:4200
+            - 4202:4200
         command: >
-            bash -c "npm install && ng serve --host 0.0.0.0 --port 4200"
+            bash -c "npm install && ng serve --host 0.0.0.0 --port 4202"
         networks:
             - red
 
     php:
         build: ./back/php
         ports:
-        - 80:80
+        - 82:80
         volumes:
         - ./back/php/.htaccess:/var/www/html/.htaccess
         depends_on:
@@ -26,7 +26,7 @@ services:
     mysql:
         build: ./back/mysql
         ports:
-            - 3306:3306
+            - 3302:3306
         environment:
             MYSQL_ROOT_PASSWORD: 'root'
             MYSQL_DATABASE: 'MENU'

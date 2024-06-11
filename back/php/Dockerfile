@@ -14,8 +14,6 @@ WORKDIR /var/www/html/php
 COPY . /var/www/html/php
 COPY /Conexion/.envLocal /var/www/html/php/Conexion/.env
 
-RUN sed -i 's/HOST=127.0.0.1/HOST=mysql/' /var/www/html/php/Conexion/.env
-
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
     php composer-setup.php && \
     php -r "unlink('composer-setup.php');" && \

@@ -9,32 +9,28 @@ import { environment } from '../../../../enviroment';
   providedIn: 'root'
 })
 export class ProductService {
-  private _product!: any;
+  private _product!: Product;
+  baseUrl = environment.API_URL;
  
-  get productGet(): any {
+  public get(): Product {
     return this._product;
   }
 
-
-  set productSet(product: any) {
+  public set(product: Product) {
     this._product = product;
   }
-
-
- baseUrl = environment.API_URL;
-
   constructor(private http: HttpClient) { }
 
-  getProducts(id_catego:number=1):Observable<any>{
-    const products=  this.http.get(`${this.baseUrl}/getAllProducts.php?id_catego=${id_catego}`);
+  public getProducts(id_catego:number=1):Observable<Product[]>{
+    const products=  this.http.get<Product[]>(`${this.baseUrl}/getAllProducts.php?id_catego=${id_catego}`);
     return products;
   }
 
-  insertAllProducts(){
-    return this.http.get(`${this.baseUrl}/insertProduct.php`);
+  public insertAllProducts():Observable<Product[]>{
+    return this.http.get<Product[]>(`${this.baseUrl}/insertProduct.php`);
   }
 
-  getProduct(id:number){
+  public getProduct(id:number):Observable<Product>{
     return this.http.get<Product>(`${this.baseUrl}/getProduct.php?id=${id}`);
   }
 }

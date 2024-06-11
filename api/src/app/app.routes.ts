@@ -10,6 +10,10 @@ import { PerfilComponent } from './components/perfil/perfil.component';
 import { ModalsComponent } from './components/modals/modals.component';
 import { ListComponent } from './components/menu/list/list.component';
 import { NoFound404Component } from './components/404/404.component';
+import { AuthGuard } from './services/AuthGuard.servcice';
+import { CocinaComponent } from './components/cocina/cocina.component';
+import { KitchenAuthService } from './components/cocina/KitcheAuth.service';
+import { MenuModule } from './components/menu/menu.module';
 
 export const routes: Routes = [
     { path: 'portada', component: PortadaComponent },
@@ -18,21 +22,22 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: '', component: PortadaComponent },
     {
-        path: 'inicio', component: InicioComponent, children: [
+        path: 'inicio', component: InicioComponent, canActivate: [AuthGuard], children: [
             { path: '', component: MenuComponent },
             { path: 'modals', component: ModalsComponent },
             { path: 'perfil', component: PerfilComponent },
-            { path: 'list', component: ListComponent },
             { path: '**', component: NoFound404Component },
+            { path: 'list', component: ListComponent },
         ]
     },
-    { path: 'valoraciones', component: ValoracionesComponent },
+    { path: 'cocina', component: CocinaComponent,canActivate: [KitchenAuthService] },
+    { path: 'valoraciones', component: ValoracionesComponent,canActivate: [AuthGuard] },
     { path: '**', component: NoFound404Component }
 
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes), MenuModule],
     exports: [RouterModule, RouterOutlet]
 })
 

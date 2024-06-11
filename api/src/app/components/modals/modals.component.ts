@@ -16,6 +16,7 @@ export class ModalsComponent {
   constructor(private router: Router) { }
   @Input() isVisible = false;
   visible!: boolean;
+  
   handleOk(): void {
     console.log('Button ok clicked!');
     this.visible = true;
