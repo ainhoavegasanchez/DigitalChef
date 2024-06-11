@@ -53,14 +53,14 @@ export class OrderService {
     return orderUpdate;
   }
 
-  public closedOrder(id: number): Observable<Order> {
-    const orderUpdated =  this.http.post<Order>(`${this.baseUrl}/terminatedOrder.php`, JSON.stringify(id));
+  public closedOrder(order:Order): Observable<Order> {
+    const orderUpdated =  this.http.post<Order>(`${this.baseUrl}/terminatedOrder.php`, JSON.stringify(order));
+    localStorage.removeItem('currentOrder');
+
     return orderUpdated;
   }
 
-  public clearOrder(): void {
-    localStorage.removeItem('currentOrder');
-  }
+    
 
   public getAllOrders():Observable<Order[]>{
     return this.http.get<Order[]>(`${this.baseUrl}/getAllOrders.php`);

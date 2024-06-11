@@ -44,9 +44,8 @@ export class ValoracionesComponent implements OnInit{
 
 closeOrder():void{
   const order= this.orderService.get()
-  this.orderService.closedOrder(order.id).subscribe();
+  this.orderService.closedOrder(order).subscribe();
   this.userService.logout();
-  this.orderService.clearOrder();
   this.router.navigate(['/portada']);
 }
 

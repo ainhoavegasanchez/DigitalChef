@@ -45,6 +45,11 @@ export class OrderDetailService {
     return userReturn;
   };
 
+  public getOrdersDetailsById(id_pedido:number):Observable<OrderDetail[]> {
+    const userReturn = this.http.get<OrderDetail[]>(`${this.baseUrl}/getOrderDetail.php?id_pedido=${id_pedido}`);
+    return userReturn;
+  };
+
   public updateDetailOrder(count: number, id: number) :Observable<OrderDetail>{
     const detail = this.http.post<OrderDetail>(`${this.baseUrl}/updateDetailOrder.php`, { count, id });
     return detail;
