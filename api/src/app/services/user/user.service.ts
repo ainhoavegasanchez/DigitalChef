@@ -105,6 +105,7 @@ export class UserService {
   }
 
   public getUser(user: Partial<User>): Observable<User> {
+    this.logout();
     const currentUser = this.http.post<User>(`${this.baseUrl}/getUser.php`, JSON.stringify(user))
       .pipe(
         tap(response => {

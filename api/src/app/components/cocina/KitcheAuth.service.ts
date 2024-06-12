@@ -12,11 +12,16 @@ export class KitchenAuthService implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const currentUser = this.userService.get();
-        if (currentUser.email=="cocina@digitalchef.com") {
-            return true;
+        if (currentUser) {
+            if (currentUser.email == "cocina@digitalchef.com") {
+                return true;
+            }
+            this.router.navigate(['/inicio']);
+            return false;
         }
 
-        this.router.navigate(['/']);
+
+        this.router.navigate(['/portada']);
         return false;
     }
 }
