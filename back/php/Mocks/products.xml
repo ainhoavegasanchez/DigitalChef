@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<productos xmlns="http://www.example.com/schema">
+
+<productos>
     <producto>
         <nombre>Edamame</nombre>
         <descripcion>Descripción del Producto 1</descripcion>
