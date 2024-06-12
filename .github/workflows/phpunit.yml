@@ -62,3 +62,7 @@ jobs:
       - name: Ejecutar pruebas (Unitarias y de Función) con PHPUnit
         run: |
           ./back/php/vendor/bin/phpunit back/php/Recursos/
+
+      - name: Ejecutar pruebas (Unitarias y de Función) con PHPUnit
+        run: |
+          ./back/php/vendor/bin/phpunit back/php/Comun/
