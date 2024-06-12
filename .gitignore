@@ -9,7 +9,7 @@ back/php/Conexion/.env
 
 # Node
 api/node_modules
-api/enviroment.ts
+api/environment.ts
 api/environmentLocal.ts
 npm-debug.log
 yarn-error.log

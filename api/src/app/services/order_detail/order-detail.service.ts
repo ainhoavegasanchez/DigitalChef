@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { OrderService } from '../order/order.service';
 import { ProductService } from '../product/product.service';
 import { OrderDetail } from '../../interfaces/OrderDetail';
-import { environment } from '../../../../enviroment';
+import { environment } from '../../../../environment';
 import { Observable } from 'rxjs';
 
 @Injectable({
