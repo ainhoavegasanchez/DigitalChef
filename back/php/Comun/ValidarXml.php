@@ -17,7 +17,6 @@ class ValidarXml
             if ($xsd !== null) {
                 libxml_use_internal_errors(true);
                 $isValid = $doc->schemaValidateSource($xsd);
-              //  libxml_clear_errors(); 
                 return $isValid;
             }
         
