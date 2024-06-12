@@ -1,0 +1,8 @@
+<productos>
+    <producto>
+        <nombre>Edamame</nombre>
+        <descripcion>Descripción del Producto 1</descripcion>
+        <foto>edamame.jpg</foto>
+        <precio>10.99</precio>
+    </producto>
+</productos>
