@@ -25,7 +25,7 @@ export const routes: Routes = [
         path: 'inicio', component: InicioComponent, canActivate: [AuthGuard], children: [
             { path: '', component: MenuComponent },
             { path: 'modals', component: ModalsComponent },
-            { path: 'perfil', component: PerfilComponent },
+            { path: 'perfil', component: PerfilComponent,  canActivate: [AuthGuard] },
             { path: '**', component: NoFound404Component },
             { path: 'list', component: ListComponent },
         ]

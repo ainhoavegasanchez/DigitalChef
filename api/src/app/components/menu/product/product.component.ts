@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from '../../../interfaces/Product';
 import { ValorationService } from '../../../services/valoration/valoration.service';
+import { Valoration } from '../../../interfaces/Valoration';
 
 
 @Component({
@@ -21,6 +22,7 @@ constructor(
   ngOnInit(): void {
     this.valorationService.getValorationProduct(this.product.id).subscribe(
       (valor:any)=>{
+        console.log(valor.media)
         this.valor = valor ? valor.media : 5;
       }
     );

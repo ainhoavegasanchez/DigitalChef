@@ -41,7 +41,8 @@ export class PerfilComponent implements OnInit {
           (valoration: Valoration) => {
             this.productService.getProduct(valoration.id_producto).subscribe(
               (product: Product) => {
-                this.listOrder.push({ valor: valoration.valor, product: product })
+                console.log(valoration)
+                this.listOrder.push({ valor: Number(valoration.valor), product: product })
               }
             )
           }

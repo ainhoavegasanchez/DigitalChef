@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -6,12 +6,12 @@
 .container {
   display: flex;
   width: 100vw;
-  min-width: 100vw;
+  min-width: 98vw;
   margin: 0;
   padding: 0;
   flex-direction: column;
   justify-content: space-around;
-  align-items:flex-start;
+  align-items: center;
   margin-top: 40px;
 }
 .card {
@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   margin: 20px;
-  & p{
+  & p {
     font-family: "Playfair Display", serif;
   }
 }
@@ -83,8 +83,6 @@ input {
   }
 }
 
-
-
 button {
   padding: 10px 20px;
   background-color: #4caf50;
@@ -135,7 +133,6 @@ button:hover {
   flex-direction: column;
   align-items: center;
   gap: 27px;
- 
 }
 
 .productos {
@@ -165,50 +162,41 @@ h2 {
   }
 
   .product {
-    width: 45vw;
-    height: 70vh;
-    & img{
+    width: 35vw;
+    height: 55vh;
+    & img {
       width: 29vh;
-    height: 23vh;
+      height: 23vh;
     }
   }
 }
 
 @media (min-width: 1024px) {
-  #actualizacion {
-    width: 40%;
-  }
 
   .container {
     flex-direction: row;
+    align-items: flex-start;
+    min-width: 96vw;
   }
 
   .productos {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  .producto{
-    width: 15vw;
-        height: 50vh;
-  }
-}
-
-
-@media (min-width:1024px) {
-  .product{
-    width: 22vw;
+  .product {
+    width: 17vw;
     height: 45vh;
   }
 
-  #actualizacion{
-    width: 30vw;
+  #actualizacion {
+    width: 40vw;
   }
 
-  #pedidos{
-    width: 65vw;
+  #pedidos {
+    width: 60vw;
   }
 
-  .productos{
+  .productos {
     width: 64vw;
   }
 }
