@@ -1,3 +1,34 @@
+# Nombre del Proyecto
+
+Breve descripción o resumen del proyecto.
+
+## Índice
+
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [Contribución](#contribución)
+- [Licencia](#licencia)
+
+## Instalación
+
+Proporciona aquí las instrucciones necesarias para instalar y configurar tu proyecto. Incluye ejemplos si es necesario.
+
+## Uso
+
+Explica cómo se usa tu proyecto. Proporciona ejemplos de código y capturas de pantalla si es relevante.
+
+## Contribución
+
+Indica si estás abierto a contribuciones y cómo los desarrolladores deberían proceder si desean contribuir a tu proyecto.
+
+## Licencia
+
+Añade la licencia bajo la cual se distribuye tu proyecto.
+
+
+
+
+
 # App
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5.
