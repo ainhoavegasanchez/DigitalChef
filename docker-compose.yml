@@ -4,24 +4,19 @@ services:
 
     angular:
         build: ./api
-        ports:
-            - 4202:4200
-        command: >
-            bash -c "npm install && ng serve --host 0.0.0.0 --port 4202"
         networks:
             - red
 
     php:
         build: ./back/php
-        ports:
-        - 82:80
-        volumes:
-        - ./back/php/.htaccess:/var/www/html/.htaccess
         depends_on:
-        - mysql
+            - mysql
+        ports:
+            - 82:80
+        volumes:
+            - ./back/php/.htaccess:/var/www/html/.htaccess
         networks:
             - red
-
 
     mysql:
         build: ./back/mysql
@@ -39,6 +34,7 @@ services:
 
 volumes:
     db-volume:
+
 
 networks:
     red:
