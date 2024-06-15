@@ -29,8 +29,6 @@ export class AppComponent implements OnInit {
           this.productService.insertAllProducts().subscribe();
           this.categoriesService.insertAllCategory().subscribe();
 
-        }else{
-          console.log("los productos ya han sido insertados");
         }
       }
     );

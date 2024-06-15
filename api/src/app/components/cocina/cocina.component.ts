@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [NzmoduleModule, CommonModule, FormsModule],
   templateUrl: './cocina.component.html',
-  styleUrl: './cocina.component.css'
+  styleUrl: './cocina.component.scss'
 })
 export class CocinaComponent implements OnInit {
   listOfOrder: any[] = [];

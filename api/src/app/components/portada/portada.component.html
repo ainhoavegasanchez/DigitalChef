@@ -1,6 +1,8 @@
 <!-- header -->
-<header id="home" class="header">
-    <div class="overlay text-white text-center">
+ <div class="body">
+
+     <header id="home" class="header">
+         <div class="overlay text-white text-center">
         <h1 id="title"><span>D</span>igital <span>C</span>hef</h1>
         <h2 id="subtitle">El arte de la buena comida</h2>
         <a class="btn" id="btn-menu" [routerLink]="'/login'">Empezar pedido</a>
@@ -15,25 +17,25 @@
             <nz-carousel id="carrusel" nzAutoPlay>
                 @for (img of imgs; track $index) {
                 <div nz-carousel-content>
-                    <img [src]="'../../../assets/imgs/' + img" alt="imagen">
+                    <img [src]="'../../assets/imgs/' + img" alt="imagen">
                 </div>
-                }
-            </nz-carousel>
+            }
+        </nz-carousel>
 
         </div>
         <div id="texto" class="col-lg-6">
             <h2 class="mb-4">SOBRE NUESTRA EMPRESA</h2>
-            <p>Bienvenidos a DigitalChef, donde transformamos la experiencia gastronómica a través de
-                soluciones digitales innovadoras. Nos especializamos en el desarrollo de páginas web personalizadas para
-                restaurantes, integrando menús digitales interactivos que no solo modernizan su negocio, sino que
+        <p>Bienvenidos a DigitalChef, donde transformamos la experiencia gastronómica a través de
+            soluciones digitales innovadoras. Nos especializamos en el desarrollo de páginas web personalizadas para
+        restaurantes, integrando menús digitales interactivos que no solo modernizan su negocio, sino que
                 también mejoran significativamente la experiencia de sus clientes.
             </p>
         <br />
-            <p>En DigitalChef, entendemos que la satisfacción del cliente es esencial para el éxito de
+    <p>En DigitalChef, entendemos que la satisfacción del cliente es esencial para el éxito de
                 cualquier restaurante. Por ello, hemos diseñado nuestras soluciones para que cada visita a su
                 establecimiento sea memorable y sin complicaciones. Con nuestro menú digital, sus clientes pueden
                 explorar su oferta culinaria de manera interactiva, hacer sus pedidos directamente desde la mesa y
-                simplemente relajarse, disfrutando del ambiente y la compañía mientras esperan su comida.</p>
+            simplemente relajarse, disfrutando del ambiente y la compañía mientras esperan su comida.</p>
         </div>
     </div>
 </div>
@@ -41,87 +43,87 @@
 <!--  gallary Section  -->
 <div id="gallary" class="text-center bg-dark text-light has-height-md middle-items wow fadeIn">
     <h2 class="section-title">NUESTRO MENU</h2>
-    <div class="gallary row">
-        <div class="col-sm-6 col-lg-3 img">
-            <img src="../../../assets/imgs/gallary-1.jpg" alt="template by DevCRID http://www.devcrud.com/"
+    <div class="gallary">
+        <div class="img lg">
+            <img src="../../assets/imgs/gallary-1.jpg" alt="template by DevCRID http://www.devcrud.com/"
                 class="gallary-img">
             <a href="#" class="gallary-overlay">
                 <i class="gallary-icon ti-plus"></i>
             </a>
         </div>
-        <div class="col-sm-6 col-lg-3 img">
-            <img src="../../../assets/imgs/gallary-2.jpg" alt="template by DevCRID http://www.devcrud.com/"
+        <div class="img">
+            <img src="../../assets/imgs/gallary-2.jpg" alt="template by DevCRID http://www.devcrud.com/"
                 class="gallary-img">
             <a href="#" class="gallary-overlay">
                 <i class="gallary-icon ti-plus"></i>
             </a>
         </div>
-        <div class="col-sm-6 col-lg-3 img">
-            <img src="../../../assets/imgs/gallary-3.jpg" alt="template by DevCRID http://www.devcrud.com/"
+    <div class="img">
+        <img src="../../assets/imgs/gallary-3.jpg" alt="template by DevCRID http://www.devcrud.com/"
+    class="gallary-img">
+            <a href="#" class="gallary-overlay">
+                <i class="gallary-icon ti-plus"></i>
+            </a>
+        </div>
+        <div class="img">
+            <img src="../../assets/imgs/gallary-4.jpg" alt="template by DevCRID http://www.devcrud.com/"
                 class="gallary-img">
             <a href="#" class="gallary-overlay">
                 <i class="gallary-icon ti-plus"></i>
             </a>
         </div>
-        <div class="col-sm-6 col-lg-3 img">
-            <img src="../../../assets/imgs/gallary-4.jpg" alt="template by DevCRID http://www.devcrud.com/"
+        <div class="img lg">
+            <img src="../../assets/imgs/gallary-5.jpg" alt="template by DevCRID http://www.devcrud.com/"
                 class="gallary-img">
             <a href="#" class="gallary-overlay">
                 <i class="gallary-icon ti-plus"></i>
             </a>
         </div>
-        <div class="col-sm-6 col-lg-3 img">
-            <img src="../../../assets/imgs/gallary-5.jpg" alt="template by DevCRID http://www.devcrud.com/"
+        <div class="img">
+            <img src="../../assets/imgs/gallary-6.jpg" alt="template by DevCRID http://www.devcrud.com/"
                 class="gallary-img">
             <a href="#" class="gallary-overlay">
                 <i class="gallary-icon ti-plus"></i>
             </a>
         </div>
-        <div class="col-sm-6 col-lg-3 img">
-            <img src="../../../assets/imgs/gallary-6.jpg" alt="template by DevCRID http://www.devcrud.com/"
+        <div class="img">
+            <img src="../../assets/imgs/gallary-7.jpg" alt="template by DevCRID http://www.devcrud.com/"
+        class="gallary-img">
+    <a href="#" class="gallary-overlay">
+                <i class="gallary-icon ti-plus"></i>
+            </a>
+        </div>
+        <div class="img lg">
+            <img src="../../assets/imgs/gallary-8.jpg" alt="template by DevCRID http://www.devcrud.com/"
+        class="gallary-img">
+    <a href="#" class="gallary-overlay">
+        <i class="gallary-icon ti-plus"></i>
+    </a>
+</div>
+        <div class="img">
+            <img src="/assets/imgs/gallary-9.jpg" alt="template by DevCRID http://www.devcrud.com/"
                 class="gallary-img">
             <a href="#" class="gallary-overlay">
                 <i class="gallary-icon ti-plus"></i>
             </a>
         </div>
-        <div class="col-sm-6 col-lg-3 img">
-            <img src="../../../assets/imgs/gallary-7.jpg" alt="template by DevCRID http://www.devcrud.com/"
+        <div class="img lg">
+            <img src="/assets/imgs/gallary-10.jpg" alt="template by DevCRID http://www.devcrud.com/"
+        class="gallary-img">
+            <a href="#" class="gallary-overlay">
+                <i class="gallary-icon ti-plus"></i>
+            </a>
+        </div>
+        <div class="img lg">
+            <img src="/assets/imgs/gallary-11.jpg" alt="template by DevCRID http://www.devcrud.com/"
                 class="gallary-img">
             <a href="#" class="gallary-overlay">
                 <i class="gallary-icon ti-plus"></i>
             </a>
         </div>
-        <div class="col-sm-6 col-lg-3 img">
-            <img src="../../../assets/imgs/gallary-8.jpg" alt="template by DevCRID http://www.devcrud.com/"
-                class="gallary-img">
-            <a href="#" class="gallary-overlay">
-                <i class="gallary-icon ti-plus"></i>
-            </a>
-        </div>
-        <div class="col-sm-6 col-lg-3 img">
-            <img src="../../../assets/imgs/gallary-9.jpg" alt="template by DevCRID http://www.devcrud.com/"
-                class="gallary-img">
-            <a href="#" class="gallary-overlay">
-                <i class="gallary-icon ti-plus"></i>
-            </a>
-        </div>
-        <div class="col-sm-6 col-lg-3 img">
-            <img src="../../../../../assets/imgs/gallary-10.jpg" alt="template by DevCRID http://www.devcrud.com/"
-                class="gallary-img">
-            <a href="#" class="gallary-overlay">
-                <i class="gallary-icon ti-plus"></i>
-            </a>
-        </div>
-        <div class="col-sm-6 col-lg-3 img">
-            <img src="../../../assets/imgs/gallary-11.jpg" alt="template by DevCRID http://www.devcrud.com/"
-                class="gallary-img">
-            <a href="#" class="gallary-overlay">
-                <i class="gallary-icon ti-plus"></i>
-            </a>
-        </div>
-        <div class="col-sm-6 col-lg-3 img">
-            <img src="../../../assets/imgs/gallary-12.jpg" alt="template by DevCRID http://www.devcrud.com/"
-                class="gallary-img">
+        <div class="img lg">
+            <img src="../../assets/imgs/gallary-12.jpg" alt="template by DevCRID http://www.devcrud.com/"
+        class="gallary-img">
             <a href="#" class="gallary-overlay">
                 <i class="gallary-icon ti-plus"></i>
             </a>
@@ -134,10 +136,10 @@
     <div id="map" style="width: 100%; height: 100%; min-height: 400px">
         <div id="map" class="map-container"> </div>
     </div>
-    <div id="info-mapa" class="col-md-6 has-height-lg middle-items">
-        <h3>ENCUÉNTRANOS</h3>
+<div id="info-mapa" class="col-md-6 has-height-lg middle-items">
+    <h3>ENCUÉNTRANOS</h3>
         <p>Ven a conocernos, estaremos encantados de poder ayudarte.</p>
-        <div>
+    <div>
             <p><span class="ti-location-pin pr-3"></span> 12345 Fake ST NoWhere, AB Country</p>
             <p><span class="ti-support pr-3"></span> (123) 456-7890</p>
             <p><span class="ti-email pr-3"></span>digitalchef.online</p>
@@ -150,7 +152,7 @@
     class="container-fluid bg-dark text-light has-height-md middle-items border-top text-center wow fadeIn">
     <div class="col-sm-4 col-md-12">
         <h3>CORREO</h3>
-        <p>digitalchef.online</p>
+    <p>digitalchef.online</p>
     </div>
     <div class="col-sm-4 col-md-12">
         <h3>LLÁMANOS</h3>
@@ -160,4 +162,5 @@
         <h3>UBICACIÓN</h3>
         <p>12345 Fake ST NoWhere AB Country</p>
     </div>
+</div>
 </div>

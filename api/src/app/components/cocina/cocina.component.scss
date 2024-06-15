@@ -1,0 +1,13 @@
+.button{
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px;
+  &  button{
+        right: 15px;
+        background-color: rgba(67, 113, 100, 0.824);
+        color: white;
+        top: 8px;
+        font-family: "LXGW WenKai TC";
+        padding: 10px;
+    }
+}

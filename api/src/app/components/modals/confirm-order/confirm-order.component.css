@@ -1,0 +1,11 @@
+#opciones {
+  display: flex;
+  justify-content: space-around;
+}
+
+h4 {
+  text-align: center;
+  margin: 30px 0px;
+  color: gray;
+  font-size: 1rem;
+}/*# sourceMappingURL=confirm-order.component.css.map */

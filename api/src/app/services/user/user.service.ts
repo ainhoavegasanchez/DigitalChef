@@ -29,8 +29,8 @@ export class UserService {
     localStorage.setItem('currentUser', JSON.stringify(user));
   }
 
-  public insertUser(user: any): Observable<any> {
-    return this.http.post(`${this.baseUrl}/insertUser.php`, user);
+  public insertUser(user: any): Observable<User> {
+    return this.http.post<User>(`${this.baseUrl}/insertUser.php`, user);
   }
 
   public getUser(user: Partial<User>): Observable<User> {
@@ -51,8 +51,8 @@ export class UserService {
     return updateUser;
   }
 
-  public sendNewPass(email: string) {
-    const update = this.http.post(`${this.baseUrl}/sendMail.php`, JSON.stringify(email));
+  public sendNewPass(email: string): Observable<User>{
+    const update = this.http.post<User>(`${this.baseUrl}/sendMail.php`, {email:email});
     return update;
   }
 

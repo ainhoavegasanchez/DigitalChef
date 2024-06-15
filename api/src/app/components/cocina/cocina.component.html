@@ -1,6 +1,7 @@
 <div class="button">
   <button type="button" class="form-submit btn" (click)="logout()">Salir</button>
 </div>
+
 <nz-table #basicTable [nzData]="listOfOrder">
   <thead>
     <tr>
@@ -11,27 +12,27 @@
     </tr>
   </thead>
   <tbody>
-    <ng-container *ngFor="let data of listOfOrder">
-      <tr>
-        <td [nzExpand]="expandSet.has(data.order.id)" (nzExpandChange)="onExpandChange(data.order.id, $event)"></td>
-        <td>{{data.order.id}}</td>
-        <td>{{ data.order.fecha }}</td>
-        <td>{{ data.order.id_usuario }}</td>
-      </tr>
-      @if(expandSet.has(data.order.id)){
-      <tr>
-        <th></th>
-        <th></th>
-        <th>Producto</th>
-        <th>Cantidad</th>
-      </tr>
+    <ng-container *ngFor="let data of listOfOrder" >
+    <tr>
+      <td [nzExpand]="expandSet.has(data.order.id)" (nzExpandChange)="onExpandChange(data.order.id, $event)"></td>
+      <td>{{data.order.id}}</td>
+      <td>{{ data.order.fecha }}</td>
+      <td>{{ data.order.id_usuario }}</td>
+    </tr>
+    <tr *ngIf="expandSet.has(data.order.id)">
+      <th></th>
+      <th></th>
+      <th>Producto</th>
+      <th>Cantidad</th>
+    </tr>
+    <ng-container *ngIf="expandSet.has(data.order.id)">
       <tr *ngFor="let detail of data.details">
         <td></td>
         <td></td>
         <td>{{ detail.id_producto }}</td>
         <td>{{ detail.cantidad }}</td>
-      </tr>}
-
+      </tr>
+    </ng-container>
     </ng-container>
   </tbody>
 </nz-table>

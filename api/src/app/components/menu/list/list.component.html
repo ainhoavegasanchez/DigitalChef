@@ -8,6 +8,7 @@
                         <app-counter (counterUpdate)="updateCounter($event, product.detail.id)"
                                 [counter]="product.detail.cantidad"></app-counter>
                         <h3>{{product.product.nombre}}</h3>
+                        <p>{{product.product.precio}} €</p>
                         <div id="borrar">
                                 <i class="bi bi-trash" (click)="delete(product.detail.id)"></i>
                         </div>

@@ -20,15 +20,14 @@ export class RegistrerComponent {
     pass: ""
   }
 
-  constructor(private userService: UserService, 
-    private router:Router) { }
+  constructor(private userService: UserService,
+    private router: Router) { }
 
-  registrerUser() :void{
+  registrerUser(): void {
     this.userService.insertUser(this.user).subscribe((datos) => {
-      (data: User) => {
-        if (data) {
-          this.router.navigate(['/login']);
-        }
+
+      if (datos) {
+        this.router.navigate(['/login']);
       }
     });
   }

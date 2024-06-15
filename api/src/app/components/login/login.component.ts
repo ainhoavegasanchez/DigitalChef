@@ -29,26 +29,27 @@ export class LoginComponent {
 
   selectUser(): void {
 
-    this.userService.getUser(this.user).subscribe(
+    if (this.user.email != "" && this.user.pass != "") {
 
-      usuarioExiste => {
+      this.userService.getUser(this.user).subscribe(
+        usuarioExiste => {
+          this.userService.set(usuarioExiste);
 
-        this.userService.set(usuarioExiste);
-        
-        if (usuarioExiste) {
-          
-         if(usuarioExiste.email == "cocina@digitalchef.com"){
-          this.router.navigate(['/cocina']);
-         }
-          this.orderService.insertOrder().subscribe(
-            order => {
-              this.orderService.set(order);
-              
-              this.router.navigate(['/inicio']);
-            });
+          if (usuarioExiste) {
+
+            if (usuarioExiste.email == "cocina@digitalchef.com") {
+              this.router.navigate(['/cocina']);
+            }
+            this.orderService.insertOrder().subscribe(
+              order => {
+                this.orderService.set(order);
+
+                this.router.navigate(['/inicio']);
+              });
+          }
         }
-      }
-    );
+      );
+    }
   }
 
   sendNew() {
@@ -56,9 +57,13 @@ export class LoginComponent {
   }
 
   emailPass: string = "";
-   recuperar() {
-     this.userService.sendNewPass(this.emailPass).subscribe();
-    this.sendPass = false;
+  recuperar() {
+    this.userService.sendNewPass(this.emailPass).subscribe(
+      data => {
+        this.sendPass = false;
+      }
+    );
+
   }
 }
 

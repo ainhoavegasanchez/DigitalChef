@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Courgette&family='+
-'LXGW+WenKai+TC&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=Courgette&family=LXGW+WenKai+TC&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 * {
   margin: 0;
   padding: 0;
 }
+
 /* General styles */
 * {
   margin: 0;
@@ -83,57 +82,50 @@ nav a:hover {
   background-color: white;
 }
 
-
 #list-btn:checked ~ .list {
   display: block;
   z-index: 100;
   min-height: 100vh;
 }
 
-#list-btn{
+#list-btn {
   display: none;
 }
+
 #list-btn:checked ~ .menu {
   display: none;
 }
 
-@media (min-width:800px) {
-
-  .menu{
+@media (min-width: 800px) {
+  .menu {
     padding: 0;
   }
-  .carta{
+  .carta {
     width: 63vw;
     gap: 20px;
     justify-items: center;
     background-color: transparent;
     grid-template-columns: 1fr 1fr;
   }
-
-  .grid{
+  .grid {
     padding-top: 20px;
     grid-template-columns: 1fr 1fr;
   }
-
-  .list{
+  .list {
     display: block;
     width: 100%;
     position: relative;
   }
-
-  #btn-list{
+  #btn-list {
     display: none;
   }
-
 }
-
-@media (min-width:1024px) {
-  .carta{
+@media (min-width: 1024px) {
+  .carta {
     grid-template-columns: 1fr 1fr 1fr;
     width: 63vw;
   }
-
-  .list-group-item h3{
+  .list-group-item h3 {
     font-size: 1rem;
   }
-}
+}/*# sourceMappingURL=menu.component.css.map */

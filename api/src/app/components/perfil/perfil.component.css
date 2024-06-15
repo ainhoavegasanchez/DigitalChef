@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+  min-width: 98vw;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+.card p {
+  font-family: "Playfair Display", serif;
+}
+
+.card-header {
+  background-color: #ffffff;
+  color: #333;
+  text-align: left;
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.card-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.card-body {
+  width: 100%;
+  padding: 20px;
+  padding-bottom: 0;
+}
+.card-body input {
+  width: 100%;
+}
+.card-body h2 {
+  margin-bottom: 20px;
+  font-family: "Playfair Display", serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 8px;
+  font-family: "Mada", sans-serif;
+}
+
+input {
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.card-footer {
+  text-align: left;
+  padding: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.card-footer input {
+  width: 70%;
+  background-color: #cbbaba;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.product {
+  border: 1px solid #cbbaba;
+  border-radius: 10px;
+  padding: 14px;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 45vh;
+  justify-content: space-around;
+}
+.product img {
+  border-style: none;
+  width: 23vh;
+  height: 19vh;
+  border-radius: 50%;
+}
+.product:hover {
+  transform: scale(1.05);
+}
+.product p {
+  font-size: 1.5rem;
+  font-family: "LXGW WenKai TC", cursive;
+}
+
+#pedidos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 27px;
+}
+
+.productos {
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  text-align: center;
+  font-family: "LXGW WenKai TC", cursive;
+}
+
+@media (min-width: 800px) {
+  #actualizacion {
+    width: 70vw;
+  }
+  .productos {
+    grid-template-columns: 1fr 1fr;
+    width: 100vw;
+    justify-items: center;
+  }
+  .product {
+    width: 35vw;
+    height: 55vh;
+  }
+  .product img {
+    width: 29vh;
+    height: 23vh;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+    align-items: flex-start;
+    min-width: 96vw;
+  }
+  .productos {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .product {
+    width: 17vw;
+    height: 45vh;
+  }
+  #actualizacion {
+    width: 40vw;
+  }
+  #pedidos {
+    width: 60vw;
+  }
+  .productos {
+    width: 64vw;
+  }
+}/*# sourceMappingURL=perfil.component.css.map */

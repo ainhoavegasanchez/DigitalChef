@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=LXGW+WenKai+TC&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=LXGW+WenKai+TC&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=LXGW+WenKai+TC&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif&family=LXGW+WenKai+TC&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -26,10 +24,11 @@
   font-size: 19vw;
   font-family: "Dancing Script", cursive;
   margin-bottom: 20px;
-  & span{
-    color:rgba(103, 175, 169, 0.672);
-  }
 }
+#title span {
+  color: rgba(103, 175, 169, 0.672);
+}
+
 #subtitle {
   color: white;
   font-size: 9vw;
@@ -44,9 +43,9 @@
   font-size: 1rem;
   padding: 10px;
   font-family: "LXGW WenKai TC", cursive;
-  &:hover {
-    box-shadow: 4px 4px 11px aliceblue;
-  }
+}
+#btn-menu:hover {
+  box-shadow: 4px 4px 11px aliceblue;
 }
 
 #div-carrusel {
@@ -61,20 +60,21 @@
   padding: 30px 20px;
   font-family: "Playfair Display", serif;
   font-size: 1rem;
-  & h2{
-    font-family: "Playfair Display", serif;
-  }
 }
+#about h2 {
+  font-family: "Playfair Display", serif;
+}
+
 #carrusel {
   height: 58vw;
-  & div {
-    width: 100%;
-    height: 100%;
-    & img {
-      width: 100%;
-      height: 100%;
-    }
-  }
+}
+#carrusel div {
+  width: 100%;
+  height: 100%;
+}
+#carrusel div img {
+  width: 100%;
+  height: 100%;
 }
 
 [nz-carousel-content] {
@@ -89,7 +89,9 @@
 h3 {
   color: #fff;
   margin-bottom: 0;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .img img {
@@ -109,12 +111,14 @@ h3 {
   padding-bottom: 20px;
   grid-template-columns: 1fr;
 }
-.lg{
+
+.lg {
   display: none;
 }
+
 #gallary h2 {
   color: white;
-  font-family:"Playfair Display", serif;
+  font-family: "Playfair Display", serif;
   font-size: 3rem;
   text-decoration: underline;
   margin: 10px;
@@ -124,120 +128,109 @@ h3 {
 .text-muted {
   color: #adb5bd;
 }
+
 #info-mapa {
   display: grid;
   align-items: center;
   align-content: center;
   padding: 15px;
-  & h3 {
-    margin-bottom: 30px;
-    font-family: "Playfair Display", serif;
-    font-size: 2.5rem;
-  }
-  & p {
-    margin-bottom: 18px;
-    font-family:  "Playfair Display", serif;
-    font-size: 18px;
-  }
-  & div {
-    display: grid;
-    gap: 10px;
-    color: gray;
-  }
 }
+#info-mapa h3 {
+  margin-bottom: 30px;
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+}
+#info-mapa p {
+  margin-bottom: 18px;
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+}
+#info-mapa div {
+  display: grid;
+  gap: 10px;
+  color: gray;
+}
+
 #footer {
   display: grid;
   min-height: 20vh;
   padding: 30px;
   gap: 20px;
   font-family: "Playfair Display", serif;
-  & div {
-    color: gray;
-  }
+}
+#footer div {
+  color: gray;
 }
 
-#contact{
+#contact {
   padding: 20px;
 }
 
-.map-container {width: 100%;height: 100%;position: absolute;}
-
+.map-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
 
 @media (min-width: 800px) {
-  #title{
+  #title {
     font-size: 11vw;
   }
-
-
-  .lg{
+  .lg {
     display: block;
   }
-  #subtitle{
+  #subtitle {
     font-size: 4rem;
   }
-  .header{
+  .header {
     background: url("../../../assets/imgs/portada.png") center fixed;
   }
   .gallary {
     grid-template-columns: 1fr 1fr 1fr;
   }
-
   .row {
     gap: 20px;
   }
-
   #div-carrusel {
     width: 46%;
     margin: 0;
   }
-
   #texto {
     width: 40%;
   }
-
   #about .row {
     justify-content: space-evenly;
   }
-
   #carrusel {
     height: 36vw;
   }
-
   #contact {
     display: grid;
     grid-template-columns: 1fr 1fr;
-
-    #map {
-      width: 50vw;
-    }
-    #info-mapa {
-      width: 50vw;
-    }
   }
-
+  #contact #map {
+    width: 50vw;
+  }
+  #contact #info-mapa {
+    width: 50vw;
+  }
   #footer {
     grid-template-columns: 1fr 1fr 1fr;
     align-content: center;
     padding: 0 35px;
     min-height: 20vh;
     padding: 30px;
-    
   }
 }
 @media (min-width: 1024px) {
   .gallary {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-
-  #btn-menu{
+  #btn-menu {
     margin-top: 30vh;
     width: 30vw;
-
   }
-
-  #info-mapa{
+  #info-mapa {
     padding-left: 50px;
   }
-
-
-}
+}/*# sourceMappingURL=portada.component.css.map */
