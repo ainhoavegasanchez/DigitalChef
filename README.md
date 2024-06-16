@@ -8,6 +8,7 @@ DigitalChef es una aplicación web dedicada a la creación de menús digitales i
   - [Objetivo](#objetivo)
   - [Tecnologías](#tecnologías)
   - [Instalacion](#instalacion)
+  - [Despliegue](#despliegue)
 
 ## Objetivo
 El objetivo principal de DigitalChef es mejorar la eficiencia operativa y la experiencia del cliente en el sector de la restauración mediante la implementación de un menú digital interactivo y actualizable en tiempo real.
@@ -46,3 +47,9 @@ Ejecutar el comando:
 
 
 Si fallan los puertos modificarlos en el docker-compose a uno que no esté en uso.
+
+
+## Despliegue
+Para desplegar la aplicación tenemos que entrar en el directorio api y ejecutar el comando ng serve.
+
+Si lo que queremos es compilarla con el comando ng build en el mismo directorio
