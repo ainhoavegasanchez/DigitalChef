@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require '../vendor/autoload.php';
-require __DIR__.'/../Comun/headers.php';
+
 class Mail
 {
     public $mail;

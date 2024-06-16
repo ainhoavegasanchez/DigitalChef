@@ -3,7 +3,7 @@ namespace Recursos;
 
 use Constantes\Constantes;
 require __DIR__.'/../vendor/autoload.php';
-require __DIR__.'/../Comun/headers.php';
+
 use Conexion\ConexionPdo;
 
 
