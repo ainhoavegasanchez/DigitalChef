@@ -1,4 +1,4 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
 <productos>
     <producto>
         <nombre>Edamame</nombre>
@@ -147,7 +147,7 @@
         <id_catego>4</id_catego>
         <precio>14.49</precio>
     </producto>
-    <producto>
+     <producto>
         <nombre>Helado</nombre>
         <descripcion>Helado de té matcha con toque cítrico</descripcion>
         <foto>helado-matcha.jpg</foto>

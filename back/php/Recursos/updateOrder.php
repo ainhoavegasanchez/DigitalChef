@@ -2,8 +2,6 @@
 
 namespace Recursos;
 require __DIR__.'/../vendor/autoload.php';
-
-
 use Conexion\ConexionPdo;
 
 class updateOrder

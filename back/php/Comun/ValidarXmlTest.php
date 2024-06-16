@@ -16,8 +16,8 @@ class ValidarXmlTest extends TestCase
 
     public function testXmlQueFalla()
     {
-        $cadenaXml = CargarFijo::cargar(__DIR__."/../Mocks/productsFake.xml");
-        $xsd = CargarFijo::cargar(__DIR__."/../Mocks/product.xsd");
+        $cadenaXml = CargarFijo::cargar(__DIR__."/../Mocks/products.xml");
+        $xsd = CargarFijo::cargar(__DIR__."/../Mocks/categoria.xsd");
         $this->assertFalse(ValidarXml::validar($cadenaXml, $xsd));
     }
 }

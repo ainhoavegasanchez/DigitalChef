@@ -14,12 +14,9 @@ class ValidarXml
             return false;
         }
         if (!$xsd !== null) {
-            if ($xsd !== null) {
-                libxml_use_internal_errors(true);
-                $isValid = $doc->schemaValidateSource($xsd);
-                return $isValid;
+            if (!$doc->schemaValidateSource($xsd)) {
+                return false;
             }
-        
         }
         return true;
     }

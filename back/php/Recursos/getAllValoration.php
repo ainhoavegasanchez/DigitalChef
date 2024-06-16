@@ -3,7 +3,6 @@ namespace Recursos;
 
 use Conexion\ConexionPdo;
 require __DIR__.'/../vendor/autoload.php';
-
 class getAllValoration
 {
     public $conexion, $pdo;
