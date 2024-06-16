@@ -21,7 +21,10 @@ RUN apt-get install -y php8.3-mysql \
 COPY . /var/www/html/php
 COPY /Conexion/.envLocal /var/www/html/php/Conexion/.env
 COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
-COPY apache2.conf /etc/apache2/apache2.conf
+COPY php.conf /etc/apache2/sites-available/php.conf
+COPY ports.conf /etc/apache2/ports.conf
+
+COPY --from=prueba-angular:latest /usr/src/dist /var/www/html/dist
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
     php composer-setup.php && \
@@ -35,8 +38,9 @@ RUN chown -R www-data:www-data /var/www/html \
 
 RUN composer dump-autoload
 
-# Exponer el puerto 80
-EXPOSE 80
+RUN a2ensite php.conf
+
+EXPOSE 80 82
 
 # Iniciar Apache en primer plano
 CMD ["apache2ctl", "-D", "FOREGROUND"]

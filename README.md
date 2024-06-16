@@ -9,9 +9,9 @@ Breve descripción o resumen del proyecto.
 - [Contribución](#contribución)
 - [Licencia](#licencia)
 
-## Instalación
+## Depsligue
 
-Proporciona aquí las instrucciones necesarias para instalar y configurar tu proyecto. Incluye ejemplos si es necesario.
+Para poner en marcha la aplicación solo tienes que descargar el repositorio 
 
 ## Uso
 

@@ -20,5 +20,5 @@ COPY . .
 COPY environmentLocal.ts ./environment.ts
 
 # Construye la aplicación Angular en modo produccióncd api
-RUN ng build --base-href 
+RUN ng build
 COPY .htaccess /usr/src/dist/

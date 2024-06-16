@@ -1,8 +1,13 @@
 <?php
 namespace Recursos;
+
 require __DIR__.'/../vendor/autoload.php';
+require __DIR__.'/../Comun/headers.php';
+
 use Conexion\ConexionPdo;
+
 use Constantes\Constantes;
+
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 

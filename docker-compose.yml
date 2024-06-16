@@ -1,12 +1,7 @@
-
 services:
 
     angular:
         build: ./api
-        volumes:
-            - ./api/src/app:/usr/src/app
-        ports:
-            - 4202:4200
         networks:
             - red
 
@@ -16,10 +11,11 @@ services:
             - mysql
             - angular
         ports:
-            - 82:80
+            - 82:82
+            - 80:80
         volumes:
             - ./back/php/.htaccess:/var/www/html/php/.htaccess
-            - ./php:/var/www/html/php
+            - ./back/php:/var/www/html/php
         networks:
             - red
 

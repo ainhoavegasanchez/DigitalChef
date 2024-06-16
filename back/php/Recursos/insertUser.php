@@ -3,6 +3,7 @@ namespace Recursos;
 
 use Constantes\Constantes;
 require __DIR__.'/../vendor/autoload.php';
+require __DIR__.'/../Comun/headers.php';
 use Conexion\ConexionPdo;
 
 
@@ -69,7 +70,9 @@ if (!is_null($params)) {
     $usuario = $user->obtener($email);
     if (!$usuario) {
         $user->insertar($nombre, $pass, $email);
+        $usuario= $user->obtener($email);
     } 
+    
 
     header('Content-Type: application/json');
     echo json_encode($usuario);

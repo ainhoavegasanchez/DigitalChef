@@ -16,8 +16,7 @@ import { KitchenAuthService } from './components/cocina/KitcheAuth.service';
 import { MenuModule } from './components/menu/menu.module';
 
 export const routes: Routes = [
-    { path: 'portada', component: PortadaComponent },
-
+    
     { path: 'registrer', component: RegistrerComponent },
     { path: 'login', component: LoginComponent },
     { path: '', component: PortadaComponent },
