@@ -44,3 +44,7 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+#PHP
+./back/php/Conexion/.env
+./back/php/Conexion/.envLocal
