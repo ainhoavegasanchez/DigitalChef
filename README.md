@@ -45,4 +45,4 @@ Ejecutar el comando:
         docker-compose up --build
 
 
-Si fallan los puertos modificarlos en el docker-compose a uno que no esté en uso y en el fichero ports.conf poner el servidor a escuchar en ese puerto
+Si fallan los puertos modificarlos en el docker-compose a uno que no esté en uso.
