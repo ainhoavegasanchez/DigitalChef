@@ -22,15 +22,16 @@ Requisitos:
     GitHub (si se despliega en un servidor)
 
 Pasos:
-    - Descargar el repositorio desde GitHub.
-    - Crear ficheros de entorno para la conexión a la base de datos:
-    - En back/php/Conexion, crear un archivo .envLocal:
+Descargar el repositorio desde GitHub.
+Crear ficheros de entorno para la conexión a la base de datos:
+En back/php/Conexion, crear un archivo .envLocal:
 
         HOST=127.0.0.1
         USER=root
         PASSWORD=root
         BD=MENU
-    - En api/, crear un archivo environmentLocal.ts:
+
+En api/, crear un archivo environmentLocal.ts:
 
         export const environment = {
         production: false,
@@ -38,7 +39,7 @@ Pasos:
         mapBoxToken: 'pk.eyJ1IjoiYWluaG9hdmVnYTk5IiwiYSI6ImNsd3o4OXoxNDA0c2o...'
         };
 
-    - Ejecutar el comando:
+Ejecutar el comando:
 
         docker-compose up --build
 
