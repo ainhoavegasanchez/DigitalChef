@@ -22,8 +22,9 @@ Requisitos:
     GitHub (si se despliega en un servidor)
 
 Pasos:
+
 Descargar el repositorio desde GitHub.
-Crear ficheros de entorno para la conexión a la base de datos:
+
 En back/php/Conexion, crear un archivo .envLocal:
 
         HOST=127.0.0.1
@@ -43,3 +44,5 @@ Ejecutar el comando:
 
         docker-compose up --build
 
+
+Si fallan los puertos modificarlos en el docker-compose a uno que no esté en uso y en el fichero ports.conf poner el servidor a escuchar en ese puerto
