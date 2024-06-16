@@ -1,9 +1,12 @@
-version: '3'
 
 services:
 
     angular:
         build: ./api
+        volumes:
+            - ./api/src/app:/usr/src/app
+        ports:
+            - 4202:4200
         networks:
             - red
 
@@ -11,10 +14,12 @@ services:
         build: ./back/php
         depends_on:
             - mysql
+            - angular
         ports:
             - 82:80
         volumes:
-            - ./back/php/.htaccess:/var/www/html/.htaccess
+            - ./back/php/.htaccess:/var/www/html/php/.htaccess
+            - ./php:/var/www/html/php
         networks:
             - red
 
