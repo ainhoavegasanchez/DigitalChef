@@ -3,16 +3,24 @@
 DigitalChef es una aplicación web dedicada a la creación de menús digitales interactivos para restaurantes. Esta herramienta proporciona una solución innovadora que mejora la eficiencia operativa y la satisfacción del cliente en el sector de la restauración. Los menús digitales permiten actualizaciones instantáneas, personalización de ofertas y promociones en tiempo real, lo que hace la experiencia en el restaurante más agradable y eficiente.
 
 ## Índice
+- [Digitalchef](#digitalchef)
+  - [Índice](#índice)
+  - [Objetivo](#objetivo)
+  - [Tecnologías](#tecnologías)
+  - [Instalacion](#instalacion)
 
-- [Introducción](#Introduccion)
-- [Instalación](#Instalacion)
+## Objetivo
+El objetivo principal de DigitalChef es mejorar la eficiencia operativa y la experiencia del cliente en el sector de la restauración mediante la implementación de un menú digital interactivo y actualizable en tiempo real.
+
+## Tecnologías
+DigitalChef utiliza Angular para el front-end, PHP y MySQL para el back-end, junto con Docker para el entorno de desarrollo y despliegue. La interfaz se basa en NZ Zorro y Bootstrap para garantizar una experiencia de usuario optimizada y adaptable.
 
 ## Instalacion
 
 Requisitos:
     Docker (Docker Desktop para local)
     GitHub (si se despliega en un servidor)
-    
+
 Pasos:
     - Descargar el repositorio desde GitHub.
     - Crear ficheros de entorno para la conexión a la base de datos:
