@@ -29,7 +29,7 @@ export class LoginComponent {
 
   selectUser(): void {
 
-    if (this.user.email != "" && this.user.pass != "") {
+    if (this.user.email != " " && this.user.pass != " ") {
 
       this.userService.getUser(this.user).subscribe(
         usuarioExiste => {

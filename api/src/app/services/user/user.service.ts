@@ -30,7 +30,6 @@ export class UserService {
   }
 
   public insertUser(user: any): Observable<User> {
-    console.log("viva docker");
     return this.http.post<User>(`${this.baseUrl}/insertUser.php`, user);
   }
 

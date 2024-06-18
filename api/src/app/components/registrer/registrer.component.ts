@@ -24,12 +24,14 @@ export class RegistrerComponent {
     private router: Router) { }
 
   registrerUser(): void {
-    this.userService.insertUser(this.user).subscribe((datos) => {
+    if (this.user.email != " " && this.user.pass !=  " ") {
+      this.userService.insertUser(this.user).subscribe((datos) => {
 
-      if (datos) {
-        this.router.navigate(['/login']);
-      }
-    });
+        if (datos) {
+          this.router.navigate(['/login']);
+        }
+      });
+    }
   }
 
 }

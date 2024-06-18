@@ -46,7 +46,7 @@ closeOrder():void{
   const order= this.orderService.get()
   this.orderService.closedOrder(order).subscribe();
   this.userService.logout();
-  this.router.navigate(['/portada']);
+  this.router.navigate(['/']);
 }
 
 }

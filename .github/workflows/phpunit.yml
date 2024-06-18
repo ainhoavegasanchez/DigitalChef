@@ -1,5 +1,4 @@
 name: PHPUnit Test
-
 on:
   push:
     branches: [ "main" ]
@@ -32,10 +31,7 @@ jobs:
           
       - name: Copiar .envLocal a .env
         run: cp back/php/Conexion/.envLocal back/php/Conexion/.env
-
-      - name: mostrar fichero conexion
-        run: cat back/php/Conexion/.env
-
+        
       - name: Cache de paquetes de Composer
         id: composer-cache
         uses: actions/cache@v3
